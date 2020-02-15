@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './Account/home/home.component';
 import { AddItemsComponent } from './Seller/add-items/add-items.component';
 import { SellerComponent } from './Seller/seller/seller.component';
 import { ViewItemsComponent } from './Seller/view-items/view-items.component';
@@ -21,7 +22,9 @@ import { RegisterSellerComponent } from './Account/register-seller/register-sell
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 
 
+
 const routes: Routes = [
+  
   {path:'seller',component:SellerComponent,children:[
     {path:'add-items',component:AddItemsComponent},
     {path:'view-items',component:ViewItemsComponent},
@@ -42,6 +45,7 @@ const routes: Routes = [
     {path:'add-subcategory',component:AddSubcategoryComponent},
     {path:'daily-report',component:DailyReportsComponent}
   ]},
+  {path:'home',component:HomeComponent},
   {path:'login',component:LoginComponent},
   {path:'register-seller',component:RegisterSellerComponent},
   {path:'register-buyer',component:RegisterBuyerComponent},

@@ -1,1 +1,24 @@
-<p>buyer works!</p>
+
+
+<h1 class="text-info">welcome {{username}}</h1>
+<div class="topnav">
+   
+    <a [routerLink]="['/buyer/buyproduct']" >BuyItem</a> 
+    <a [routerLink]="['/buyer/purchase-history']" >Purchase History</a>
+    <a [routerLink]="['/buyer/viewcart']" >View Cart</a>
+    <a [routerLink]="['/buyer/viewprofile']" >View Profile</a>
+    <a href="#Logout()" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-log-out"></span> Log out
+      </a>
+    
+
+    <input type="text" placeholder="Search.."[routerLink]="['/buyer/search']">
+  </div>
+
+
+
+    
+  
+    
+
+<router-outlet></router-outlet>
