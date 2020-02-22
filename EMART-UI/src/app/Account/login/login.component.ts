@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
   username:string;
   password:string;
   errmsg:string
+  
     constructor(private route:Router) { }
   
     ngOnInit() {
@@ -40,4 +41,4 @@ export class LoginComponent implements OnInit {
     }
   
   }
-  
+    

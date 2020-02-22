@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import{FormsModule} from '@angular/forms';
-
+import {  ReactiveFormsModule} from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import{BuyerComponent}from './Buyer/buyer/buyer.component';
 import { SellerComponent } from './Seller/seller/seller.component';
-//import { AccountComponent } from './Account/account.component';
+//import { AccountComponent } from './Account/account/account.component';
 import { AdminComponent } from './Admin/admin/admin.component';
 import { SearchComponent } from './Buyer/search/search.component';
 import { ViewcartComponent } from './Buyer/viewcart/viewcart.component';
@@ -26,6 +26,7 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { HomeComponent } from './Account/home/home.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -52,12 +53,14 @@ import { HomeComponent } from './Account/home/home.component';
     LoginComponent,
     RegisterSellerComponent,
     RegisterBuyerComponent,
-    HomeComponent
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

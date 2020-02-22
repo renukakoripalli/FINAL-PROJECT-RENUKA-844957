@@ -1,0 +1,30 @@
+
+ 
+ 
+ .bg {
+   
+  background-image: url('E:\FINAL-PROJECT-RENUKA-844957\EMART-UI\src\assets\images/bg6.jpg');
+  
+  position: fixed;
+  top: 0;
+  left:0;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  min-width:100% ;
+  min-height: 800px;
+ 
+  
+}
+
+
+
+
+
+
+
+
+
+
+

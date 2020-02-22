@@ -20,6 +20,7 @@ import { DailyReportsComponent } from './Admin/daily-reports/daily-reports.compo
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 
 
@@ -45,12 +46,14 @@ const routes: Routes = [
     {path:'add-subcategory',component:AddSubcategoryComponent},
     {path:'daily-report',component:DailyReportsComponent}
   ]},
-  {path:'home',component:HomeComponent},
-  {path:'login',component:LoginComponent},
-  {path:'register-seller',component:RegisterSellerComponent},
-  {path:'register-buyer',component:RegisterBuyerComponent},
-  {path:'',redirectTo:'login',pathMatch:"full"}
-];
+  
+  {path:'home',component:HomeComponent,children:[
+   {path:'contact',component:ContactComponent},
+     {path:'login',component:LoginComponent},
+    {path:'register-seller',component:RegisterSellerComponent},
+     {path:'register-buyer',component:RegisterBuyerComponent}
+  
+    ]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
