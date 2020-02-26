@@ -26,9 +26,9 @@ namespace SellerServices.Repositories
             _context.SaveChanges();
         }
 
-        public Items GetItems(int id)
+        public Items GetItems(string Iid)
         {
-            return _context.Items.Find(id);
+            return _context.Items.Find(Iid);
         }
 
         public void UpdateItem(Items obj)

@@ -17,10 +17,16 @@ namespace GateWayServices
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+           Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.ConfigureAppConfiguration((host, config) =>
+                    {
+                        config.AddJsonFile("ocelot.json");
+
+                    });
                     webBuilder.UseStartup<Startup>();
+
                 });
     }
 }

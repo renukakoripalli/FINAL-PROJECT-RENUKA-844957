@@ -14,13 +14,12 @@ export class RegisterBuyerComponent implements OnInit {
 
     ngOnInit() {
         this.SignupForm = this.formBuilder.group({
-            bid: ['', Validators.required],
-            userame:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+            bid: ['',[Validators.required]],
+            username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
             password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
-            emailid: ['', [Validators.required, Validators.email]],
+            emailid: ['', [Validators.required,Validators.email]],
             mobilenumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
-            createddatetime:['',[Validators.required]],
-            
+            createddatetime:['',[Validators.required]], 
             acceptTerms: [false, Validators.requiredTrue]
         });
     }

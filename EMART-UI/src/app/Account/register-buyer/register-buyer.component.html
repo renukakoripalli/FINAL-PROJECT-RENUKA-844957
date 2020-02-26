@@ -1,46 +1,55 @@
-<div class ="bg">
-    <div class="container">
-    <div class="card bg-light mb-3" bg-dark>
+
+    <div class="container p-5 my-5 bg-dark text-black">
+    <div class="card bg-light mb-3 "> 
+        <div class="bg2">
+        <!-- <form class = "form-horizontal" role = "form"> -->
         <h5 class="card-header text-center">Signup-Buyer</h5>
-        <div class="card-body">
+         <div class="card-body"> 
+            
             <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
                 
-                    <div class="form-group col-md-5 offset-4">
+                
+                  
+                       
+                        <div class="col-md-6">
                         <label>BuyerId</label>
-                        <input type="number" formControlName="bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }" />
+                        <input type="text" formControlName="bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }" />
                         <div *ngIf="submitted && f.bid.errors" class="invalid-feedback">
                         <div *ngIf="f.bid.errors.required">Buyer id is required</div> 
                         </div>        
-                    </div>
+                   
                 
                 
-                    <div class="form-group col-md-5 offset-4">
+                   
                         <label for="username">Username</label>
                         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                             <div *ngIf="f.username.errors.required">Username is required</div>
+                            <div *ngIf="f.username.errors.pattern">Username must be valid</div>
                         </div>
                     </div>
-                
-                    <div class="form-group col-md-5 offset-4">
+                        
+                    <div  class="row" class="col-md-6">
                         <label for="password">Password</label>
                         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                             <div *ngIf="f.password.errors.required">Password is required</div>
+                            <div *ngIf="f.password.errors.pattern">password must contain[a-z] any 1 special character should contain</div>
                         </div>
                     </div>
+                   
     
-                <div class="form-group col-md-5 offset-4 ">
+                    <div  class="row" class="col-md-6">
                     <label>Email</label>
                     <input type="text" formControlName="emailid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
                     <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
                         <div *ngIf="f.emailid.errors.required">Email is required</div>
                         <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
-                    </div>
+                   
                 </div>
                 
-                <div class="form-group col-md-5 offset-4">
-                    <label>Mobile Number</label>
+               
+                    <label>Mobile</label>
                     <input type="text" formControlName="mobilenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobilenumber.errors }" />
                     <div *ngIf="submitted && f.mobilenumber.errors" class="invalid-feedback">
                         <div *ngIf="f.mobilenumber.errors.required">Mobile no is required</div>
@@ -48,16 +57,15 @@
                     </div>
                 </div>
                 
-                <div class="form-group col-md-5 offset-4">
+                <div class="row" class="col-md-6">
                     <label>DateTime</label>
                     <input type="date" formControlName="createddatetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddatetime.errors }" />
                     <div *ngIf="submitted && f.createddatetime.errors" class="invalid-feedback">
                         <div *ngIf="f.createddatetime.errors.required">Date is required</div>
                         <div *ngIf="f.createddatetime.errors.pattern">Date Must be Valid Format</div>
                     </div>
-                </div> 
-            
-                <div class="form-group form-check col-md-5 offset-5">
+               
+               
                     <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
                     <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
                     <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
@@ -68,10 +76,12 @@
                 <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
             </div>
             </form>
+         
+            
         </div>
     </div>
     </div>
     </div>
-    <router-outlet></router-outlet>
+
     
     

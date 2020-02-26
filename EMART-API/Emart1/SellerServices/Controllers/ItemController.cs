@@ -62,12 +62,12 @@ namespace SellerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("GetItem/{id}")]
-        public IActionResult Get(int id)
+        [Route("GetItems/{Iid}")]
+        public IActionResult GetItems(string Iid)
         {
             try
             {
-                return Ok(_repo.GetItems(id));
+                return Ok(_repo.GetItems(Iid));
             }
             catch (Exception ex)
             {
@@ -75,15 +75,16 @@ namespace SellerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("ViewItems")]
+        [Route("ViewItems/{sid}")]
 
 
         public IActionResult ViewItems(string sid)
         {
             try
             {
-                _repo.ViewItems(sid);
-                return Ok();
+
+                return Ok(_repo.ViewItems(sid));
+               
             }
             catch (Exception ex)
             {

@@ -12,7 +12,7 @@ namespace SellerServices.Repositories
         List<Items> ViewItems(string id);
         void DeleteItem(string sid);
         void UpdateItem(Items obj);
-        Items GetItems(int id);
-
+        Items GetItems(string Iid);
+       
     }
 }

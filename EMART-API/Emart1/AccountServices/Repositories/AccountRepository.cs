@@ -27,8 +27,8 @@ namespace AccountServices.Repositories
 
         public string loginb(string name, string pass)
         {
-            var s = _context.Buyer.SingleOrDefault(e => e.Username == name && e.Password == pass);
-            if (s != null)
+            var s = _context.Buyer.Where(e => e.Username == name && e.Password == pass).ToList();
+            if (s.Count!= 0)
             {
                 return "exists";
             }

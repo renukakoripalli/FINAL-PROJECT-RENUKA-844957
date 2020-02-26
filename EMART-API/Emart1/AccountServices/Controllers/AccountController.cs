@@ -57,7 +57,7 @@ namespace AccountServices.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.InnerException.Message);
+                return NotFound(e.Message);
             }
         }
         [HttpGet]

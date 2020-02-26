@@ -1,37 +1,31 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Login</h3>
 
 
-<div class="bg">
-    <div class="container">
-        <div class="card bg-light mb-3" bg-dark>
-            <h5 class="card-header text-center">Login</h5>
-            <div class="card-body">
-<div class="center">
-    
+<div class="form-group">
+    <label for="username">UserName</label>
+    <input type="text"[(ngModel)]="username" class="form-control" placeholder="User Name *">
 </div>
-    <div class="col-md-4">
-<div class="container">
-    <div class="form-group">
-        <label for="username">UserName</label>
-        <input type="text"[(ngModel)]="username" class="form-control">
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="password"[(ngModel)]="password" class="form-control" placeholder="Password*">
+</div>
+<div class="form-group">
+    <button (click)="Validate()" class="btn btn-primary">Login</button>
+    </div>
+    <div>
+        <a href="register-buyer">Create New Buyer Account</a>
+    </div>
+    <div>
+        <a href="register-seller">Create New seller Account</a>
     </div>
     <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password"[(ngModel)]="password" class="form-control">
+        <label class="text-error">{{errmsg}}</label>
     </div>
-    <div class="form-group">
-        <button (click)="Validate()" class="btn btn-primary">Login</button>
-        </div>
-        <div>
-            <a href="register-buyer">Create New Buyer Account</a>
-        </div>
-        <div>
-            <a href="register-seller">Create New seller Account</a>
-        </div>
-        <div class="form-group">
-            <label class="text-error">{{errmsg}}</label>
-        </div>
-    
+
+</div>
 </div>
 
 </div>
-

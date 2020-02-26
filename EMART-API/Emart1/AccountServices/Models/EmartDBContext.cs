@@ -55,7 +55,10 @@ namespace AccountServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Mobilenumber).HasColumnName("mobilenumber");
+                entity.Property(e => e.Mobilenumber)
+                    .HasColumnName("mobilenumber")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Password)
                     .IsRequired()
@@ -125,7 +128,7 @@ namespace AccountServices.Models
             modelBuilder.Entity<Items>(entity =>
             {
                 entity.HasKey(e => e.Iid)
-                    .HasName("PK__Items__C4962F848CE8ABC7");
+                    .HasName("PK__Items__C4962F8443D611BA");
 
                 entity.Property(e => e.Iid)
                     .HasMaxLength(20)
@@ -138,27 +141,35 @@ namespace AccountServices.Models
 
                 entity.Property(e => e.Description)
                     .IsRequired()
-                    .HasColumnName("description")
-                    .HasMaxLength(20)
+                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ItemName)
                     .IsRequired()
-                    .HasColumnName("item_name")
+                    .HasColumnName("Item_name")
                     .HasMaxLength(20)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Photo).HasColumnType("image");
 
                 entity.Property(e => e.Price).HasColumnName("price");
 
                 entity.Property(e => e.Remarks)
                     .IsRequired()
                     .HasColumnName("remarks")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Sid)
+                    .IsRequired()
+                    .HasColumnName("sid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StockNumber).HasColumnName("stock_number");
+                entity.Property(e => e.StockNumber).HasColumnName("Stock_number");
 
                 entity.Property(e => e.SubcategoryId)
+                    .IsRequired()
                     .HasColumnName("subcategory_id")
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -166,18 +177,25 @@ namespace AccountServices.Models
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.CategoryId)
-                    .HasConstraintName("FK__Items__category___3E52440B");
+                    .HasConstraintName("FK__Items__category___4F7CD00D");
+
+                entity.HasOne(d => d.S)
+                    .WithMany(p => p.Items)
+                    .HasForeignKey(d => d.Sid)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Items__sid__5165187F");
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.SubcategoryId)
-                    .HasConstraintName("FK__Items__subcatego__3F466844");
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Items__scid__5070F446");
             });
 
             modelBuilder.Entity<Purchase>(entity =>
             {
                 entity.HasKey(e => e.PId)
-                    .HasName("PK__Purchase__DD36D5620CB19BD7");
+                    .HasName("PK__Purchase__DD36D56205A64932");
 
                 entity.Property(e => e.PId)
                     .HasColumnName("pId")
@@ -192,11 +210,9 @@ namespace AccountServices.Models
 
                 entity.Property(e => e.DateTime)
                     .HasColumnName("Date_time")
-                    .HasColumnType("datetime")
-                    .HasDefaultValueSql("(getdate())");
+                    .HasColumnType("datetime");
 
                 entity.Property(e => e.ItemId)
-                    .IsRequired()
                     .HasColumnName("Item_id")
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -204,8 +220,8 @@ namespace AccountServices.Models
                 entity.Property(e => e.NumberOfItems).HasColumnName("Number_of_items");
 
                 entity.Property(e => e.Remarks)
-                    .HasColumnName("remarks")
-                    .HasMaxLength(30)
+                    .IsRequired()
+                    .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.SellerId)
@@ -224,19 +240,18 @@ namespace AccountServices.Models
                     .WithMany(p => p.Purchase)
                     .HasForeignKey(d => d.BuyerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Purchase__Buyer___4222D4EF");
+                    .HasConstraintName("FK__Purchase__Buyer___5535A963");
 
                 entity.HasOne(d => d.Item)
                     .WithMany(p => p.Purchase)
                     .HasForeignKey(d => d.ItemId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Purchase__Item_i__440B1D61");
+                    .HasConstraintName("FK__Purchase__Item_i__5629CD9C");
 
                 entity.HasOne(d => d.Seller)
                     .WithMany(p => p.Purchase)
                     .HasForeignKey(d => d.SellerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Purchase__Seller__4316F928");
+                    .HasConstraintName("FK__Purchase__Seller__5441852A");
             });
 
             modelBuilder.Entity<Seller>(entity =>

@@ -7,6 +7,7 @@ namespace AccountServices.Models
     {
         public Seller()
         {
+            Items = new HashSet<Items>();
             Purchase = new HashSet<Purchase>();
         }
 
@@ -21,6 +22,7 @@ namespace AccountServices.Models
         public string Emailid { get; set; }
         public int Contactnumber { get; set; }
 
+        public virtual ICollection<Items> Items { get; set; }
         public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }
