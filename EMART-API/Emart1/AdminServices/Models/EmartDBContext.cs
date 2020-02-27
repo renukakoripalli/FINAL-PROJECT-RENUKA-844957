@@ -75,20 +75,20 @@ namespace AdminServices.Models
 
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.BriefDetails)
+                entity.Property(e => e.Briefdetails)
                     .IsRequired()
-                    .HasColumnName("brief_details")
+                    .HasColumnName("briefdetails")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryName)
+                entity.Property(e => e.Categoryname)
                     .IsRequired()
-                    .HasColumnName("category_name")
+                    .HasColumnName("categoryname")
                     .HasMaxLength(30)
                     .IsUnicode(false);
             });
@@ -285,7 +285,6 @@ namespace AdminServices.Models
 
                 entity.Property(e => e.Gstin)
                     .IsRequired()
-                    .HasColumnName("GSTIN")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -295,9 +294,9 @@ namespace AdminServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PostalAddress)
+                entity.Property(e => e.Postaladdress)
                     .IsRequired()
-                    .HasColumnName("postal_address")
+                    .HasColumnName("postaladdress")
                     .HasMaxLength(40)
                     .IsUnicode(false);
 

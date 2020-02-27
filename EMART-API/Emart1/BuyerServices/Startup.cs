@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BuyerServices.Models;
+using BuyerServices.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +26,8 @@ namespace BuyerServices
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<EmartDBContext>();
+            services.AddTransient<IBuyer, BuyerRep>();
             services.AddControllers();
             services.AddCors(c =>
             {

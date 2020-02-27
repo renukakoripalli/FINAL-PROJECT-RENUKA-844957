@@ -1,1 +1,48 @@
-<p>add-category works!</p>
+<div class ="bg-img">
+    <div class="container">
+    <div class="card bg-light mb-3" >
+        <h5 class="card-header text-center">Add category</h5>
+        <div class="card-body">
+            <div class="bg2">
+            <form [formGroup]="AddCategoryForm" (ngSubmit)="onSubmit()">
+                       <div class="form-group col-md-3 offset-4">
+                        <label>CategoryID</label>
+                        <input type="text" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }" />
+                        <div *ngIf="submitted && f.categoryid.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryid.errors.required">Category id is required</div> 
+                        </div>        
+                    </div>
+                    <div class="form-group col-md-5 offset-4">
+                        <label>CategoryName</label>
+                        <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
+                        <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryname.errors.required">CategoryName  is required</div> 
+                        <!-- <div *ngIf="f.categoryname.errors.required.pattern">CategoryName must be valid</div>  -->
+                        </div>
+                    </div>
+                        <div class="form-group col-md-5 offset-4">
+                            <label>BreifDetails</label>
+                            <input type="text" formControlName="briefdetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
+                            <div *ngIf="submitted && f.briefdetails.errors" class="invalid-feedback">
+                            <div *ngIf="f.briefdetails.errors.required">BreifDetails id is required</div> 
+                             <div *ngIf="f.briefdetails.errors.pattern">Breif Details must be valid</div> 
+                            </div>        
+                        </div>
+                        <div class="form-group form-check col-md-5 offset-5">
+                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                            <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                            <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                        </div>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-primary mr-1">Add</button>
+                        <button class="btn btn-danger" type="reset" (click)="onReset()">RESET</button>
+                    </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>        
+                    </div>
+                    </div>
+                
+

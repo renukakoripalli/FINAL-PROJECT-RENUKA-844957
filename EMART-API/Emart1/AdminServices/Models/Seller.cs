@@ -17,7 +17,7 @@ namespace AdminServices.Models
         public string Companyname { get; set; }
         public string Gstin { get; set; }
         public string Briefaboutcompany { get; set; }
-        public string PostalAddress { get; set; }
+        public string Postaladdress { get; set; }
         public string Website { get; set; }
         public string Emailid { get; set; }
         public int Contactnumber { get; set; }

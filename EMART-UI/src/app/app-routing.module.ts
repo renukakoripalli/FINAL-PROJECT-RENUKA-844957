@@ -23,7 +23,6 @@ import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.
 import { ContactComponent } from './Account/contact/contact.component';
 
 
-
 const routes: Routes = [
   
   {path:'seller',component:SellerComponent,children:[

@@ -3,9 +3,9 @@ export class Seller {
 public username:string;
 public password:string;
 public companyname:string;
-public GSTIN:string;
+public Gstin:string;
 public briefaboutcompany:string;
-public postal_address:string;
+public postaladdress:string;
 public website:string;
 public emailid:string;
 public contactnumber:number;

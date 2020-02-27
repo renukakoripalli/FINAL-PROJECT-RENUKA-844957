@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
+import { Buyer } from 'src/app/Models/buyer';
+import { RegisterService } from '../Services/register.service';
+import { resetFakeAsyncZone } from '@angular/core/testing';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-register-buyer',
   templateUrl: './register-buyer.component.html',
@@ -9,8 +13,12 @@ export class RegisterBuyerComponent implements OnInit {
 
   SignupForm: FormGroup;
     submitted = false;
+    item:Buyer;
+items:Buyer;
+//itemForm:FormGroup;
+b:Buyer[];
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private formBuilder: FormBuilder,private services:RegisterService) { }
 
     ngOnInit() {
         this.SignupForm = this.formBuilder.group({
@@ -28,12 +36,26 @@ export class RegisterBuyerComponent implements OnInit {
     get f() { return this.SignupForm.controls; }
 
     onSubmit() {
-        this.submitted = true;
-         // display form values on success
+        this.submitted = true;  
+        //this.buyer=new Buyer(); 
         if (this.SignupForm.valid) {
+            this.items=new Buyer();
+            this.items.bid=this.SignupForm.value["bid"];
+            this.items.username=this.SignupForm.value["username"];
+            this.items.password=this.SignupForm.value["password"];
+            this.items.emailid=this.SignupForm.value["emailid"];
+            this.items.mobilenumber=this.SignupForm.value["mobilenumber"];
+            this.items.createddatetime=this.SignupForm.value["createddatetime"];
+            // console.log(this.buyer);
+            this.services.addBuyer(this.items).subscribe(res=>{
+              console.log('buyer registered sucessfully')
+            },err=>{
+              console.log(err);
+            })
             alert('SUCCESS!! :-)\n\n') 
-            console.log(JSON.stringify(this.SignupForm.value));
-        }
+            // console.log(JSON.stringify(this.SignupForm.value)); 
+          }
+
     }
 
     onReset() {

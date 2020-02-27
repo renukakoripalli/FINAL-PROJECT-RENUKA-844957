@@ -1,1 +1,44 @@
 <p>admin works!</p>
+
+<div class="image">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light  bg-dark">
+    
+            <div class="col" id="navbarText">
+                <ul class="nav row nav-pills ">
+    
+                    <li class="col-sm-1 nav-item text-center">
+                        <a class="nav-link btn-outline-primary" href="#">Home </a>
+                    </li>
+                    
+        <!-- <div class="topnav"> -->
+            <!-- <a class="active" href="#home">Home</a> -->
+        <li class="col-sm-2 nav-item text-center">
+            <a class="nav-link btn-outline-primary" href="/admin/Admin-landingpage" >AdminLandingPage</a>
+                <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+    </li>
+    <li class="col-sm-1 nav-item text-center ">
+        <!-- <a class="nav-link btn-outline-primary" href="/seller/add-items" >Additems</a> -->
+            <a class="btn-outline-primary" [routerLink]="['/admin/add-category']" >AddCategory</a>
+    </li>
+    <li class="col-sm-2 nav-item text-center btn-outline-primary">
+        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/add-sub-category']" >AddSubCategory</a>
+            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+    </li>
+    <li class="col-sm-2 nav-item text-center">
+        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/view-items']" >viewItems</a>
+            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+    </li>
+    <li class="col-sm-2 nav-item text-center">
+        <a class="nav-link btn-outline-primary" href="/seller/viewreports" >ViewReports</a>
+            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+    </li>
+    <li class="col-sm-1 nav-item text-center">
+        <input type="text" placeholder="Search.."></li>
+    <!-- </div> -->
+    
+    </ul>
+</div> </nav>
+        </div> 
+        <router-outlet></router-outlet>
+        </div>

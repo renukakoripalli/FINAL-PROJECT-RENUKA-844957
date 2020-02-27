@@ -1,23 +1,11 @@
 
  
  
- .bg {
-   
-  background-image: url('E:\FINAL-PROJECT-RENUKA-844957\EMART-UI\src\assets\images/bg9.jpg');
-  
-  position: fixed;
-  top: 0;
-  left:0;
-  
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  min-width:100% ;
-  min-height: 800px;
+ 
  
   
-}
-.login-container{
+
+/*.login-container{
   margin-top: 5%;
   margin-bottom: 5%;
   float: right;
@@ -33,7 +21,7 @@
   border-radius: 1.5rem;
   background: rgba(0, 0, 0, 0.5);
   box-shadow: rgba(0, 0, 0, 0.2) 20px 20px 20px;
- /* background: -webkit-linear-gradient(left,rgb(236, 233, 233), rgba(0, 0, 0, 0.5));  */
+ /* background: -webkit-linear-gradient(left,rgb(236, 233, 233), rgba(0, 0, 0, 0.5));  
   
 
 }
@@ -58,7 +46,7 @@
   float: right;
   margin-right: -340px;
 
-}
+}*/
 
 
 

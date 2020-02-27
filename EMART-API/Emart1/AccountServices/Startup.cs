@@ -31,9 +31,8 @@ namespace AccountServices
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options =>
-                 options.AllowAnyOrigin()
-                         .AllowAnyMethod()
-                          .AllowAnyHeader());
+                 options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                         
             }
             );
             services.AddControllers();
@@ -52,7 +51,7 @@ namespace AccountServices
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors("Allow origin");
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

@@ -27,6 +27,9 @@ import { RegisterSellerComponent } from './Account/register-seller/register-sell
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { HomeComponent } from './Account/home/home.component';
 import { ContactComponent } from './Account/contact/contact.component';
+import { from } from 'rxjs';
+import {HttpClientModule} from '@angular/common/http';
+import { RegisterService } from './Account/Services/register.service';
 
 @NgModule({
   declarations: [
@@ -55,14 +58,17 @@ import { ContactComponent } from './Account/contact/contact.component';
     RegisterBuyerComponent,
     HomeComponent,
     ContactComponent
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
