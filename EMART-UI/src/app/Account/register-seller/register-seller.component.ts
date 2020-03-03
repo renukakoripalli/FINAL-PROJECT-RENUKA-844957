@@ -57,7 +57,7 @@ Add()
       this.sellers.contactnumber=this.SignupForm.value["contactnumber"];
       this.sellers.briefaboutcompany=this.SignupForm.value["briefaboutcompany"];
       this.sellers.companyname=this.SignupForm.value["companyname"];
-      this.sellers.Gstin=this.SignupForm.value["Gstin"];
+      this.sellers.gstin=this.SignupForm.value["gstin"];
       this.sellers.postaladdress=this.SignupForm.value["postaladdress"];
       this.sellers.website=this.SignupForm.value["website"];
       

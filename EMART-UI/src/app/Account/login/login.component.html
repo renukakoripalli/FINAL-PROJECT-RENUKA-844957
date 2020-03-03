@@ -17,12 +17,10 @@
 <div class="form-group">
     <button (click)="Validate()" class="btn btn-primary">Login</button>
     </div>
-    <div>
-        <a href="register-buyer">Create New Buyer Account</a>
-    </div>
-    <div>
-        <a href="register-seller">Create New seller Account</a>
-    </div>
+    <div class="row offset-3 mt-3">
+        <a [routerLink]="['/register-buyer']"  class="btn btn-link ">Create New Buyer</a>
+            <a [routerLink]="['/register-seller']" class="btn btn-link">Create New Seller</a>
+        </div>
     <div class="form-group">
         <label class="text-error">{{errmsg}}</label>
     </div>

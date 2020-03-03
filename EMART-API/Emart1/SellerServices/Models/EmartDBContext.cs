@@ -162,7 +162,6 @@ namespace SellerServices.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Sid)
-                    .IsRequired()
                     .HasColumnName("sid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
@@ -183,8 +182,7 @@ namespace SellerServices.Models
                 entity.HasOne(d => d.S)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.Sid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Items__sid__5165187F");
+                    .HasConstraintName("FK__Items__sid__5AEE82B9");
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
@@ -290,6 +288,7 @@ namespace SellerServices.Models
 
                 entity.Property(e => e.Gstin)
                     .IsRequired()
+                    .HasColumnName("gstin")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 

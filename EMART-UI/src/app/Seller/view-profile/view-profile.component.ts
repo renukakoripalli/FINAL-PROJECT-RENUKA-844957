@@ -18,16 +18,16 @@ export class ViewProfileComponent implements OnInit {
 
     ngOnInit() {
         this.editprofilesForm = this.formBuilder.group({
-            Sid:['',[Validators.required]],
-            Username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            Password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
-            Companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            Gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
-            Briefaboutcompany:['',[Validators.required]],
-            Address:['',[Validators.required]],
-            Website:['',[Validators.required]],
-            Email: ['', [Validators.required, Validators.email]],
-            Mobile:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
+            sid:['',[Validators.required]],
+            username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+            password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
+            companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
+            gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
+            briefaboutcompany:['',[Validators.required]],
+            postaladdress:['',[Validators.required]],
+            website:['',[Validators.required]],
+            emailid: ['', [Validators.required, Validators.email]],
+            contactnumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
              
             
         });
@@ -36,58 +36,59 @@ export class ViewProfileComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.editprofilesForm.controls; }
 
-    // onSearch(){
-    //     let sid=this.editprofilesForm.value["sid"];
-    //     this.service.GetById(sid).subscribe(res=>
-    //       {
-    //           this.seller=res;
-    //           console.log(this.seller);
-    //           this.editprofilesForm.setValue({
-    //            Sid:this.seller.sid,
-    //            Username:this.seller.username,
-    //            Password:this.seller.password,
-    //            Companyname:this.seller.companyname,
-    //            Gstin:this.seller.Gstin,
-    //            Briefaboutcompany:this.seller.briefaboutcompany,
-    //            Address:this.seller.postaladdress,
-    //            Website:this.seller.website,
-    //            Email:this.seller.emailid,
-    //            Mobile:this.seller.contactnumber
+    onSearch(){
+        let sid=this.editprofilesForm.value["sid"];
+        this.service.GetProfile(sid).subscribe(res=>
+          {
+              this.seller=res;
+              console.log(this.seller);
+              this.editprofilesForm.setValue({
+               sid:this.seller.sid,
+               username:this.seller.username,
+               password:this.seller.password,
+               companyname:this.seller.companyname,
+               gstin:this.seller.gstin,
+               briefaboutcompany:this.seller.briefaboutcompany,
+               postaladdress:this.seller.postaladdress,
+               website:this.seller.website,
+               emailid:this.seller.emailid,
+               contactnumber:this.seller.contactnumber
                
     
-    //          })
-    //       },err=>{
-    //         console.log(err)
-    //       })
-    //   }
+             })
+          },err=>{
+            console.log(err)
+          })
+      }
     
-//       onSubmit() {
+      onSubmit() {
           
-//           this.submitted = true;
-//            // display form values on success
-//            if (this. editprofilesForm.valid) {
-//             this.seller=new Seller();
-//             this.seller.sid=this.editprofilesForm.value["Sid"];
-//         this.seller.username=this.editprofilesForm.value["Username"];
-//         this.seller.password=this.editprofilesForm.value["Password"];
-//         this.seller.companyname=this.editprofilesForm.value["Companyname"];
-//         this.seller.Gstin=this.editprofilesForm.value["Gstin"];
-//         this.seller.briefaboutcompany=this.editprofilesForm.value["Briefaboutcompany"];
-//         this.seller.postaladdress=this.editprofilesForm.value["Address"];
-//         this.seller.website=this.editprofilesForm.value["Website"];
-//         this.seller.emailid=this.editprofilesForm.value["Email"];
-//         this.seller.contactnumber=this.editprofilesForm.value["Mobile"];
-//         this.service.Editprofile(this.seller).subscribe(res=>{
-//         console.log('Record Updated')
-//         },err=>{
-//         console.log(err)
-//         })
-//             alert('SUCCESS!! :-)\n\n') 
-//             // console.log(JSON.stringify(this.SignupForm.value));
-//         }
-//       }
-//     onReset() {
-//         this.submitted = false;
-//         this.editprofilesForm.reset();
-//     }
+          this.submitted = true;
+           // display form values on success
+           if (this. editprofilesForm.valid) {
+            this.seller=new Seller();
+           this.seller.sid=this.editprofilesForm.value["sid"];
+           
+        this.seller.username=this.editprofilesForm.value["username"];
+        this.seller.password=this.editprofilesForm.value["password"];
+        this.seller.companyname=this.editprofilesForm.value["companyname"];
+        this.seller.gstin=this.editprofilesForm.value["gstin"];
+        this.seller.briefaboutcompany=this.editprofilesForm.value["briefaboutcompany"];
+        this.seller.postaladdress=this.editprofilesForm.value["postaladdress"];
+        this.seller.website=this.editprofilesForm.value["website"];
+        this.seller.emailid=this.editprofilesForm.value["emailid"];
+        this.seller.contactnumber=this.editprofilesForm.value["contactnumber"];
+        this.service.Editprofile(this.seller).subscribe(res=>{
+        console.log('Record Updated')
+        },err=>{
+        console.log(err)
+        })
+            alert('SUCCESS!! :-)\n\n') 
+            // console.log(JSON.stringify(this.SignupForm.value));
+        }
+      }
+    onReset() {
+        this.submitted = false;
+        this.editprofilesForm.reset();
+    }
   }

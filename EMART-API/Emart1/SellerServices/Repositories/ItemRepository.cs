@@ -19,16 +19,26 @@ namespace SellerServices.Repositories
             _context.SaveChanges();
         }
 
-        public void DeleteItem(string sid)
+        public void DeleteItem(string Iid)
         {
-            Items item = _context.Items.Find(sid);
+            Items item = _context.Items.Find(Iid);
             _context.Remove(item);
             _context.SaveChanges();
+        }
+
+        public List<Category> GetCategory()
+        {
+            return _context.Category.ToList();
         }
 
         public Items GetItems(string Iid)
         {
             return _context.Items.Find(Iid);
+        }
+
+        public List<Subcategory> GetSubCagegory(string categoryid)
+        {
+            return _context.Subcategory.Where(c => c.Categoryid == categoryid).ToList();
         }
 
         public void UpdateItem(Items obj)
@@ -37,11 +47,9 @@ namespace SellerServices.Repositories
             _context.SaveChanges();
         }
 
-        public List<Items> ViewItems(string id)
+        public List<Items> Viewitems()
         {
-            var s = _context.Items.Where(s => s.Sid == id).ToList();
-
-            return s;
+            return _context.Items.ToList();
         }
     }
 }

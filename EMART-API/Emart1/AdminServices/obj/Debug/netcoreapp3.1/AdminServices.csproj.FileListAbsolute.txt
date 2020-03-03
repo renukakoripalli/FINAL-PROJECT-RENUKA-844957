@@ -120,4 +120,7 @@ E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcorea
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\obj\Debug\netcoreapp3.1\AdminServices.MvcApplicationPartsAssemblyInfo.cache
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll

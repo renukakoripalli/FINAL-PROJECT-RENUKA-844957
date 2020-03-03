@@ -33,12 +33,12 @@ namespace SellerServices.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteItem/{sid}")]
-        public IActionResult Delete(string sid)
+        [Route("DeleteItem/{Iid}")]
+        public IActionResult Delete(string Iid)
         {
             try
             {
-                _repo.DeleteItem(sid);
+                _repo.DeleteItem(Iid);
                 return Ok();
             }
             catch (Exception ex)
@@ -75,21 +75,42 @@ namespace SellerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("ViewItems/{sid}")]
-
-
-        public IActionResult ViewItems(string sid)
+        [Route("Viewitems")]
+        public IActionResult ViewItems()
         {
             try
             {
-
-                return Ok(_repo.ViewItems(sid));
-               
+                return Ok(_repo.Viewitems());
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                return NotFound(ex.InnerException.Message);
-
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Getsubcategory/{categoryid}")]
+        public IActionResult Getsubcategory(string categoryid)
+        {
+            try
+            {
+                return Ok(_repo.GetSubCagegory(categoryid));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Getcategory")]
+        public IActionResult Getcategory()
+        {
+            try
+            {
+                return Ok(_repo.GetCategory());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
             }
         }
 

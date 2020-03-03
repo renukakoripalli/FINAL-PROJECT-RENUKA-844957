@@ -7,5 +7,6 @@ export class Items {
     description:string;
     stocknumber:number;
     remarks:string;
-    sid:string;
+    
+    photo:string;
 }

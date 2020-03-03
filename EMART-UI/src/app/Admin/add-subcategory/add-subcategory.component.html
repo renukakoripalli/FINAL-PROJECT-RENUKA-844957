@@ -25,10 +25,21 @@
                         <!-- <option *ngFor="let item in List" value="itemCid">{{item.cName}}</option> -->
                         <select formControlName="subcategoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategoryname.errors }">
                             <option value=""></option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Accessories">Accessories</option>
-                            <option value="Grocery">Grocery</option>
+                            <option value="phones">phones</option>
+                            <option value="tv">tv</option>
+                            <option value="washing machine">washing machine</option>
+                            <option value="Ethinc">Ethinc</option>
+                            <option value="Westernwear">Western wear</option>
+                            <option value="style">style</option>
+                            <option value="munch">munch</option>
+                            <option value="perk">perk</option>
+                            <option value="dairymilk">Dairy Milk</option>
+                            <option value="watches">watches</option>
+                            <option value="bags">bags</option>
+                            <option value="slippers">slippers</option>
+                            <option value="sugar">sugar</option>
+                            <option value="boost">boost</option>
+                            <option value="horlicks">horlicks</option>
                         </select>
                         <div *ngIf="submitted && f.subcategoryname.errors" class="invalid-feedback">
                             <div *ngIf="f.subcategoryname.errors.required">subcategory name is required</div>

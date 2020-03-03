@@ -18,8 +18,8 @@ namespace SellerServices.Models
         public string Description { get; set; }
         public int Stocknumber { get; set; }
         public string Remarks { get; set; }
-        public string Sid { get; set; }
         public byte[] Photo { get; set; }
+        public string Sid { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual Seller S { get; set; }

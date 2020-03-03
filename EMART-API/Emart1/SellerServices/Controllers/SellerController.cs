@@ -18,8 +18,8 @@ namespace SellerServices.Controllers
         {
             _repo = rep;
         }
-        [HttpPost]
-        [Route("edit")]
+        [HttpPut]
+        [Route("EditProfile")]
         public IActionResult EditProfile(Seller obj)
         {
             try

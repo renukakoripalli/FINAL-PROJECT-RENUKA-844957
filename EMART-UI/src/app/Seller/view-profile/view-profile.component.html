@@ -4,15 +4,15 @@
         <div class="bg2">
         <h5 class="card-header text-center">SignupSeller</h5>
         <div class="card-body">
-            <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]=" editprofilesForm" (ngSubmit)="onSubmit()">
                 
                 <div class="col-md-6">
                         <label>SellerId</label>
                         <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
-                        <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
+                        <!-- <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
                         <div *ngIf="f.sid.errors.required">Buyer id is required</div> 
                                 
-                    </div>     
+                    </div>      -->
                     
                         <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -58,9 +58,9 @@
                 </div>
                 <div class="col-md-6">
                     <label>GSTIN</label>
-                    <input type="text" formControlName="Gstin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Gstin.errors }" />
-                    <div *ngIf="submitted && f.Gstin.errors" class="invalid-feedback">
-                        <div *ngIf="f.Gstin.errors.required">gstin is required</div>
+                    <input type="text" formControlName="gstin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gstin.errors }" />
+                    <div *ngIf="submitted && f.gstin.errors" class="invalid-feedback">
+                        <div *ngIf="f.gstin.errors.required">gstin is required</div>
                         
                    
                 </div>
@@ -90,11 +90,7 @@
                        
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
-                    <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
-                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
-                </div>
+               
             
             <div class="text-center">
                 <button class="btn btn-success" type="search" (click)="onSearch()">Search</button>

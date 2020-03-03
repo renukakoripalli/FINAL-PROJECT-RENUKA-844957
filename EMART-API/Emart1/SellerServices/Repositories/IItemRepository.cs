@@ -9,10 +9,12 @@ namespace SellerServices.Repositories
     public interface IItemRepository
     {
         void AddItem(Items obj);
-        List<Items> ViewItems(string id);
-        void DeleteItem(string sid);
+        List<Items> Viewitems();
+        void DeleteItem(string Iid);
         void UpdateItem(Items obj);
         Items GetItems(string Iid);
-       
+        List<Category> GetCategory();
+        List<Subcategory> GetSubCagegory(string categoryid);
+
     }
 }
