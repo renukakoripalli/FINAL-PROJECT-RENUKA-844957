@@ -1,5 +1,5 @@
 <div class ="bg-img">
-    <div class="container">
+    <div class="container p-5 my-5 bg-dark text-black">
     <div class="card bg-light mb-3" >
         <h5 class="card-header text-center">Add category</h5>
         <div class="card-body">
@@ -13,11 +13,17 @@
                         </div>        
                     </div>
                     <div class="form-group col-md-5 offset-4">
-                        <label>CategoryName</label>
-                        <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
+                        <label>CategoryName:</label>
+                        <select formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }">
+                            <option value=""></option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Grocery">Grocery</option>
+                        </select>
                         <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
-                        <div *ngIf="f.categoryname.errors.required">CategoryName  is required</div> 
-                        <!-- <div *ngIf="f.categoryname.errors.required.pattern">CategoryName must be valid</div>  -->
+                            <div *ngIf="f.categoryname.errors.required"> categoryname is required</div>
+                            
                         </div>
                     </div>
                         <div class="form-group col-md-5 offset-4">
@@ -35,7 +41,8 @@
                         </div>
                     
                     <div class="text-center">
-                        <button class="btn btn-primary mr-1">Add</button>
+                        <button class="btn btn-success mr-1">Add</button>
+                        <!-- <button class="btn btn-primary mr-1" type="button" (click)="Delete()" id=b2>Delete</button> -->
                         <button class="btn btn-danger" type="reset" (click)="onReset()">RESET</button>
                     </div>
                         </form>

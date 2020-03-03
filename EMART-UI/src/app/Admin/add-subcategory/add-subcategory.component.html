@@ -1,1 +1,68 @@
-<p>add-subcategory works!</p>
+
+<div class ="bg-img">
+    <div class="container p-5 my-5 bg-dark text-black">
+    <div class="card bg-light mb-3" >
+        <h5 class="card-header text-center">Add Subcategory</h5>
+        <div class="card-body">
+            <div class="bg2">
+            <form [formGroup]="AddSubCategoryForm" (ngSubmit)="onSubmit()">
+                       <div class="form-group col-md-3 offset-4">
+                        <label>CategoryID</label>
+                        <input type="text" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }" />
+                        <div *ngIf="submitted && f.categoryid.errors" class="invalid-feedback">
+                        <div *ngIf="f.categoryid.errors.required">Category id is required</div> 
+                        </div>        
+                    </div>
+                    <div class="form-group col-md-3 offset-4">
+                        <label>SubCategoryID</label>
+                        <input type="text" formControlName="subcategoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategoryid.errors }" />
+                        <div *ngIf="submitted && f.subcategoryid.errors" class="invalid-feedback">
+                        <div *ngIf="f.subcategoryid.errors.required">SubCategory id is required</div> 
+                        </div>        
+                    </div>
+                    <div class="form-group col-md-5 offset-4">
+                        <label> SubCategoryName:</label>
+                        <!-- <option *ngFor="let item in List" value="itemCid">{{item.cName}}</option> -->
+                        <select formControlName="subcategoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategoryname.errors }">
+                            <option value=""></option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Grocery">Grocery</option>
+                        </select>
+                        <div *ngIf="submitted && f.subcategoryname.errors" class="invalid-feedback">
+                            <div *ngIf="f.subcategoryname.errors.required">subcategory name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 offset-4">
+                        <label>GST</label>
+                        <input type="number" formControlName="GST" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.GST.errors }" />
+                        <div *ngIf="submitted && f.GST.errors" class="invalid-feedback">
+                        <div *ngIf="f.GST.errors.required">GST is required</div> 
+                        </div>        
+                    </div>
+                        <div class="form-group col-md-5 offset-4">
+                            <label>BriefDetails</label>
+                            <input type="text" formControlName="briefdetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
+                            <div *ngIf="submitted && f.briefdetails.errors" class="invalid-feedback">
+                            <div *ngIf="f.briefdetails.errors.required">BreifDetails id is required</div> 
+                             <div *ngIf="f.briefdetails.errors.required.pattern">Breif Details must be valid</div> 
+                            </div>        
+                        </div>
+                        <div class="form-group form-check col-md-5 offset-5">
+                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                            <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                            <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                        </div>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-primary mr-1">Add</button>
+                        <button class="btn btn-danger" type="reset" (click)="onReset()">RESET</button>
+                    </div>
+                        </form>
+                        </div>
+                        </div>
+                        </div>        
+                    </div>
+                    </div>
+                

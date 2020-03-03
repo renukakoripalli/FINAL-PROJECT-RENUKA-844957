@@ -75,20 +75,20 @@ namespace BuyerServices.Models
 
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.BriefDetails)
+                entity.Property(e => e.Briefdetails)
                     .IsRequired()
-                    .HasColumnName("brief_details")
+                    .HasColumnName("briefdetails")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryName)
+                entity.Property(e => e.Categoryname)
                     .IsRequired()
-                    .HasColumnName("category_name")
+                    .HasColumnName("categoryname")
                     .HasMaxLength(30)
                     .IsUnicode(false);
             });
@@ -134,19 +134,20 @@ namespace BuyerServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Description)
                     .IsRequired()
+                    .HasColumnName("description")
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ItemName)
+                entity.Property(e => e.Itemname)
                     .IsRequired()
-                    .HasColumnName("Item_name")
+                    .HasColumnName("itemname")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -166,17 +167,17 @@ namespace BuyerServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StockNumber).HasColumnName("Stock_number");
+                entity.Property(e => e.Stocknumber).HasColumnName("stocknumber");
 
-                entity.Property(e => e.SubcategoryId)
+                entity.Property(e => e.Subcategoryid)
                     .IsRequired()
-                    .HasColumnName("subcategory_id")
+                    .HasColumnName("subcategoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Items)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Categoryid)
                     .HasConstraintName("FK__Items__category___4F7CD00D");
 
                 entity.HasOne(d => d.S)
@@ -187,7 +188,7 @@ namespace BuyerServices.Models
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
-                    .HasForeignKey(d => d.SubcategoryId)
+                    .HasForeignKey(d => d.Subcategoryid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Items__scid__5070F446");
             });
@@ -275,7 +276,11 @@ namespace BuyerServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contactnumber).HasColumnName("contactnumber");
+                entity.Property(e => e.Contactnumber)
+                    .IsRequired()
+                    .HasColumnName("contactnumber")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Emailid)
                     .IsRequired()
@@ -285,7 +290,6 @@ namespace BuyerServices.Models
 
                 entity.Property(e => e.Gstin)
                     .IsRequired()
-                    .HasColumnName("GSTIN")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -295,9 +299,9 @@ namespace BuyerServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PostalAddress)
+                entity.Property(e => e.Postaladdress)
                     .IsRequired()
-                    .HasColumnName("postal_address")
+                    .HasColumnName("postaladdress")
                     .HasMaxLength(40)
                     .IsUnicode(false);
 
@@ -315,8 +319,8 @@ namespace BuyerServices.Models
 
             modelBuilder.Entity<Subcategory>(entity =>
             {
-                entity.Property(e => e.SubcategoryId)
-                    .HasColumnName("subcategory_id")
+                entity.Property(e => e.Subcategoryid)
+                    .HasColumnName("subcategoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -326,22 +330,22 @@ namespace BuyerServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gst).HasColumnName("GST");
 
-                entity.Property(e => e.SubcategoryName)
+                entity.Property(e => e.Subcategoryname)
                     .IsRequired()
-                    .HasColumnName("subcategory_name")
+                    .HasColumnName("subcategoryname")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Subcategory)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Categoryid)
                     .HasConstraintName("FK__Subcatego__categ__173876EA");
             });
 

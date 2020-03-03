@@ -14,6 +14,7 @@ export class AddCategoryComponent implements OnInit {
   submitted = false;
 
  catg:Category;
+ 
   constructor(private formBuilder: FormBuilder,private sservice:CategoryService) { }
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class AddCategoryComponent implements OnInit {
         this.catg.categoryid=this.AddCategoryForm.value["categoryid"];
         this.catg.categoryname=this.AddCategoryForm.value["categoryname"];
         this.catg.briefdetails=this.AddCategoryForm.value["briefdetails"];   
-        // console.log(this.buyer);
+        console.log(this.catg);
         this.sservice.AddCategory(this.catg).subscribe(res=>{
           console.log('Added categories sucessfully')
         },err=>{
@@ -46,8 +47,19 @@ export class AddCategoryComponent implements OnInit {
       }
 
 }
+
 onReset() {
     this.submitted = false;
     this.AddCategoryForm.reset();
 }
+// Delete()
+//   {
+//     let id1=this.AddCategoryForm.value["categoryid"];
+//     console.log(id1);
+//     this.sservice.DeleteCategory(id1).subscribe(res=>{
+//       console.log('Category deleted');
+//     },err=>{
+//       console.log(err);
+//     })
+//   }
 }

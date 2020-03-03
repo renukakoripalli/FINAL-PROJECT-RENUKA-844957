@@ -11,5 +11,11 @@ namespace AdminServices.Repositories
     {
         public void AddCategories(Category cat);
         public void AddSubCategories(Subcategory scat);
+        public void DeleteCategory(string categoryid);
+        public void DeleteSubCategory(string subcategoryid);
+        List<Category> ViewCategory();
+        
+        List<Subcategory> ViewSubCategory();
+        public List<Category> GetCategories();
     }
 }

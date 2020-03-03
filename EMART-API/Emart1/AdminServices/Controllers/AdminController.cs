@@ -19,12 +19,54 @@ namespace AdminServices.Controllers
             _conn = con;
         }
         [HttpPost]
-        [Route("AddCategoires")]
+        [Route("AddCategories")]
         public IActionResult AddCategories(Category cat)
         {
             try
             {
                 _conn.AddCategories(cat);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("Deletecategory/{categoryid}")]
+        public IActionResult DeleteCategory(string categoryid)
+        {
+            try
+            {
+                _conn.DeleteCategory(categoryid);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetCategories")]
+        public IActionResult GetCategories()
+        {
+            try
+            {
+                return Ok(_conn.GetCategories()
+                );
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("Deletesubcategory/{subcategoryid}")]
+        public IActionResult DeleteSubCategory(string subcategoryid)
+        {
+            try
+            {
+                _conn.DeleteSubCategory(subcategoryid);
                 return Ok();
             }
             catch (Exception e)
@@ -43,7 +85,33 @@ namespace AdminServices.Controllers
             }
             catch (Exception e)
             {
-                return NotFound(e.InnerException.Message);
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Viewcategory")]
+        public IActionResult Viewcategory()
+        {
+            try
+            {
+                return Ok(_conn.ViewCategory());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Viewsubcategory")]
+        public IActionResult Viewsubcategory()
+        {
+            try
+            {
+                return Ok(_conn.ViewSubCategory());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
             }
         }
     }

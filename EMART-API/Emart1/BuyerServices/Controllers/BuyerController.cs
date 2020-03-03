@@ -49,13 +49,13 @@ namespace BuyerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("get/{Bid}")]
-        public IActionResult Getprofile(string Bid)
+        [Route("get/{bid}")]
+        public IActionResult Getprofile(string bid)
         {
             try
             {
 
-                return Ok(_repo.GetProfile(Bid));
+                return Ok(_repo.GetProfile(bid));
 
             }
             catch (Exception e)
@@ -94,13 +94,13 @@ namespace BuyerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("History/{Bid}")]
-        public IActionResult TransactionHistory(string Bid)
+        [Route("History/{bid}")]
+        public IActionResult TransactionHistory(string bid)
         {
             try
             {
 
-                return Ok(_repo.PurchaseHistory(Bid));
+                return Ok(_repo.PurchaseHistory(bid));
 
             }
             catch (Exception e)

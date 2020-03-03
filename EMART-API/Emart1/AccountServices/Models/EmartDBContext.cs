@@ -275,7 +275,11 @@ namespace AccountServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contactnumber).HasColumnName("contactnumber");
+                entity.Property(e => e.Contactnumber)
+                    .IsRequired()
+                    .HasColumnName("contactnumber")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Emailid)
                     .IsRequired()

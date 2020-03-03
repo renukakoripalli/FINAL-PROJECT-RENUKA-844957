@@ -33,12 +33,12 @@ namespace SellerServices.Controllers
             }
         }
         [HttpDelete]
-        [Route("DeleteItem/{id}")]
-        public IActionResult Delete(string id)
+        [Route("DeleteItem/{sid}")]
+        public IActionResult Delete(string sid)
         {
             try
             {
-                _repo.DeleteItem(id);
+                _repo.DeleteItem(sid);
                 return Ok();
             }
             catch (Exception ex)

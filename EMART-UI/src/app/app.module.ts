@@ -30,6 +30,9 @@ import { ContactComponent } from './Account/contact/contact.component';
 import { from } from 'rxjs';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisterService } from './Account/Services/register.service';
+//import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
+import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
+import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,11 @@ import { RegisterService } from './Account/Services/register.service';
     RegisterSellerComponent,
     RegisterBuyerComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    
+    ViewsubcategoryComponent,
+    
+    ViewcategoryComponent
     
     
   ],

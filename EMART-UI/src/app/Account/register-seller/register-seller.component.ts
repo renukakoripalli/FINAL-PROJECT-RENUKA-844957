@@ -24,6 +24,7 @@ sellers:Seller;
         emailid: ['', [Validators.required, Validators.email]],
         contactnumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
         briefaboutcompany:['',[Validators.required]],
+       
         postaladdress:['',[Validators.required]],
         Gstin:['',[Validators.required]],
         website:['',Validators.required],
@@ -65,10 +66,10 @@ Add()
 
 
       }
-reset(){
-  alert("Successfully registered");
+ reset(){
+ alert("Successfully registered");
   this.SignupForm.reset();
-}
+ }
 
 }
 

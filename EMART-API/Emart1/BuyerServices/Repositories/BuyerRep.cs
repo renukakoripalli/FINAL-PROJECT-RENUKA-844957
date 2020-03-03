@@ -36,22 +36,22 @@ namespace BuyerServices.Repositories
             return conn.Category.ToList();
         }
 
-        public Buyer GetProfile(string Bid)
+        public Buyer GetProfile(string bid)
         {
-            Buyer b = conn.Buyer.SingleOrDefault(e => e.Bid == Bid);
+            Buyer b = conn.Buyer.SingleOrDefault(e => e.Bid== bid);
             return b;
         }
 
       
         public List<Subcategory> GetSubCategories(string categories)
         {
-            var subCategory = conn.Subcategory.Where(e => e.CategoryId ==categories).ToList();
+            var subCategory = conn.Subcategory.Where(e => e.Categoryid ==categories).ToList();
             return subCategory;
         }
 
-        public List<Purchase> PurchaseHistory(string Bid)
+        public List<Purchase> PurchaseHistory(string bid)
         {
-            var b = conn.Purchase.Where(e => e.BuyerId == Bid).ToList();
+            var b = conn.Purchase.Where(e => e.BuyerId == bid).ToList();
             return b;
         }
 
@@ -59,7 +59,7 @@ namespace BuyerServices.Repositories
 
         public List<Items> search(string items)
         {
-            var e = conn.Items.Where(e => e.ItemName == items).ToList();
+            var e = conn.Items.Where(e => e.Itemname == items).ToList();
             return e;
         }
     }

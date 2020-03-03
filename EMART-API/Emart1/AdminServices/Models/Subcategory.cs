@@ -10,11 +10,11 @@ namespace AdminServices.Models
             Items = new HashSet<Items>();
         }
 
-        public string SubcategoryId { get; set; }
-        public string SubcategoryName { get; set; }
-        public string CategoryId { get; set; }
+        public string Subcategoryid { get; set; }
+        public string Subcategoryname { get; set; }
+        public string Categoryid { get; set; }
         public string Briefdetails { get; set; }
-        public double Gst { get; set; }
+        public int Gst { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual ICollection<Items> Items { get; set; }

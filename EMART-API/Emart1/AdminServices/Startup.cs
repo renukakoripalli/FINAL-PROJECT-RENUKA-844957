@@ -52,7 +52,7 @@ namespace AdminServices
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors("Allow origin");
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

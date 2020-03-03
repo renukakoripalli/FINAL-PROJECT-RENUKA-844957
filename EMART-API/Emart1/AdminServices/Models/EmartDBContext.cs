@@ -275,7 +275,11 @@ namespace AdminServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Contactnumber).HasColumnName("contactnumber");
+                entity.Property(e => e.Contactnumber)
+                    .IsRequired()
+                    .HasColumnName("contactnumber")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Emailid)
                     .IsRequired()
@@ -314,8 +318,8 @@ namespace AdminServices.Models
 
             modelBuilder.Entity<Subcategory>(entity =>
             {
-                entity.Property(e => e.SubcategoryId)
-                    .HasColumnName("subcategory_id")
+                entity.Property(e => e.Subcategoryid)
+                    .HasColumnName("subcategoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -325,22 +329,22 @@ namespace AdminServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gst).HasColumnName("GST");
 
-                entity.Property(e => e.SubcategoryName)
+                entity.Property(e => e.Subcategoryname)
                     .IsRequired()
-                    .HasColumnName("subcategory_name")
+                    .HasColumnName("subcategoryname")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Subcategory)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Categoryid)
                     .HasConstraintName("FK__Subcatego__categ__173876EA");
             });
 

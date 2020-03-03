@@ -1,4 +1,4 @@
-<p>admin works!</p>
+<!--<p>admin works!</p>
 
 <div class="image">
     <div class="container-fluid">
@@ -11,34 +11,58 @@
                         <a class="nav-link btn-outline-primary" href="#">Home </a>
                     </li>
                     
-        <!-- <div class="topnav"> -->
-            <!-- <a class="active" href="#home">Home</a> -->
+       
         <li class="col-sm-2 nav-item text-center">
             <a class="nav-link btn-outline-primary" href="/admin/Admin-landingpage" >AdminLandingPage</a>
-                <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+                
     </li>
     <li class="col-sm-1 nav-item text-center ">
-        <!-- <a class="nav-link btn-outline-primary" href="/seller/add-items" >Additems</a> -->
+       
             <a class="btn-outline-primary" [routerLink]="['/admin/add-category']" >AddCategory</a>
     </li>
     <li class="col-sm-2 nav-item text-center btn-outline-primary">
-        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/add-sub-category']" >AddSubCategory</a>
-            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/add-subcategory']" >AddSubCategory</a>
+           
     </li>
     <li class="col-sm-2 nav-item text-center">
         <a class="nav-link btn-outline-primary" [routerLink]="['/admin/view-items']" >viewItems</a>
-            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+           
     </li>
     <li class="col-sm-2 nav-item text-center">
         <a class="nav-link btn-outline-primary" href="/seller/viewreports" >ViewReports</a>
-            <!-- <a [routerLink]="['/buyer/buyer-landingpage']" >BuyerLandingPage</a> -->
+            
     </li>
     <li class="col-sm-1 nav-item text-center">
         <input type="text" placeholder="Search.."></li>
-    <!-- </div> -->
-    
+   
     </ul>
 </div> </nav>
         </div> 
         <router-outlet></router-outlet>
-        </div>
+        </div>-->
+
+        <div class=bg>
+            <h1 class="text-info">welcome {{username}}</h1>
+            
+            <div class="topnav">
+               
+                <a [routerLink]="['/admin/add-category']" >Add Category</a> 
+                <a [routerLink]="['/admin/add-subcategory']" >Add SubCategory</a>
+                <a [routerLink]="['/admin/block-unblock-buyer']" >BLock-Unblock-Buyer</a>
+                <a [routerLink]="['/admin/block-unblock-seller']" >BLock-Unblock-Seller</a>
+                <a [routerLink]="['/admin/viewcategory']" >View Category</a> 
+                <a [routerLink]="['/admin/viewsubcategory']" >View SubCategory</a>
+                <a [routerLink]="['/admin/daily-reports']" >Daily-Reports</a> 
+                <a href="#Logout()" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                  </a>
+                  
+            
+               
+              </div>
+              <router-outlet></router-outlet>
+              </div>
+              
+              
+            
+

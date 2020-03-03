@@ -53,7 +53,7 @@ namespace SellerServices
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseCors("Allow origin");
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

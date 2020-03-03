@@ -21,6 +21,9 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { ContactComponent } from './Account/contact/contact.component';
+//import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
+import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
+import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 
 
 const routes: Routes = [
@@ -43,7 +46,9 @@ const routes: Routes = [
     {path:'block-unblock-seller',component:BlockUnblockSellerComponent},
     {path:'add-category',component:AddCategoryComponent},
     {path:'add-subcategory',component:AddSubcategoryComponent},
-    {path:'daily-report',component:DailyReportsComponent}
+    {path:'daily-report',component:DailyReportsComponent},
+    {path:'viewcategory',component:ViewcategoryComponent},
+    {path:'viewsubcategory',component:ViewsubcategoryComponent}
   ]},
   
   {path:'home',component:HomeComponent,children:[

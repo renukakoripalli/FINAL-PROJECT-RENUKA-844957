@@ -9,11 +9,26 @@ const Requestheaders={headers:new HttpHeaders({'Content-Type':'application/json'
 })
 export class CategoryService {
 
-  url:string="https://localhost:50951/Admin/"
+  url:string="http://localhost:50951/Admin/"
   constructor(private http:HttpClient) { }
     public AddCategory(catg:Category):Observable<any>{
-      return this.http.post<any>(this.url+'AddCategory',JSON.stringify(catg),Requestheaders);}
+      return this.http.post<any>(this.url+'AddCategories',JSON.stringify(catg),Requestheaders);}
       public AddSubcategory(scatg:Subcategory):Observable<any>{
-        return this.http.post<any>(this.url+'AddSubCategory',JSON.stringify(scatg),Requestheaders);}
-
+        return this.http.post<any>(this.url+'AddSubCategories',JSON.stringify(scatg),Requestheaders);}
+        public DeleteCategory(categoryid:string):Observable<any>
+        {
+          return this.http.delete<any>(this.url+'Deletecategory/'+categoryid,Requestheaders);
+        }
+        public Viewcategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Viewcategory',Requestheaders);
+  }
+  public Deletesubcategory(subcategoryid:string):Observable<any>
+  {
+    return this.http.delete<any>(this.url+'Deletesubcategory/'+subcategoryid,Requestheaders);
+  }
+  public Viewsubcategory():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Viewsubcategory',Requestheaders);
+  }
     }

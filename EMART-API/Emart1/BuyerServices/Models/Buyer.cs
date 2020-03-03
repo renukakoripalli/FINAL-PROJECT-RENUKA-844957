@@ -18,6 +18,5 @@ namespace BuyerServices.Models
         public DateTime Createddatetime { get; set; }
 
         public virtual ICollection<Purchase> Purchase { get; set; }
-        public int Id { get; internal set; }
     }
 }
