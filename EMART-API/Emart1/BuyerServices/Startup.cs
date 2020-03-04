@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using BuyerServices.Models;
 using BuyerServices.Repositories;
@@ -12,6 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BuyerServices
 {
@@ -69,9 +72,12 @@ namespace BuyerServices
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            //app.UseAuthentication();
 
             app.UseAuthorization();
-            app.UseCors("Allow origin");
+            app.UseAuthentication();
+
+            app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {

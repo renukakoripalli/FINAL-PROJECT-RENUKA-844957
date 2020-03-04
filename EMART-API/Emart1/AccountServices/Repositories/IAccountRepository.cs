@@ -11,7 +11,7 @@ namespace AccountServices.Repositories
         public void addb(Buyer item);
         public void adds(Seller items);
 
-        public string loginb(string name, string pass);
-        public string logins(string name, string pass);
+        public Buyer BuyerLogin(string username, string pass);
+      public  Seller logins(string username, string pass);
     }
 }

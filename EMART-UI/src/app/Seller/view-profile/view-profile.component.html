@@ -4,15 +4,15 @@
         <div class="bg2">
         <h5 class="card-header text-center">SignupSeller</h5>
         <div class="card-body">
-            <form [formGroup]=" editprofilesForm" (ngSubmit)="onSubmit()">
+            <form [formGroup]=" editprofileform" (ngSubmit)="onSubmit()">
                 
                 <div class="col-md-6">
                         <label>SellerId</label>
-                        <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
-                        <!-- <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
+                        <input type="text" formControlName="sid" class="form-control" readonly="readonly" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
+                        <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
                         <div *ngIf="f.sid.errors.required">Buyer id is required</div> 
                                 
-                    </div>      -->
+                    </div>     
                     
                         <label for="username">Username</label>
                 <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
@@ -93,9 +93,7 @@
                
             
             <div class="text-center">
-                <button class="btn btn-success" type="search" (click)="onSearch()">Search</button>
-                    <button class="btn btn-primary mr-1" (click)="onSubmit()">Update</button>
-                    <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
+                <button (click)="Edit()" type="button" class="btnSubmit">Edit</button> 
             </div>
             </form>
         </div>

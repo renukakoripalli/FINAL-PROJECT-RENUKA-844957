@@ -75,12 +75,12 @@ namespace SellerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("Viewitems")]
-        public IActionResult ViewItems()
+        [Route("Viewitems/{id}")]
+        public IActionResult ViewItems(string id)
         {
             try
             {
-                return Ok(_repo.Viewitems());
+                return Ok(_repo.Viewitems(id));
             }
             catch (Exception e)
             {

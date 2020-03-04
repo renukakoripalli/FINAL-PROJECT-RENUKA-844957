@@ -18,18 +18,14 @@ namespace AccountServices.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly IAccountRepository _repo;
-        private readonly IConfiguration configuration;
-        public AccountController(IAccountRepository repo, IConfiguration configuration)
-        {
-            _repo = repo;
-            this.configuration = configuration;
-        }
         private readonly IAccountRepository conn;
-        public AccountController(IAccountRepository con)
+        private readonly IConfiguration configuration;
+        public AccountController(IAccountRepository con, IConfiguration configuration)
         {
             conn = con;
+            this.configuration = configuration;
         }
+        
         [HttpPost]
         [Route("addb")]
         public IActionResult addb(Buyer item)
@@ -59,34 +55,63 @@ namespace AccountServices.Controllers
             }
         }
         [HttpGet]
-        [Route("loginb/{name}/{pass}")]
-        public IActionResult loginb(string name, string pass)
+        [Route("logins/{username}/{pass}")]
+        
+        public IActionResult SellerLogin(string username, string pass)
         {
+            Token token = null;
             try
             {
+                Seller seller = conn.logins(username,pass);
+                if (seller != null)
+                {
+                    token = new Token() { SellerId = seller.Sid, token = GenerateJwtToken(username), msg = "Success" };
+                }
 
-                return Ok(conn.loginb(name, pass));
+                else
+                {
+                    token = new Token() { token = "", msg = "Unsuccess" };
+                }
+                return Ok(token);
+                //return Ok(_repo.BuyerLogin(uname,pwd));
             }
+
             catch (Exception e)
             {
                 return NotFound(e.Message);
+
             }
+
         }
         [HttpGet]
-        [Route("login/{name}/{pass}")]
-        public IActionResult logins(string name, string pass)
+        [Route("loginb/{username}/{pass}")]
+        public IActionResult BuyerLogin(string username, string pass)
         {
+            Token token = null;
             try
             {
+                Buyer buyer = conn.BuyerLogin(username, pass);
+                if (buyer != null)
+                {
+                    token = new Token() {Bid = buyer.Bid, token = GenerateJwtToken(username), msg = "Success" };
+                }
 
-                return Ok(conn.logins(name, pass));
+                else
+                {
+                    token = new Token() { token = "", msg = "Unsuccess" };
+                }
+                return Ok(token);
+                //return Ok(_repo.BuyerLogin(uname,pwd));
             }
+
             catch (Exception e)
             {
                 return NotFound(e.InnerException.Message);
+
             }
+
         }
-        private Token GenerateJwtToken(string username)
+        private string GenerateJwtToken(string username)
         {
             var claims = new List<Claim>
             {
@@ -107,12 +132,12 @@ namespace AccountServices.Controllers
                 signingCredentials: credentials
             );
 
-            var response = new Token
-            {
-                username = username,
-                token = new JwtSecurityTokenHandler().WriteToken(token)
-            };
-            return response;
+            //var response = new Token
+            //{
+            //    username = username,
+            //    token = new JwtSecurityTokenHandler().WriteToken(token)
+            //};
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
     }

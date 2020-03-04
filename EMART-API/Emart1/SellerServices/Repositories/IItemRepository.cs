@@ -9,7 +9,7 @@ namespace SellerServices.Repositories
     public interface IItemRepository
     {
         void AddItem(Items obj);
-        List<Items> Viewitems();
+        List<Items> Viewitems(string id);
         void DeleteItem(string Iid);
         void UpdateItem(Items obj);
         Items GetItems(string Iid);

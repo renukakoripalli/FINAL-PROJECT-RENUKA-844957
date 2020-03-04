@@ -25,30 +25,38 @@ namespace AccountServices.Repositories
             _context.SaveChanges();
         }
 
-        public string loginb(string name, string pass)
+      
+
+        public Seller logins(string username, string pass)
         {
-            var s = _context.Buyer.Where(e => e.Username == name && e.Password == pass).ToList();
-            if (s.Count!= 0)
+            var y = _context.Seller.SingleOrDefault(e => e.Username == username && e.Password == pass);
+            if (y != null)
             {
-                return "exists";
+                return y;
             }
             else
             {
-                return "false";
+                return null;
             }
         }
 
-        public string logins(string name, string pass)
+        public Buyer BuyerLogin(string username, string pass)
         {
-            var s = _context.Seller.Where(e => e.Username == name && e.Password == pass).ToList();
-            if (s.Count != 0)
+            var x = _context.Buyer.SingleOrDefault(e => e.Username == username && e.Password == pass);
+            if (x != null)
             {
-                return "exists";
+                
+                return x;
             }
             else
             {
-                return "false";
+                return null;
             }
+
         }
-    }
+
+        
+
+    
+}
 }

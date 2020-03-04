@@ -33,6 +33,7 @@ export class AddCategoryComponent implements OnInit {
     //this.buyer=new Buyer(); 
     if (this.AddCategoryForm.valid) {
         this.catg=new Category();
+        //this.catg.categoryid=Math.floor(Math.random()*1000),
         this.catg.categoryid=this.AddCategoryForm.value["categoryid"];
         this.catg.categoryname=this.AddCategoryForm.value["categoryname"];
         this.catg.briefdetails=this.AddCategoryForm.value["briefdetails"];   
@@ -43,7 +44,7 @@ export class AddCategoryComponent implements OnInit {
           console.log(err);
         })
          alert('SUCCESS!! :-)\n\n') 
-        // console.log(JSON.stringify(this.SignupForm.value)); 
+        
       }
 
 }
@@ -52,14 +53,4 @@ onReset() {
     this.submitted = false;
     this.AddCategoryForm.reset();
 }
-// Delete()
-//   {
-//     let id1=this.AddCategoryForm.value["categoryid"];
-//     console.log(id1);
-//     this.sservice.DeleteCategory(id1).subscribe(res=>{
-//       console.log('Category deleted');
-//     },err=>{
-//       console.log(err);
-//     })
-//   }
 }

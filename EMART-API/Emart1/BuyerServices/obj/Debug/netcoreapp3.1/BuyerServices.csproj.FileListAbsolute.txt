@@ -127,3 +127,4 @@ E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\BuyerServices\bin\Debug\netcorea
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\BuyerServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\BuyerServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\BuyerServices\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\BuyerServices\obj\Debug\netcoreapp3.1\BuyerServices.MvcApplicationPartsAssemblyInfo.cache

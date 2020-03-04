@@ -15,15 +15,14 @@ export class SellerService {
   constructor(private http:HttpClient) { }
     public AddItem(item:Items):Observable<any>{
       return this.http.post<any>(this.url+'AddItem',JSON.stringify(item),Requestheaders);}
-      public GetProfile(sid:string):Observable<Seller>
+      GetProfile(sid:number):Observable<any>
       {
-        return this.http.get<Seller>(this.url1+'GetProfile/'+sid,Requestheaders);
-    
+        return this.http.get<any>(this.url1+'GetProfile'+'/'+sid,Requestheaders);
       }
-      public Editprofile(seller:Seller):Observable<any>
-      {
-        return this.http.put<any>(this.url1+'EditProfile',JSON.stringify(seller),Requestheaders);
-      }
+      public EditProfile(item:Seller):Observable<any>
+     {
+       return this.http.put<any>(this.url1+'EditProfile',item);
+  }
       public Getcategory():Observable<Category[]>
   {
     return this.http.get<Category[]>(this.url+'Getcategory',Requestheaders);
@@ -32,14 +31,23 @@ export class SellerService {
   {
     return this.http.get<Subcategory[]>(this.url+'Getsubcategory/'+categoryid,Requestheaders);
   }
-  public Viewitems():Observable<any>
+  public Viewitems(id:string):Observable<any>
   {
-    return this.http.get<any>(this.url+'Viewitems',Requestheaders);
+    return this.http.get<any>(this.url+'Viewitems/'+id,Requestheaders);
   }
   public Deleteitem(Iid:string):Observable<Items>
   {
     return this.http.delete<Items>(this.url+'Deleteitem/'+Iid,Requestheaders);
   }
+  public Updateitem(items:Items):Observable<any>
+  {
+    return this.http.put<any>(this.url+'Update',items,Requestheaders);
+  }
+  public Getitems(Iid:string):Observable<Items>
+  {
+    return this.http.get<Items>(this.url+'GetItems/'+Iid,Requestheaders);
+  }
+  
         
 }
 

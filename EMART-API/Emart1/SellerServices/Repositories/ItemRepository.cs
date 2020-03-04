@@ -47,9 +47,9 @@ namespace SellerServices.Repositories
             _context.SaveChanges();
         }
 
-        public List<Items> Viewitems()
+        public List<Items> Viewitems(string id)
         {
-            return _context.Items.ToList();
+            return _context.Items.Where(e=>e.Sid==id).ToList();
         }
     }
 }

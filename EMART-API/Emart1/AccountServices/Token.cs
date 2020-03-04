@@ -7,10 +7,11 @@ namespace AccountServices
 {
     public class Token
     {
+        public string msg { get; set; }
         public string username { get; set; }
         public string token { get; set; }
-        public string Bid { get; set; }
+       
         public string SellerId { get; set; }
-        public string BuyerId { get; set; }
+        public string Bid { get; set; }
     }
 }
