@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms';
 import { Buyer } from 'src/app/Models/buyer';
 import { RegisterService } from '../Services/register.service';
-import { resetFakeAsyncZone } from '@angular/core/testing';
-import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-register-buyer',
   templateUrl: './register-buyer.component.html',
@@ -22,7 +21,7 @@ b:Buyer[];
 
     ngOnInit() {
         this.SignupForm = this.formBuilder.group({
-            bid: ['',[Validators.required]],
+            //bid: ['',[Validators.required]],
             username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
             password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
             emailid: ['', [Validators.required,Validators.email]],
@@ -40,20 +39,22 @@ b:Buyer[];
         //this.buyer=new Buyer(); 
         if (this.SignupForm.valid) {
             this.items=new Buyer();
-            this.items.bid=this.SignupForm.value["bid"];
+            this.items.bid=Math.floor(Math.random()*10).toString();
+          
             this.items.username=this.SignupForm.value["username"];
+          
             this.items.password=this.SignupForm.value["password"];
             this.items.emailid=this.SignupForm.value["emailid"];
             this.items.mobilenumber=this.SignupForm.value["mobilenumber"];
             this.items.createddatetime=this.SignupForm.value["createddatetime"];
-            // console.log(this.buyer);
+            
             this.services.addBuyer(this.items).subscribe(res=>{
               console.log('buyer registered sucessfully')
             },err=>{
               console.log(err);
             })
             alert('SUCCESS!! :-)\n\n') 
-            // console.log(JSON.stringify(this.SignupForm.value)); 
+            
           }
 
     }

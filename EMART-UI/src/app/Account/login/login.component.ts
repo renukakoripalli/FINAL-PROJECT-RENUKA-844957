@@ -38,7 +38,7 @@ get f() { return this.login.controls; }
 
 onSubmit() {
     this.submitted = true;
-     // display form values on success
+     
      }
 
 onReset() {
@@ -51,9 +51,7 @@ public Validate()
   let password=this.login.value['password'];
   let role=this.login.value['role'];
   this.token=new Token();
-  //this.token=new Token();
-  // alert(username)
-  // alert(role)
+  
   if(role=='buyer')
   {
     this.service.BuyerLogin(username,password).subscribe(res=>{
@@ -61,6 +59,7 @@ public Validate()
       this.token=res;
 
       if(this.token.msg=='Success'){
+        localStorage.setItem('bid',this.token.BuyerId);
           this.route.navigateByUrl('buyer');
       }
       else{
@@ -74,7 +73,9 @@ if(role=='seller')
 this.service.SellerLogin(username,password).subscribe(res=>{
   console.log(res)
   this.token=res;
+
   if(this.token.msg=="Success"){
+    localStorage.setItem('sid',this.token.SellerId);
     this.route.navigateByUrl("seller")
   }
   else{

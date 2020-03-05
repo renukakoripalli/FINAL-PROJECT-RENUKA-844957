@@ -14,8 +14,11 @@ export class AddCategoryComponent implements OnInit {
   submitted = false;
 
  catg:Category;
+ categories:Category[];
  
-  constructor(private formBuilder: FormBuilder,private sservice:CategoryService) { }
+  constructor(private formBuilder: FormBuilder,private sservice:CategoryService) {
+    
+   }
 
   ngOnInit() {
       this.AddCategoryForm = this.formBuilder.group({
@@ -34,7 +37,7 @@ export class AddCategoryComponent implements OnInit {
     if (this.AddCategoryForm.valid) {
         this.catg=new Category();
         //this.catg.categoryid=Math.floor(Math.random()*1000),
-        this.catg.categoryid=this.AddCategoryForm.value["categoryid"];
+        this.catg.categoryid=Math.floor(Math.random()*1000),
         this.catg.categoryname=this.AddCategoryForm.value["categoryname"];
         this.catg.briefdetails=this.AddCategoryForm.value["briefdetails"];   
         console.log(this.catg);

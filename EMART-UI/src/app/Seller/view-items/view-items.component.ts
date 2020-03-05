@@ -12,12 +12,12 @@ import { Subcategory } from 'src/app/Models/subcategory';
 export class ViewItemsComponent implements OnInit {
 
   items:Items;
-  list:Items[];
+  list:Items;
   itemForm:FormGroup;
   category:Category[];
   categorylist:Category[];
   subcategorylist:Subcategory[];
-  id:string='S0001';
+  sid:string;
 
   constructor(private service:SellerService,private formbuilder:FormBuilder ) { }
 
@@ -31,12 +31,13 @@ export class ViewItemsComponent implements OnInit {
       price:[''],
       stocknumber:[''],
       remarks:[''],
-      sid:['']
+      sid:[''],
+      Photo:['']
     })
     this.Viewitems();
   }
-  Search(Iid:string){
-    this.service.Getitems(Iid).subscribe(res=>{
+  Search(id:string){
+    this.service.Getitems(id).subscribe(res=>{
       this.items=res;
       console.log(this.items);
       this.itemForm.setValue({
@@ -48,7 +49,8 @@ export class ViewItemsComponent implements OnInit {
         price:this.items.price,
         stocknumber:this.items.stocknumber,
         remarks:this.items.remarks,
-        sid:this.items.sid
+        sid:this.items.sid,
+        Photo:this.items.Photo
       })
   
   
@@ -69,6 +71,7 @@ export class ViewItemsComponent implements OnInit {
       this.items.stocknumber=Number(this.itemForm.value["stocknumber"]);
       this.items.remarks=this.itemForm.value["remarks"];
       this.items.sid=this.itemForm.value["sid"];
+      this.items.Photo=this.itemForm.value["Photo"];
       console.log(this.items);
       this.service.Updateitem(this.items).subscribe(res=>{
         console.log('added');
@@ -90,16 +93,18 @@ export class ViewItemsComponent implements OnInit {
    
    }
    Viewitems():void
+   {
+  this.service.Viewitems("2").subscribe(res=>
     {
-   this.service.Viewitems(this.id).subscribe(res=>
-     {
-       this.list=res;
-       console.log(this.list)
-     },
-     err=>{
-       console.log(err);
-     })
-   }
+      this.list=res;
+      console.log(this.list)
+    },
+    err=>{
+      console.log(err);
+    })
+  }
+
+      
    GetSubcategory()
    {
      let categoryid=this.itemForm.value["categoryid"];

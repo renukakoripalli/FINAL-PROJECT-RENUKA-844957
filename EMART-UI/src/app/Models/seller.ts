@@ -1,5 +1,5 @@
 export class Seller {
-    public sid:number;
+    public sid:string;
 public username:string;
 public password:string;
 public companyname:string;
@@ -9,5 +9,5 @@ public postaladdress:string;
 public website:string;
 public emailid:string;
 public contactnumber:number;
-
+ 
 }

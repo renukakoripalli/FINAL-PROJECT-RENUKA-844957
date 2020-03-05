@@ -17,7 +17,7 @@ sellers:Seller;
 
   ngOnInit() {
     this.SignupForm = this.formBuilder.group({
-            sid: ['', Validators.required],
+            
         username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
         companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
         password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],      
@@ -26,7 +26,7 @@ sellers:Seller;
         briefaboutcompany:['',[Validators.required]],
        
         postaladdress:['',[Validators.required]],
-        Gstin:['',[Validators.required]],
+        gstin:['',[Validators.required]],
         website:['',Validators.required],
         acceptTerms: [false,Validators.requiredTrue]
     });
@@ -50,7 +50,7 @@ onReset() {
 Add()
 {
   this.sellers=new Seller();
-      this.sellers.sid=this.SignupForm.value["sid"];
+  this.sellers.sid=Math.floor(Math.random()*10).toString();
       this.sellers.username=this.SignupForm.value["username"];
       this.sellers.password=this.SignupForm.value["password"];
       this.sellers.emailid=this.SignupForm.value["emailid"];

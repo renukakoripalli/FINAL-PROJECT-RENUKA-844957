@@ -1,5 +1,5 @@
 export class Buyer {
-   public bid:number;
+   public bid:string;
 public username:string;
 public password:string;
 public emailid:string;

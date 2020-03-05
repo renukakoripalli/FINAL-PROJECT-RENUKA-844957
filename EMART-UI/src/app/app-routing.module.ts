@@ -20,7 +20,7 @@ import { DailyReportsComponent } from './Admin/daily-reports/daily-reports.compo
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
-import { ContactComponent } from './Account/contact/contact.component';
+//import { ContactComponent } from './Account/contact/contact.component';
 //import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
@@ -52,7 +52,7 @@ const routes: Routes = [
   ]},
   
   {path:'home',component:HomeComponent,children:[
-   {path:'contact',component:ContactComponent},
+  // {path:'contact',component:ContactComponent},
      {path:'login',component:LoginComponent},
     {path:'register-seller',component:RegisterSellerComponent},
      {path:'register-buyer',component:RegisterBuyerComponent}

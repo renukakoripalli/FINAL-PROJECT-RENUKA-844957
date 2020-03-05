@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Seller } from 'src/app/Models/seller';
-
+import { Router } from '@angular/router';
 import { SellerService } from '../services/seller.service';
 //import { Router } from '@angular/router';
 @Component({
@@ -11,84 +11,86 @@ import { SellerService } from '../services/seller.service';
 })
 export class ViewProfileComponent implements OnInit {
 
-  editprofileform: FormGroup;
-    submitted = false;
-    seller:Seller;
-    list:Seller[];
-    constructor(private formbuilder: FormBuilder,private service:SellerService) { }
-
-    ngOnInit() {
-        this.editprofileform = this.formbuilder.group({
-            sid:['',[Validators.required]],
-            username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
-            companyname:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
-            gstin:['',[Validators.required,Validators.pattern('^[a-z]{3,10}$')]],
-            briefaboutcompany:['',[Validators.required]],
-            postaladdress:['',[Validators.required]],
-            website:['',[Validators.required]],
-            emailid: ['', [Validators.required, Validators.email]],
-            contactnumber:['',[Validators.required,Validators.pattern("^[6-9][0-9]{9}$")]],
-             
-            
-        });
-        this.GetProfile()
-    }
-    get f()
-    {
-       return this.editprofileform.controls; 
-    }
+  Sellform:FormGroup;
+  submitted=false;
+  list:Seller[];
+  seller:Seller;
+  sid:number;
+  constructor(private route:Router,private builder:FormBuilder,private service:SellerService) {
+    this.sid=Number(localStorage.getItem('sid'));
+   }
   
-   
-    Onsubmit()
-    {
-      this.submitted =true;
-        if(this.editprofileform.valid){
-          this.GetProfile()
-        }
-    }
-   GetProfile()
-    {
-      let sid=12345;
-    this.service.GetProfile(sid).subscribe(res=>
+  ngOnInit() {
+    this.Sellform=this.builder.group({
       
-     {
-       this.seller=res;
-       console.log(this.seller);
-       this.editprofileform.patchValue({
-         sid:this.seller.sid,
-         username:this.seller.username,
-         emailid:this.seller.emailid,
-         password:this.seller.password,
-         briefaboutcompany:this.seller.briefaboutcompany,
-         companyname:this.seller.companyname,
-         postaladdress:this.seller.postaladdress,
-         website:this.seller.website,
-         contactnumber:this.seller.contactnumber,
-          gstin:this.seller.gstin
-       })
-      
-    })}
-    Edit()
-    {
-    
-      this.seller=new Seller();
-      this.seller.sid=this.editprofileform.value["sid"],
-      this.seller.username=this.editprofileform.value["username"],
-      this.seller.emailid=this.editprofileform.value["emailid"],
-      this.seller.password=this.editprofileform.value["password"],
-      this.seller.briefaboutcompany=this.editprofileform.value["briefaboutcompany"],
-      this.seller.companyname=this.editprofileform.value["companyname"],
-      this.seller.postaladdress=this.editprofileform.value["postaladdress"],
-      this.seller.website=this.editprofileform.value["website"],
-      this.seller.contactnumber=this.editprofileform.value["contactnumber"],
-      this.seller.gstin=this.editprofileform.value["gstin"],
-      this.service.EditProfile(this.seller).subscribe(res=>{console.log(this.seller),alert("updated succesfully"),this.GetProfile()},err=>{
-        console.log(err)
-      })
-    }
+        sid:['',[Validators.required]],
+        username:['',[Validators.required]],
+        password:['',[Validators.required]],
+        companyname:['',[Validators.required]],
+        gstin:['',[Validators.required]],
+        briefaboutcompany:['',[Validators.required]],
+        postaladdress:['',[Validators.required]],
+        website:['',[Validators.required]],
+        emailid:['',[Validators.required,Validators.email]],
+        contactnumber:['',[Validators.required]]
+        }) 
+        this.myprofile()
+      }
+     
+  
+  get f()
+  {
+     return this.Sellform.controls; 
   }
 
+ 
+  Onsubmit()
+  {
+    this.submitted =true;
+      if(this.Sellform.valid){
+        this.myprofile()
+      }
+  }
+  myprofile()
+  {
+   
+  this.service.Myprofile(this.sid).subscribe(res=>
+    
+   {
+     this.seller=res;
+     console.log(this.seller);
+     this.Sellform.patchValue({
+       
+       username:this.seller.username,
+       emailid:this.seller.emailid,
+       password:this.seller.password,
+       briefaboutcompany:this.seller.briefaboutcompany,
+       companyname:this.seller.companyname,
+       postaladdress:this.seller.postaladdress,
+       website:this.seller.website,
+       contactnumber:this.seller.contactnumber,
+        gstin:this.seller.gstin
+     })
+    
+  })}
+  Edit()
+  {
   
+    this.seller=new Seller();
+    this.seller.sid=localStorage.getItem('sid')
+    this.seller.username=this.Sellform.value["username"],
+    this.seller.emailid=this.Sellform.value["emailid"],
+    this.seller.password=this.Sellform.value["password"],
+    this.seller.briefaboutcompany=this.Sellform.value["briefaboutcompany"],
+    this.seller.companyname=this.Sellform.value["companyname"],
+    this.seller.postaladdress=this.Sellform.value["postaladdress"],
+    this.seller.website=this.Sellform.value["website"],
+    this.seller.contactnumber=this.Sellform.value["contactnumber"],
+    this.seller.gstin=this.Sellform.value["gstin"],
+    this.service.edit(this.seller).subscribe(res=>{console.log(this.seller),alert("updated succesfully"),this.myprofile()},err=>{
+      console.log(err)
+    })
+  }
+}
    
      

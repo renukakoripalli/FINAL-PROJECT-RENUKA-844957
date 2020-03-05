@@ -7,13 +7,19 @@
     <a [routerLink]="['/buyer/purchase-history']" >Purchase History</a>
     <a [routerLink]="['/buyer/viewcart']" ><span class="glyphicon glyphicon-shopping-cart"></span>View Cart</a>
     <a [routerLink]="['/buyer/viewprofile']" >Edit Profile</a>
+    <a [routerLink]="['buyer/search']">SearchItems</a>
     <a href="#Logout()" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-log-out"></span> Log out
-      </a>
+      </a>&nbsp;
       
-
-    <input type="text" placeholder="Search.."[routerLink]="['/buyer/search']">
+      
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    <!-- <input type="text" placeholder="Search.."[routerLink]="['/buyer/search']"> -->
   </div>
+  <router-outlet></router-outlet>
   </div>
 
 
@@ -22,4 +28,3 @@
   
     
 
-<router-outlet></router-outlet>

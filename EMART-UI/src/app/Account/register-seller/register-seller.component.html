@@ -6,12 +6,12 @@
                 <form [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
                     
                     <div class="col-md-6">
-                            <label>SellerId</label>
+                            <!-- <label>SellerId</label>
                             <input type="text" formControlName="sid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sid.errors }" />
                             <div *ngIf="submitted && f.sid.errors" class="invalid-feedback">
                             <div *ngIf="f.sid.errors.required">Buyer id is required</div> 
                                     
-                        </div>     
+                        </div>      -->
                         
                             <label for="username">Username</label>
                     <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />

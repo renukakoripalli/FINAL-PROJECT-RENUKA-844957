@@ -151,7 +151,9 @@ namespace SellerServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                entity.Property(e => e.Photo)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Price).HasColumnName("price");
 

@@ -1,1 +1,34 @@
-<p>search works!</p>
+
+  <div class="form-inline my-2 my-lg-0 offset-5">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"[(ngModel)]="itemname">
+        <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="Search(itemname)">Search</button>
+  </div>
+<br>
+<br>
+  <div class="container">
+    <div class="row offset-4">
+      <div class="card-deck ">
+          <div class="card text-center" *ngFor="let item of list" style="width: 18rem;" >
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+              <h5 class="card-title">{{item.itemname}}</h5>
+              <div class="card-body">
+                <!-- ItemId:{{item.iid}}<br/>
+                CategoryId:{{item.cid}}<br/>
+                SubCategoryId:{{item.scid}}<br/>
+                SellerId: {{item.sid}}<br/> -->
+                Price: {{item.price}}<br/>
+                Description:{{item.description}}<br/>
+                Stock:{{item.stock}}<br/>
+                Remarks:{{item.remarks}} 
+            </div>
+            <div class="card-footer">
+              <div class="text-center">
+                <button class="btn btn-success mr-1" >Buy</button>
+                <button class="btn btn-outline-info" >AddToCart</button>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

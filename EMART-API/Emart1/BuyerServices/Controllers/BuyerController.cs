@@ -79,12 +79,12 @@ namespace BuyerServices.Controllers
             }
         }
         [HttpGet]
-        [Route("Search/{Iname}")]
-        public IActionResult SearchItems(string Iname)
+        [Route("Search/{itemname}")]
+        public IActionResult SearchItems(string itemname)
         {
             try
             {
-                return Ok(_repo.search(Iname));
+                return Ok(_repo.search(itemname));
 
 
             }

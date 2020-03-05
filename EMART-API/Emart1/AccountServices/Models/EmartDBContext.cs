@@ -134,19 +134,20 @@ namespace AccountServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Description)
                     .IsRequired()
+                    .HasColumnName("description")
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ItemName)
+                entity.Property(e => e.Itemname)
                     .IsRequired()
-                    .HasColumnName("Item_name")
+                    .HasColumnName("itemname")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -161,33 +162,31 @@ namespace AccountServices.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Sid)
-                    .IsRequired()
                     .HasColumnName("sid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.StockNumber).HasColumnName("Stock_number");
+                entity.Property(e => e.Stocknumber).HasColumnName("stocknumber");
 
-                entity.Property(e => e.SubcategoryId)
+                entity.Property(e => e.Subcategoryid)
                     .IsRequired()
-                    .HasColumnName("subcategory_id")
+                    .HasColumnName("subcategoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Items)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Categoryid)
                     .HasConstraintName("FK__Items__category___4F7CD00D");
 
                 entity.HasOne(d => d.S)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.Sid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Items__sid__5165187F");
+                    .HasConstraintName("FK__Items__sid__5AEE82B9");
 
                 entity.HasOne(d => d.Subcategory)
                     .WithMany(p => p.Items)
-                    .HasForeignKey(d => d.SubcategoryId)
+                    .HasForeignKey(d => d.Subcategoryid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Items__scid__5070F446");
             });
@@ -289,6 +288,7 @@ namespace AccountServices.Models
 
                 entity.Property(e => e.Gstin)
                     .IsRequired()
+                    .HasColumnName("gstin")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -318,8 +318,8 @@ namespace AccountServices.Models
 
             modelBuilder.Entity<Subcategory>(entity =>
             {
-                entity.Property(e => e.SubcategoryId)
-                    .HasColumnName("subcategory_id")
+                entity.Property(e => e.Subcategoryid)
+                    .HasColumnName("subcategoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -329,22 +329,22 @@ namespace AccountServices.Models
                     .HasMaxLength(30)
                     .IsUnicode(false);
 
-                entity.Property(e => e.CategoryId)
-                    .HasColumnName("category_id")
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gst).HasColumnName("GST");
 
-                entity.Property(e => e.SubcategoryName)
+                entity.Property(e => e.Subcategoryname)
                     .IsRequired()
-                    .HasColumnName("subcategory_name")
+                    .HasColumnName("subcategoryname")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.HasOne(d => d.Category)
                     .WithMany(p => p.Subcategory)
-                    .HasForeignKey(d => d.CategoryId)
+                    .HasForeignKey(d => d.Categoryid)
                     .HasConstraintName("FK__Subcatego__categ__173876EA");
             });
 

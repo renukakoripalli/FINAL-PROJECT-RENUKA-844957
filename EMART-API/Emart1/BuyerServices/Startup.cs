@@ -75,7 +75,7 @@ namespace BuyerServices
             //app.UseAuthentication();
 
             app.UseAuthorization();
-            app.UseAuthentication();
+           // app.UseAuthentication();
 
             app.UseCors("AllowOrigin");
 

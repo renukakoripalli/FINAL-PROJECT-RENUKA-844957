@@ -1,107 +1,74 @@
-<p>viewprofile works!</p>
-<nav class="navbar navbar-expand-lg navbar-light border-bottom box-shadow mb-3"  style="background-color: #e3f2fd;">
-    <div class="container">
-        <h6 class="navbar-brand" ><img src="assets\images\Emart.png"width="100" height="35" alt=""></h6> 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active ">
-          <a class="nav-link" href="#" >Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#">Buyproducts</a>
-        </li>
-        <li class="nav-item ">
-            <a class="nav-link" href="#">PurchaseHistory</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">ViewCart</a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="#">Viewprofile</a>
-          </li>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    
-    </ul>
-    
-      <div class="nav-item ml-auto">
-        <a class="nav-link" href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
-      </div>
-    
-    </div>
-</div>
-</nav>
-<div class="container">
-    <div class="card bg-light mb-3">
-        <h5 class="card-header text-center">Edit Profile</h5>
-        <div class="card-body">
-            <form [formGroup]="EditProfileForm">
-              <!-- (ngSubmit)="onSubmit()"  -->
-                <div class="form-group col-md-5 offset-4">
-                    <label>BuyerId:</label>
-                    <input type="text" formControlName="Bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Bid.errors }" />
-                    <div *ngIf="submitted && f.Bid.errors" class="invalid-feedback">
-                    <div *ngIf="f.Bid.errors.required">Buyer id is required</div> 
-
-                    </div>        
-                </div>
-
-                    <div class="form-group col-md-5 offset-4">
-                        <label for="username">Username:</label>
-                        <input type="text" formControlName="Username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Username.errors }" />
-                        <div *ngIf="submitted && f.Username.errors" class="invalid-feedback">
-                            <div *ngIf="f.Username.errors.required">Username is required</div>
-                        </div>
-                    </div>
-                
-                    <div class="form-group col-md-5 offset-4">
-                        <label for="password">Password:</label>
-                        <input type="password" formControlName="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" />
-                        <div *ngIf="submitted && f.Password.errors" class="invalid-feedback">
-                            <div *ngIf="f.Password.errors.required">Password is required</div>
-                            <div *ngIf="f.Password.errors.pattern">Pasword Must be Valid</div>
-                        </div>
-                    </div>
-    
-                <div class="form-group col-md-5 offset-4 ">
-                    <label>Email:</label>
-                    <input type="email" formControlName="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
-                    <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
-                        <div *ngIf="f.Email.errors.required">Email is required</div>
-                        <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
-                    </div>
-                </div>
-                
-                <div class="form-group col-md-5 offset-4">
-                    <label>Mobile:</label>
-                    <input type="text" formControlName="Mobile" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Mobile.errors }" />
-                    <div *ngIf="submitted && f.Mobile.errors" class="invalid-feedback">
-                        <div *ngIf="f.Mobile.errors.required">Mobile no is required</div>
-                        <div *ngIf="f.Mobile.errors.pattern">Mobile no Must be Valid</div>
-                    </div>
-                </div>
-                <div class="form-group col-md-5 offset-4">
-                  <label>DateTime:</label>
-                  <input type="date" data-date-format="Y M D" formControlName="Datetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Datetime.errors }" />
-                  <div *ngIf="submitted && f.Datetime.errors" class="invalid-feedback">
-                      <div *ngIf="f.Datetime.errors.required">Date is required</div>
-                      <!-- <div *ngIf="f.datetime.errors.pattern">Date Must be Valid Format</div> -->
+<form [formGroup]="Buyerform" (ngSubmit)="Onsubmit()">
+  <div class="container register-form" id="form" style="float: right;margin-top:90px;margin-right:130px;">
+      <div class="form">
+          <div class="note">
+              <p>Register Here</p>
+          </div>
+          
+          <div class="form-content"  style="border-color: white;">
+              <div class="row">
+                  
+                  <div class="col-md-6">
+                      <!-- <div class="form-group">
+                          <input type="text" formControlName="bid" class="form-control" placeholder="BuyerID *" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }" />
+                                  <div *ngIf="submitted && f.bid.errors" class="invalid-feedback">
+                                      <div *ngIf="f.bid.errors.required">id is required</div>
+                                      <div *ngIf="f.bid.errors.pattern">Enter valid id ex:B445</div>
+                                  </div>
+                      </div> -->
+                      <div class="form-group">
+                          <input type="text" formControlName="username" class="form-control" placeholder="Your Name *" value=""  [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+                          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                              <div *ngIf="f.username.errors.required">First Name is required</div>
+                              <div *ngIf="f.username.errors.pattern">Enter only Alphabets</div>
+                          </div>
+                          
+                      </div>
                   </div>
-              </div> 
-                
-
-            <div class="text-center">
-              <button class="btn btn-success mr-1" type="search" (click)="onSearch()">Search</button>
-                <button class="btn btn-primary mr-1" (click)="onSubmit()">Update</button>
-                <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
-            </div>
-            </form>
-        </div>
-    </div>
-    </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          
+                          <input type="password" formControlName="password" class="form-control" placeholder="Your password *" value="" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+                          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                              <div *ngIf="f.password.errors.required">First Name is required</div>
+                              <div *ngIf="f.password.errors.pattern">Enter only Alphabets</div>
+                          </div>
+                      </div>
+                  </div>
+                   <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="email" formControlName="emailid" class="form-control" placeholder="Your email *" value="" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }"/>
+                          <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
+                              <div *ngIf="f.emailid.errors.required">First Name is required</div>
+                              <div *ngIf="f.emailid.errors.pattern">Enter only Alphabets</div>
+                          </div>
+                      </div>
+                      
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" formControlName="mobilenumber" class="form-control" placeholder="Your Mobile Number*" value="" [ngClass]="{ 'is-invalid': submitted && f.mobilenumber.errors }"/>
+                          <div *ngIf="submitted && f.mobilenumber.errors" class="invalid-feedback">
+                              <div *ngIf="f.mobilenumber.errors.required">First Name is required</div>
+                              <div *ngIf="f.mobilenumber.errors.pattern">Enter only Alphabets</div>
+                          </div>
+                      </div>
+                      
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" formControlName="createddatetime" class="form-control" placeholder="Created date time*" value="" [ngClass]="{ 'is-invalid': submitted && f.createddatetime.errors }"/>
+                          <div *ngIf="submitted && f.createddatetime.errors" class="invalid-feedback">
+                              <div *ngIf="f.createddatetime.errors.required">First Name is required</div>
+                              <div *ngIf="f.createddatetime.errors.pattern">Enter only Alphabets</div>
+                          </div>
+                      </div>
+                      
+                  </div>
+          </div>
+           
+          </div>
+     
+      </div>
+  </div>
+</form>

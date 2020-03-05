@@ -1,5 +1,6 @@
-<div class="view">    
+<!--  <div class="view">    
   <div class="container">
+    <img class="img" src="assets/images/{{item.Photo}}" alt="Card image" style="width:100%">
          <div class=" table">
           <div class="table-info">
              <tr>
@@ -9,7 +10,8 @@
                  <th>Description</th>
                  <th>Stock:</th>
                  <th>Remarks:</th>
-                 <!-- <th>SellerId</th> -->
+                 <th>Photo:</th>
+                  <th>SellerId</th> 
              </tr>
              <tr *ngFor="let item of list">  
                   <td>{{item.iid}}</td>
@@ -18,6 +20,7 @@
                   <td>{{item.description}}</td>
                   <td>{{item.stocknumber}}</td>
                   <td>{{item.remarks}}</td>
+                  <td>{{item.Photo}}</td>
                  
                   <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td>
                   <td><button class="btn btn-danger  mr-1" (click)="Deleteitem(item.iid)">Delete</button></td>
@@ -34,9 +37,9 @@
                           <div class="form-group col-md-5 offset-4">
                             <label>ItemId:</label>
                             <input type="text" formControlName="Iid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Iid.errors }">
-                            <!-- <select formControlName="Iid" class="form-control" (change)="Search()">
+                            <select formControlName="Iid" class="form-control" (change)="Search()">
                               <option *ngFor="let item of list" value="{{item.iid}}">{{item.iid}}</option>
-                          </select> -->
+                          </select> 
                             <div *ngIf="submitted && f.Iid.errors" class="invalid-feedback">
                               <div *ngIf="f.Iid.errors.required">itemid is required</div>
                             </div>
@@ -96,4 +99,26 @@
         </div>                  
         </div>      
        </div>
-    </div>
+    </div> -->
+ 
+
+
+    <div class="container">
+      <div class="row" >
+        <div class="col-md-3" *ngFor="let item of list">
+        <div class="card" style="width:250px">
+          <img class="img" src="/assets/images/{{item.Photo}}" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h4 class="card-title">{{item.itemname}}</h4>
+            <h5 class="card-text">ID:{{item.iid}}</h5>
+              <h5 class="card-text">Price:{{item.price}} </h5>
+            <td><button  type="button" (click)="view(item.iid)" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Edit</button></td>
+            <!-- <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td> -->
+                  <td><button class="btn btn-danger  mr-1" (click)="Deleteitem(item.iid)">Delete</button></td>
+            <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+          </div>
+        </div>
+      </div>
+        </div>
+       </div>
+       

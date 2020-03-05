@@ -124,3 +124,7 @@ E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcorea
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\FINAL-PROJECT-RENUKA-844957\EMART-API\Emart1\AdminServices\obj\Debug\netcoreapp3.1\AdminServices.MvcApplicationPartsAssemblyInfo.cache

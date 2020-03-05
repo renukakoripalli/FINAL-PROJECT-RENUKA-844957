@@ -15,14 +15,15 @@ export class SellerService {
   constructor(private http:HttpClient) { }
     public AddItem(item:Items):Observable<any>{
       return this.http.post<any>(this.url+'AddItem',JSON.stringify(item),Requestheaders);}
-      GetProfile(sid:number):Observable<any>
+      Myprofile(sid:number):Observable<Seller>
       {
-        return this.http.get<any>(this.url1+'GetProfile'+'/'+sid,Requestheaders);
+       console.log(Requestheaders)
+        return this.http.get<Seller>(this.url1+'GetProfile'+'/'+sid,Requestheaders);
       }
-      public EditProfile(item:Seller):Observable<any>
-     {
-       return this.http.put<any>(this.url1+'EditProfile',item);
-  }
+      edit(item:Seller):Observable<any>
+      {
+        return this.http.put<any>(this.url1+'EditProfile',item,Requestheaders);
+      }
       public Getcategory():Observable<Category[]>
   {
     return this.http.get<Category[]>(this.url+'Getcategory',Requestheaders);

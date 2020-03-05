@@ -26,10 +26,11 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterSellerComponent } from './Account/register-seller/register-seller.component';
 import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.component';
 import { HomeComponent } from './Account/home/home.component';
-import { ContactComponent } from './Account/contact/contact.component';
+//import { ContactComponent } from './Account/contact/contact.component';
 import { from } from 'rxjs';
 import {HttpClientModule} from '@angular/common/http';
 import { RegisterService } from './Account/Services/register.service';
+
 //import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
@@ -60,7 +61,7 @@ import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.compone
     RegisterSellerComponent,
     RegisterBuyerComponent,
     HomeComponent,
-    ContactComponent,
+    //ContactComponent,
     
     ViewsubcategoryComponent,
     

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup,Validators} from '@angular/forms'
 import { Subcategory } from 'src/app/Models/subcategory';
 import { CategoryService } from '../services/category.service';
+import { Category } from 'src/app/Models/category';
 @Component({
   selector: 'app-add-subcategory',
   templateUrl: './add-subcategory.component.html',
@@ -11,6 +12,9 @@ export class AddSubcategoryComponent implements OnInit {
 
   AddSubCategoryForm: FormGroup;
   submitted = false;
+  category:Subcategory;
+  categories:Category[];
+  subcategories:Subcategory;
 
  scatg:Subcategory;
   constructor(private formBuilder: FormBuilder,private sservice:CategoryService) { }
@@ -41,8 +45,8 @@ export class AddSubcategoryComponent implements OnInit {
     //this.buyer=new Buyer(); 
     if (this.AddSubCategoryForm.valid) {
         this.scatg=new Subcategory();
-        this.scatg.categoryid=this.AddSubCategoryForm.value["categoryid"];
-        this.scatg.subcategoryid=this.AddSubCategoryForm.value["subcategoryid"]
+        this.scatg.categoryid=Number(this.AddSubCategoryForm.value["categoryid"]),
+        this.category.subcategoryid=Math.floor(Math.random()*1000),
         this.scatg.subcategoryname=this.AddSubCategoryForm.value["subcategoryname"];
         this.scatg.briefdetails=this.AddSubCategoryForm.value["briefdetails"];  
         this.scatg.GST=this.AddSubCategoryForm.value["GST"]; 
