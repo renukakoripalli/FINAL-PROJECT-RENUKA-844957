@@ -14,6 +14,7 @@ export class ViewprofileComponent implements OnInit {
   submitted:boolean=false;
   item:Buyer;
   constructor(private form:FormBuilder,private service:BuyerService) {
+    
     console.log("hello")
     this.ViewProfile();
    }

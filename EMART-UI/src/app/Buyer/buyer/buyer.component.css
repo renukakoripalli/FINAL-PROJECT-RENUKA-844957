@@ -37,7 +37,7 @@
    
     background-image: url('E:\FINAL-PROJECT-RENUKA-844957\EMART-UI\src\assets\images/bg9.jpg');
     
-    position: fixed;
+    position: static;
     top: 0;
     left:0;
     

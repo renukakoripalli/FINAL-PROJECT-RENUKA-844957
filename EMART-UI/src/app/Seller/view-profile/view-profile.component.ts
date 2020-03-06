@@ -77,7 +77,7 @@ export class ViewProfileComponent implements OnInit {
   {
   
     this.seller=new Seller();
-    this.seller.sid=localStorage.getItem('sid')
+    this.seller.sid=localStorage.getItem('sid'),
     this.seller.username=this.Sellform.value["username"],
     this.seller.emailid=this.Sellform.value["emailid"],
     this.seller.password=this.Sellform.value["password"],

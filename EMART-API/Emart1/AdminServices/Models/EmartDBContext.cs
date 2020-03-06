@@ -151,7 +151,9 @@ namespace AdminServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                entity.Property(e => e.Photo)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Price).HasColumnName("price");
 
@@ -193,62 +195,60 @@ namespace AdminServices.Models
 
             modelBuilder.Entity<Purchase>(entity =>
             {
-                entity.HasKey(e => e.PId)
+                entity.HasKey(e => e.Pid)
                     .HasName("PK__Purchase__DD36D56205A64932");
 
-                entity.Property(e => e.PId)
-                    .HasColumnName("pId")
+                entity.Property(e => e.Pid)
+                    .HasColumnName("pid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.BuyerId)
+                entity.Property(e => e.Bid)
                     .IsRequired()
-                    .HasColumnName("Buyer_id")
+                    .HasColumnName("bid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.DateTime)
-                    .HasColumnName("Date_time")
+                entity.Property(e => e.Datetime)
+                    .HasColumnName("datetime")
                     .HasColumnType("datetime");
 
-                entity.Property(e => e.ItemId)
-                    .HasColumnName("Item_id")
+                entity.Property(e => e.Iid)
                     .HasMaxLength(20)
                     .IsUnicode(false);
-
-                entity.Property(e => e.NumberOfItems).HasColumnName("Number_of_items");
 
                 entity.Property(e => e.Remarks)
                     .IsRequired()
+                    .HasColumnName("remarks")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.SellerId)
+                entity.Property(e => e.Sid)
                     .IsRequired()
-                    .HasColumnName("Seller_id")
+                    .HasColumnName("sid")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TransactionType)
+                entity.Property(e => e.Transactiontype)
                     .IsRequired()
-                    .HasColumnName("transaction_type")
+                    .HasColumnName("transactiontype")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.Buyer)
+                entity.HasOne(d => d.B)
                     .WithMany(p => p.Purchase)
-                    .HasForeignKey(d => d.BuyerId)
+                    .HasForeignKey(d => d.Bid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Purchase__Buyer___5535A963");
 
-                entity.HasOne(d => d.Item)
+                entity.HasOne(d => d.I)
                     .WithMany(p => p.Purchase)
-                    .HasForeignKey(d => d.ItemId)
+                    .HasForeignKey(d => d.Iid)
                     .HasConstraintName("FK__Purchase__Item_i__5629CD9C");
 
-                entity.HasOne(d => d.Seller)
+                entity.HasOne(d => d.S)
                     .WithMany(p => p.Purchase)
-                    .HasForeignKey(d => d.SellerId)
+                    .HasForeignKey(d => d.Sid)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Purchase__Seller__5441852A");
             });

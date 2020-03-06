@@ -8,14 +8,13 @@
   <div class="container">
     <div class="row offset-4">
       <div class="card-deck ">
+        <div class="card text-center" *ngFor="let item of list" style="width: 18rem;" >
+          <img class="card-img-top" src="/assets/images/{{item.photo}}" alt="Card image cap">
           <div class="card text-center" *ngFor="let item of list" style="width: 18rem;" >
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+           
               <h5 class="card-title">{{item.itemname}}</h5>
               <div class="card-body">
-                <!-- ItemId:{{item.iid}}<br/>
-                CategoryId:{{item.cid}}<br/>
-                SubCategoryId:{{item.scid}}<br/>
-                SellerId: {{item.sid}}<br/> -->
+              
                 Price: {{item.price}}<br/>
                 Description:{{item.description}}<br/>
                 Stock:{{item.stock}}<br/>

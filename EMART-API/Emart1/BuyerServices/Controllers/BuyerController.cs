@@ -140,5 +140,19 @@ namespace BuyerServices.Controllers
             }
 
         }
+        [HttpGet]
+        [Route("Getallitems")]
+        public IActionResult Get()
+        {
+            try
+            {
+                return Ok(_repo.GetAllItems());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+
     }
 }

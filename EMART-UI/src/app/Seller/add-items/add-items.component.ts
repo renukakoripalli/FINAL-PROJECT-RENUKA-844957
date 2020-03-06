@@ -65,7 +65,7 @@ onSubmit() {
     this.items.Iid=(this.additemsForm.value["Iid"]),  
     this.items.categoryid=this.additemsForm.value["categoryid"],
     this.items.subcategoryid=this.additemsForm.value["subcategoryid"],
-    // this.items.sid=this.additemsForm.value["Sid"],  
+    this.items.sid=localStorage.getItem('sid'),
     this.items.itemname=this.additemsForm.value["itemname"],
     this.items.price=Number(this.additemsForm.value["price"]),
     this.items.description=this.additemsForm.value["description"],  

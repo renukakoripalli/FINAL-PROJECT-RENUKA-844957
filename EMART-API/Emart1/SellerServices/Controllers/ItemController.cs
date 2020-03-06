@@ -58,7 +58,7 @@ namespace SellerServices.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound(ex.InnerException.Message);
+                return NotFound(ex.Message);
             }
         }
         [HttpGet]

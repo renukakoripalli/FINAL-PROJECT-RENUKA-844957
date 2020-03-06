@@ -5,17 +5,17 @@ namespace BuyerServices.Models
 {
     public partial class Purchase
     {
-        public string PId { get; set; }
-        public string SellerId { get; set; }
-        public string BuyerId { get; set; }
-        public string ItemId { get; set; }
-        public string TransactionType { get; set; }
-        public int NumberOfItems { get; set; }
-        public DateTime DateTime { get; set; }
+        public string Pid { get; set; }
+        public string Sid { get; set; }
+        public string Bid { get; set; }
+        public string Iid { get; set; }
+        public string Transactiontype { get; set; }
+        public int Noofitems { get; set; }
+        public DateTime Datetime { get; set; }
         public string Remarks { get; set; }
 
-        public virtual Buyer Buyer { get; set; }
-        public virtual Items Item { get; set; }
-        public virtual Seller Seller { get; set; }
+        public virtual Buyer B { get; set; }
+        public virtual Items I { get; set; }
+        public virtual Seller S { get; set; }
     }
 }

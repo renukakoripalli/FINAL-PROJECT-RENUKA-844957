@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Buyer } from 'src/app/Models/buyer';
+import { Items } from 'src/app/Models/items';
 //import { Buyer } from '../Models/buyer';
 const Requestheaders={headers:new HttpHeaders({
   'Content-Type': 'application/json',
@@ -25,5 +26,9 @@ export class BuyerService {
   SearchItem(itemname:string):Observable<any>
   {
     return this.http.get<any>(this.url+'Search/'+itemname,Requestheaders)
+  }
+  public Getallitems():Observable<any>
+  {
+    return this.http.get<any>(this.url+'Getallitems',Requestheaders);
   }
 }

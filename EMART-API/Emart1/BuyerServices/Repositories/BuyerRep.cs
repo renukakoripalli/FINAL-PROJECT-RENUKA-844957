@@ -62,6 +62,10 @@ namespace BuyerServices.Repositories
             var e = conn.Items.Where(e => e.Itemname == items).ToList();
             return e;
         }
+        public List<Items> GetAllItems()
+        {
+            return conn.Items.ToList();
+        }
     }
 }
        

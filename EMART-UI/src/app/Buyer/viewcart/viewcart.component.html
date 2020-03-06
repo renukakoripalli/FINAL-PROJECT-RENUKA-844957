@@ -1,1 +1,47 @@
 <p>viewcart works!</p>
+<div class="container">
+    <h2>Cart Items</h2>
+    <table class="table table-primary table-bordered">
+        <thead>
+            <tr>
+                <th>CartItemID</th>
+              
+                <th>ItemID</th>
+              
+                <th>Quantity</th>
+           
+                <th>Price</th>
+                <th>DeleteItem</th>
+          
+             
+            </tr>
+        </thead>
+    
+        <tbody>
+
+           <tr *ngFor =" let cart of disCart ">
+               <td>{{cart.cartItemId}}</td>
+                <td>{{cart.itemid}}</td>
+ 
+ <td><button class="btn btn-success" type="button" (click)="increment(cart)">+</button>{{cart.quantity}}
+    <button class="btn btn-success" type="button" (click)="decrement(cart)">-</button>
+</td>
+
+                <td>{{cart.price}}</td>
+                <td><button class="btn btn-danger" type="button">Remove</button></td>
+                
+                
+            </tr>
+       </tbody>
+    </table>
+
+    <table>
+
+
+        <td><button class="btn btn-danger" type="button">DeleteAll</button></td>
+            <td></td>
+            <td><button class="btn btn-primary" type="button">Checkout</button></td>
+
+    </table>
+    
+</div>

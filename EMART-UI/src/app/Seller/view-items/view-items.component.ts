@@ -19,8 +19,10 @@ export class ViewItemsComponent implements OnInit {
   subcategorylist:Subcategory[];
   sid:string;
 
-  constructor(private service:SellerService,private formbuilder:FormBuilder ) { }
-
+  constructor(private service:SellerService,private formbuilder:FormBuilder ) { 
+  // this.sid=localStorage.getItem('sid');
+  // this.Viewitems()
+  }
   ngOnInit() {
     this.itemForm=this.formbuilder.group({
       Iid:[''],

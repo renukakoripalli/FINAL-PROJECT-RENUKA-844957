@@ -16,6 +16,7 @@ namespace BuyerServices.Repositories
         List<Subcategory> GetSubCategories(string categories);
         List<Buyer> Getall();
         List<Purchase> PurchaseHistory(string bid);
+        List<Items> GetAllItems();
 
     }
 }
