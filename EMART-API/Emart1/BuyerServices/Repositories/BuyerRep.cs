@@ -14,9 +14,14 @@ namespace BuyerServices.Repositories
             conn = con;
         }
 
-        public void BuyItem(Purchase purchase)
+        /*public void BuyItem(Purchase purchase)
         {
             conn.Add(purchase);
+            conn.SaveChanges();
+        }*/
+        public void BuyItem(Purchase item)
+        {
+            conn.Add(item);
             conn.SaveChanges();
         }
 
@@ -31,9 +36,9 @@ namespace BuyerServices.Repositories
             return conn.Buyer.ToList();
         }
 
-        public List<Category> GetCategories()
+        List<Items> IBuyer.SearchByCategoryId(string categoryid)
         {
-            return conn.Category.ToList();
+            return conn.Items.Where(e => e.Categoryid == categoryid).ToList();
         }
 
         public Buyer GetProfile(string bid)
@@ -51,11 +56,14 @@ namespace BuyerServices.Repositories
 
         public List<Purchase> PurchaseHistory(string bid)
         {
-            var b = conn.Purchase.Where(e => e.BuyerId == bid).ToList();
+            var b = conn.Purchase.Where(e => e.Bid == bid).ToList();
             return b;
         }
 
-        
+        public List<Category> GetCategories()
+        {
+            return conn.Category.ToList();
+        }
 
         public List<Items> search(string items)
         {
@@ -65,6 +73,23 @@ namespace BuyerServices.Repositories
         public List<Items> GetAllItems()
         {
             return conn.Items.ToList();
+        }
+        public void AddToCart(Cart cart)
+        {
+            conn.Add(cart);
+            conn.SaveChanges();
+        }
+
+        public List<Cart> GetCartItems()
+        {
+            return conn.Cart.ToList();
+        }
+
+        public void DeleteCartItem(string Cartid)
+        {
+            Cart cart = conn.Cart.Find(Cartid);
+            conn.Cart.Remove(cart);
+            conn.SaveChanges();
         }
     }
 }

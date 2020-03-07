@@ -12,7 +12,7 @@ import { SearchComponent } from './Buyer/search/search.component';
 import { ViewcartComponent } from './Buyer/viewcart/viewcart.component';
 import { PurchaseHistoryComponent } from './Buyer/purchase-history/purchase-history.component';
 import { BuyproductComponent } from './Buyer/buyproduct/buyproduct.component';
-import { ViewprofileComponent } from './Buyer/viewprofile/viewprofile.component';
+//import { ViewprofileComponent } from './Buyer/viewprofileb/viewprofileb.component';
 import { AddItemsComponent } from './Seller/add-items/add-items.component';
 import { ViewItemsComponent } from './Seller/view-items/view-items.component';
 import { ViewReportsComponent } from './Seller/view-reports/view-reports.component';
@@ -34,6 +34,7 @@ import { RegisterService } from './Account/Services/register.service';
 //import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
+import { BuyerprofileComponent } from './Buyer/buyerprofile/buyerprofile.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.compone
     ViewcartComponent,
     PurchaseHistoryComponent,
     BuyproductComponent,
-    ViewprofileComponent,
+    //ViewprofileComponent,
     AddItemsComponent,
     ViewItemsComponent,
     ViewReportsComponent,
@@ -65,7 +66,9 @@ import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.compone
     
     ViewsubcategoryComponent,
     
-    ViewcategoryComponent
+    ViewcategoryComponent,
+    
+    BuyerprofileComponent
     
     
   ],

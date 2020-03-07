@@ -33,6 +33,21 @@ namespace BuyerServices.Controllers
                 return NotFound(e.InnerException.Message);
             }
         }
+        [HttpPost]
+        [Route("BuyItem")]
+        public IActionResult Buy(Purchase buy)
+        {
+            try
+            {
+                _repo.BuyItem(buy);
+                return Ok();
+
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
         [HttpPut]
         [Route("Edit")]
         public IActionResult EditProfile(Buyer buyer)
@@ -108,22 +123,22 @@ namespace BuyerServices.Controllers
                 return NotFound(e.InnerException.Message);
             }
         }
-        [HttpGet]
-        [Route("GetC")]
-        public IActionResult GetCategories()
-        {
-            try
-            {
-                return Ok(_repo.GetCategories());
+        //[HttpGet]
+       // [Route("GetC/{categoryid}")]
+       // public IActionResult GetCategory(string categoryid)
+       // {
+          //  try
+           // {
+               // return Ok(_repo.GetCategory(categoryid));
 
 
 
-            }
-            catch (Exception e)
-            {
-                return NotFound(e.InnerException.Message);
-            }
-        }
+            //}
+            //catch (Exception e)
+            //{
+            //    return NotFound(e.InnerException.Message);
+            //}
+        //}
         [HttpGet]
         [Route("GetS/{categoryid}")]
         public IActionResult GetSubCategories(string categoryid)
@@ -153,6 +168,72 @@ namespace BuyerServices.Controllers
                 return NotFound(e.InnerException.Message);
             }
         }
-
+        [HttpGet]
+        [Route("Searchbycategoryid/{categoryid}")]
+        public IActionResult SearchByCategoryId(string categoryid)
+        {
+            try
+            {
+                return Ok(_repo.SearchByCategoryId(categoryid));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Getcategory")]
+        public IActionResult GetCategories()
+        {
+            try
+            {
+                return Ok(_repo.GetCategories());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+         [HttpPost]
+        [Route("Addtocart")]
+        public IActionResult AddToCart(Cart cart)
+        {
+            try
+            {
+               _repo.AddToCart(cart);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Getcartitems")]
+        public IActionResult GetCartItems()
+        {
+            try
+            {
+                return Ok(_repo.GetCartItems());
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpDelete]
+        [Route("Removeitem/{Cartid}")]
+        public IActionResult DeleteCartItem(string Cartid)
+        {
+            try
+            {
+                _repo.DeleteCartItem(Cartid);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
     }
 }

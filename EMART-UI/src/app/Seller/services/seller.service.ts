@@ -15,7 +15,7 @@ export class SellerService {
   constructor(private http:HttpClient) { }
     public AddItem(item:Items):Observable<any>{
       return this.http.post<any>(this.url+'AddItem',JSON.stringify(item),Requestheaders);}
-      Myprofile(sid:number):Observable<Seller>
+      Myprofile(sid:string):Observable<Seller>
       {
        console.log(Requestheaders)
         return this.http.get<Seller>(this.url1+'GetProfile'+'/'+sid,Requestheaders);

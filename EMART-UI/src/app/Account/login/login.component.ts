@@ -59,7 +59,8 @@ public Validate()
       this.token=res;
 
       if(this.token.msg=='Success'){
-        localStorage.setItem('bid',this.token.BuyerId);
+        
+        localStorage.setItem('bid',this.token.bid);
           this.route.navigateByUrl('buyer');
       }
       else{
@@ -75,7 +76,7 @@ this.service.SellerLogin(username,password).subscribe(res=>{
   this.token=res;
 
   if(this.token.msg=="Success"){
-    localStorage.setItem('sid',this.token.SellerId);
+    localStorage.setItem('sid',this.token.sid);
     this.route.navigateByUrl("seller")
   }
   else{
@@ -84,7 +85,7 @@ this.service.SellerLogin(username,password).subscribe(res=>{
 });
 
 }
-if(username=="Admin" && password=="admin")
+if(username=="Admin" && password=="12345")
 {
   this.route.navigateByUrl("admin");
 }

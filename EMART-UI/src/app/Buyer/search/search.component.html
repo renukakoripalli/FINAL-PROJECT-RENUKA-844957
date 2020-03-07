@@ -1,5 +1,5 @@
 
-  <div class="form-inline my-2 my-lg-0 offset-5">
+  <!-- <div class="form-inline my-2 my-lg-0 offset-5">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"[(ngModel)]="itemname">
         <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="Search(itemname)">Search</button>
   </div>
@@ -22,12 +22,67 @@
             </div>
             <div class="card-footer">
               <div class="text-center">
-                <button class="btn btn-success mr-1" >Buy</button>
+                
+                <button (click)="Buy()">BUY</button>
                 <button class="btn btn-outline-info" >AddToCart</button>
             </div>
             </div>
           </div>
         </div>
       </div>
+    </div>-->
+
+
+
+
+    <div class="form-inline my-2 my-lg-0 offset-5">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"[(ngModel)]="itemname">
+          <button class="btn btn-success my-2 my-sm-0" type="submit" (click)="Search(itemname)">Search</button>
     </div>
-    
+  
+  <br>
+ 
+  <div class="form-inline my-2 my-lg-0 offset-5 text-center" >
+    <label style="color:blueviolet;"><h5><b>Search From Category List:&nbsp;</b></h5></label> 
+    <select [(ngModel)]="category">   
+        <option *ngFor="let item of clist" value="{{item.categoryid}}">{{item.categoryname}}</option>
+      </select>&nbsp;
+      <button class="btn btn-primary" type="button" (click)="SearchByCategory(category)">Search</button>
+  </div>
+  <br>
+  
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of list">
+      
+          <div class="card" style="width:250px" >
+             <img class="card-img-top" src="/assets/images/{{item.photo}}" alt="Card image cap"> 
+              <h5 class="card-title">{{item.itemname}}</h5>
+              <div class="card-body">
+               <!-- ItemId:{{item.iid}}<br/>
+                CategoryId:{{item.cid}}<br/>
+                SubCategoryId:{{item.scid}}<br/>
+                SellerId: {{item.sid}}<br/> -->
+                Price: {{item.price}}<br/>
+                Description:{{item.description}}<br/>
+                <!-- Stock:{{item.stock}}<br/>
+                Remarks:{{item.remarks}}  -->
+            </div>
+         
+            <div class="card-footer">
+              <div class="text-center">
+                <button class="btn btn-success mr-1" (click)="Buy(item)" >Buy</button>
+                <button class="btn btn-outline-info"(click)="AddtoCart(item)" >AddToCart</button>
+            </div>
+            
+            </div>
+            
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  
+  
+     

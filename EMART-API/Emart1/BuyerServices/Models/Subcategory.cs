@@ -7,6 +7,7 @@ namespace BuyerServices.Models
     {
         public Subcategory()
         {
+            Cart = new HashSet<Cart>();
             Items = new HashSet<Items>();
         }
 
@@ -17,6 +18,7 @@ namespace BuyerServices.Models
         public int Gst { get; set; }
 
         public virtual Category Category { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<Items> Items { get; set; }
     }
 }

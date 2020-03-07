@@ -12,11 +12,17 @@ namespace BuyerServices.Repositories
         void BuyItem(Purchase purchase);
         void Editprofile(Buyer buyer);
         Buyer GetProfile(string bid);
-        List<Category> GetCategories();
+        List<Items> SearchByCategoryId(string categoryid);
         List<Subcategory> GetSubCategories(string categories);
         List<Buyer> Getall();
         List<Purchase> PurchaseHistory(string bid);
         List<Items> GetAllItems();
+        List<Category> GetCategories();
+        void AddToCart(Cart cart);
+        List<Cart> GetCartItems();
+        void DeleteCartItem(string Cartid);
+
+
 
     }
 }
