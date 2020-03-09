@@ -52,5 +52,28 @@ namespace AdminServices.Repositories
         {
             return conn.Subcategory.ToList();
         }
+
+        public Category Getbycatid(string categoryid)
+        {
+            Category c = conn.Category.SingleOrDefault(e => e.Categoryid == categoryid);
+            return c;
+        }
+        public Subcategory Getbyscatid(string subcategoryid)
+        {
+            Subcategory r = conn.Subcategory.SingleOrDefault(e => e.Subcategoryid == subcategoryid);
+            return r;
+        }
+
+        public void EditCategory(Category category)
+        {
+            conn.Category.Update(category);
+            conn.SaveChanges();
+        }
+
+        public void EditSubcategory(Subcategory subcategory)
+        {
+            conn.Subcategory.Update(subcategory);
+            conn.SaveChanges();
+        }
     }
 }

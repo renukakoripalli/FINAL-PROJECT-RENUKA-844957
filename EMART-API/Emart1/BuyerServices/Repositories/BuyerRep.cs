@@ -91,6 +91,12 @@ namespace BuyerServices.Repositories
             conn.Cart.Remove(cart);
             conn.SaveChanges();
         }
+
+        public Cart Getcartitembyid(string Cartid)
+        {
+            Cart c = conn.Cart.SingleOrDefault(e => e.Cartid == Cartid);
+            return c;
+        }
     }
 }
        

@@ -13,6 +13,7 @@ namespace AccountServices.Models
         public int Noofitems { get; set; }
         public DateTime Datetime { get; set; }
         public string Remarks { get; set; }
+        public string Transactionstatus { get; set; }
 
         public virtual Buyer B { get; set; }
         public virtual Items I { get; set; }

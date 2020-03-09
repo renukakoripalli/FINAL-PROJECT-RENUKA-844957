@@ -114,5 +114,59 @@ namespace AdminServices.Controllers
                 return NotFound(e.Message);
             }
         }
+        [HttpGet]
+        [Route("Getbycatid/{categoryid}")]
+        public IActionResult GetCat(string categoryid)
+        {
+            try
+            {
+                return Ok(_conn.Getbycatid(categoryid));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpGet]
+        [Route("Getbyscatid/{subcategoryid}")]
+        public IActionResult GetSubcat(string subcategoryid)
+        {
+            try
+            {
+                return Ok(_conn.Getbyscatid(subcategoryid));
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.Message);
+            }
+        }
+        [HttpPut]
+        [Route("EditCategory")]
+        public IActionResult Editcategory(Category category)
+        {
+            try
+            {
+                _conn.EditCategory(category);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
+        [HttpPut]
+        [Route("EditSubcategory")]
+        public IActionResult Editsubcategory(Subcategory subcategory)
+        {
+            try
+            {
+                _conn.EditSubcategory(subcategory);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
     }
 }

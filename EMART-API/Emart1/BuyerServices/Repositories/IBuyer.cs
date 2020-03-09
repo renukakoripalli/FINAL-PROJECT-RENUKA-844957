@@ -21,6 +21,7 @@ namespace BuyerServices.Repositories
         void AddToCart(Cart cart);
         List<Cart> GetCartItems();
         void DeleteCartItem(string Cartid);
+        Cart Getcartitembyid(string Cartid);
 
 
 

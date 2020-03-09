@@ -7,6 +7,7 @@ namespace AdminServices.Models
     {
         public Items()
         {
+            Cart = new HashSet<Cart>();
             Purchase = new HashSet<Purchase>();
         }
 
@@ -24,6 +25,7 @@ namespace AdminServices.Models
         public virtual Category Category { get; set; }
         public virtual Seller S { get; set; }
         public virtual Subcategory Subcategory { get; set; }
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace BuyerServices.Models
         public string Description { get; set; }
         public int Stock { get; set; }
         public string Remarks { get; set; }
-        public string Image { get; set; }
+        public string Photo { get; set; }
 
         public virtual Buyer B { get; set; }
         public virtual Category Category { get; set; }

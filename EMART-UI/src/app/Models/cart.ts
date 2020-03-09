@@ -8,6 +8,6 @@ export class Cart {
     description:string;
     stock:number;
     remarks:string; 
-    image:string;
+    Photo:string;
 
 }

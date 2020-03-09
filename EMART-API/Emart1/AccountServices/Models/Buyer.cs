@@ -7,6 +7,7 @@ namespace AccountServices.Models
     {
         public Buyer()
         {
+            Cart = new HashSet<Cart>();
             Purchase = new HashSet<Purchase>();
         }
 
@@ -17,6 +18,7 @@ namespace AccountServices.Models
         public string Mobilenumber { get; set; }
         public DateTime Createddatetime { get; set; }
 
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<Purchase> Purchase { get; set; }
     }
 }

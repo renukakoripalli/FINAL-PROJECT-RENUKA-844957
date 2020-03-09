@@ -16,6 +16,7 @@ namespace AdminServices.Models
         }
 
         public virtual DbSet<Buyer> Buyer { get; set; }
+        public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Discounts> Discounts { get; set; }
         public virtual DbSet<Items> Items { get; set; }
@@ -71,6 +72,75 @@ namespace AdminServices.Models
                     .HasColumnName("username")
                     .HasMaxLength(20)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Cart>(entity =>
+            {
+                entity.Property(e => e.Cartid)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Bid)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Categoryid)
+                    .HasColumnName("categoryid")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Iid)
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Itemname)
+                    .IsRequired()
+                    .HasColumnName("itemname")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Photo)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Price).HasColumnName("price");
+
+                entity.Property(e => e.Remarks)
+                    .HasColumnName("remarks")
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Stock).HasColumnName("stock");
+
+                entity.Property(e => e.Subcategoryid)
+                    .HasColumnName("subcategoryid")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.B)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.Bid)
+                    .HasConstraintName("FK__Cart__Bid__70DDC3D8");
+
+                entity.HasOne(d => d.Category)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.Categoryid)
+                    .HasConstraintName("FK__Cart__categoryid__71D1E811");
+
+                entity.HasOne(d => d.I)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.Iid)
+                    .HasConstraintName("FK__Cart__Iid__6FE99F9F");
+
+                entity.HasOne(d => d.Subcategory)
+                    .WithMany(p => p.Cart)
+                    .HasForeignKey(d => d.Subcategoryid)
+                    .HasConstraintName("FK__Cart__subcategor__72C60C4A");
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -226,6 +296,11 @@ namespace AdminServices.Models
                 entity.Property(e => e.Sid)
                     .IsRequired()
                     .HasColumnName("sid")
+                    .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Transactionstatus)
+                    .HasColumnName("transactionstatus")
                     .HasMaxLength(20)
                     .IsUnicode(false);
 

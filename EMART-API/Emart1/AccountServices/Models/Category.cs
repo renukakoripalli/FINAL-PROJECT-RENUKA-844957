@@ -7,6 +7,7 @@ namespace AccountServices.Models
     {
         public Category()
         {
+            Cart = new HashSet<Cart>();
             Items = new HashSet<Items>();
             Subcategory = new HashSet<Subcategory>();
         }
@@ -15,6 +16,7 @@ namespace AccountServices.Models
         public string Categoryname { get; set; }
         public string Briefdetails { get; set; }
 
+        public virtual ICollection<Cart> Cart { get; set; }
         public virtual ICollection<Items> Items { get; set; }
         public virtual ICollection<Subcategory> Subcategory { get; set; }
     }

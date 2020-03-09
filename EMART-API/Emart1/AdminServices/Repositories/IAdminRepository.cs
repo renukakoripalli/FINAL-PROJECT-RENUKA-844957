@@ -14,8 +14,12 @@ namespace AdminServices.Repositories
         public void DeleteCategory(string categoryid);
         public void DeleteSubCategory(string subcategoryid);
         List<Category> ViewCategory();
-        
+        Category Getbycatid(string categoryid);
+        Subcategory Getbyscatid(string subcategoryid);
+
         List<Subcategory> ViewSubCategory();
         public List<Category> GetCategories();
+        void EditCategory(Category category);
+        void EditSubcategory(Subcategory subcategory);
     }
 }

@@ -98,15 +98,14 @@ namespace BuyerServices.Models
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Image)
-                    .HasColumnName("image")
-                    .HasMaxLength(30)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Itemname)
                     .IsRequired()
                     .HasColumnName("itemname")
                     .HasMaxLength(20)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Photo)
+                    .HasMaxLength(30)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Price).HasColumnName("price");

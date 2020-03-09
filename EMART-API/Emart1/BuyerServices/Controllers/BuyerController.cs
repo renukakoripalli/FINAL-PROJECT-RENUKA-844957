@@ -235,5 +235,19 @@ namespace BuyerServices.Controllers
                 return NotFound(e.InnerException.Message);
             }
         }
+        [HttpGet]
+        [Route("getcart/{Cartid}")]
+        public IActionResult GetCartbyid(string Cartid)
+        {
+            try
+            {
+                return Ok(_repo.Getcartitembyid(Cartid));
+
+            }
+            catch(Exception e)
+            {
+                return NotFound(e.InnerException.Message);
+            }
+        }
     }
 }
