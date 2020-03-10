@@ -76,7 +76,8 @@ this.service.SellerLogin(username,password).subscribe(res=>{
   this.token=res;
 
   if(this.token.msg=="Success"){
-    localStorage.setItem('sid',this.token.sid);
+    localStorage.setItem('sid',this.token.sellerId);
+    console.log(localStorage.getItem('sid'));
     this.route.navigateByUrl("seller")
   }
   else{

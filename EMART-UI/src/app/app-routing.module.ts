@@ -60,7 +60,9 @@ const routes: Routes = [
     {path:'register-seller',component:RegisterSellerComponent},
      {path:'register-buyer',component:RegisterBuyerComponent}
   
-    ]}];
+    ]},
+    {path:'',component:HomeComponent}
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -22,6 +22,7 @@
     <ProjectReference Include="..\AccountServices\AccountServices.csproj" />
     <ProjectReference Include="..\AdminServices\AdminServices.csproj" />
     <ProjectReference Include="..\BuyerServices\BuyerServices.csproj" />
+    <ProjectReference Include="..\SellerServices\SellerServices.csproj" />
   </ItemGroup>
 
 </Project>

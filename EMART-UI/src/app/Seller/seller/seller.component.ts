@@ -11,7 +11,7 @@ export class SellerComponent implements OnInit {
 constructor(private route:Router) {
 //   if(sessionStorage.getItem("un"))
 //   {
-
+  console.log(localStorage.getItem('sid'));
   
 //   //read session storage
 //   this.username=sessionStorage.getItem("un");

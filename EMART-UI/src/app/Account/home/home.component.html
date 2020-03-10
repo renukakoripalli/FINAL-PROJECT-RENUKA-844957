@@ -14,21 +14,21 @@
                 </li>
                
           <li class="nav-item" id="login">
-            <a class="nav-link text-light" routerLinkActive="router-link-active" 
-            [routerLink]="'login'" routerLinkActive="router-link-active"  
+             
+           <a [routerLink]="'/home/login'"
              asp-area="" asp-controller="Home" class="glyphicon glyphicon-log-in"  
              class="btn btn-info btn-lg">Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            
         </li>
          <li class="nav-item" id="register-buyer">
             <a class="nav-link text-light" routerLinkActive="router-link-active" 
-            [routerLink]="'register-buyer'" routerLinkActive="router-link-active"  
+            [routerLink]="'/home/register-buyer'" routerLinkActive="router-link-active"  
              asp-area="" asp-controller="Home" class="glyphicon glyphicon-log-in"  
              class="btn btn-info btn-lg">Register Buyer</a>&nbsp;&nbsp;&nbsp;&nbsp;
         </li>
         <li class="nav-item" id="register-seller">
-          <a class="nav-link text-light" routerLinkActive="router-link-active" 
-          [routerLink]="'register-seller'" routerLinkActive="router-link-active"  
+          <a class="nav-link text-light" routerLinkActive="router-link-active" [routerLink]="['/home/login']" routerLinkActive="router-link-active" 
+         
            asp-area="" asp-controller="Home" class="glyphicon glyphicon-log-in"  
            class="btn btn-info btn-lg">Register Seller</a>&nbsp;&nbsp;&nbsp;&nbsp;
       </li>

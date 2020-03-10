@@ -15,7 +15,7 @@ namespace SellerServices.Repositories
         }
         public void EditProfile(Seller obj)
         {
-            _context.Add(obj);
+            _context.Update(obj);
             _context.SaveChanges();
         }
 

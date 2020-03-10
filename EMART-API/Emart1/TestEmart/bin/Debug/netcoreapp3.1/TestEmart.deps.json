@@ -16,6 +16,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.1.2",
           "Microsoft.NET.Test.Sdk": "16.2.0",
           "NUnit3TestAdapter": "3.15.1",
+          "SellerServices": "1.0.0",
           "NUnit": "3.12.0"
         },
         "runtime": {
@@ -1968,6 +1969,18 @@
         "runtime": {
           "BuyerServices.dll": {}
         }
+      },
+      "SellerServices/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "3.1.2",
+          "Microsoft.AspNetCore.Cors": "2.2.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.2",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.1",
+          "System.IdentityModel.Tokens.Jwt": "5.6.0"
+        },
+        "runtime": {
+          "SellerServices.dll": {}
+        }
       }
     }
   },
@@ -3066,6 +3079,11 @@
       "sha512": ""
     },
     "BuyerServices/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SellerServices/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

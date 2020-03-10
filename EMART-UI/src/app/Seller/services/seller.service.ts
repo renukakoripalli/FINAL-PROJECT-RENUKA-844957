@@ -32,9 +32,9 @@ export class SellerService {
   {
     return this.http.get<Subcategory[]>(this.url+'Getsubcategory/'+categoryid,Requestheaders);
   }
-  public Viewitems(id:string):Observable<any>
+  public Viewitems(Iid:string):Observable<any>
   {
-    return this.http.get<any>(this.url+'Viewitems/'+id,Requestheaders);
+    return this.http.get<any>(this.url+'Viewitems/'+Iid,Requestheaders);
   }
   public Deleteitem(Iid:string):Observable<Items>
   {
