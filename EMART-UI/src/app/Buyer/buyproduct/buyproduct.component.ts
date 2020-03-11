@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Items } from 'src/app/Models/items';
 import { BuyerService } from '../services/buyer.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Purchase } from 'src/app/Models/purchase';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buyproduct',
@@ -10,27 +12,55 @@ import { FormGroup } from '@angular/forms';
 })
 export class BuyproductComponent implements OnInit {
 
-  list:Items[];
- purchaseform:FormGroup;
+  purchaseform:FormGroup;
+  item:Items;
+  pobj:Purchase;
+  submitted=false;
 
  
-  constructor(private service:BuyerService) { 
-    this.service.Getallitems().subscribe(res=>{
-      this.list=res;
-      console.log(this.list);
-    })
-  }
+  constructor(private formbuilder:FormBuilder,private service:BuyerService,private route:Router) {  
+    
+    }
+    
 
   ngOnInit() {
+    this. purchaseform=this.formbuilder.group({
+      transactionType:[''],
+      cardNumber:[''],
+      cvv:[''],
+      edate:[''],
+      name:[''],
+      dateTime:[''],
+      numberOfItems:[''],
+      remarks:[''],
+      transactionstatus:['']
+    })
+    this.item=JSON.parse(localStorage.getItem('Iid'));
+    console.log(this.item);
+    console.log(this.item.Iid);
   }  
-  
- 
   onSubmit()
   {
-
+    this.pobj=new Purchase();
+    this.pobj.pid=Number('T'+Math.round(Math.random()*999));
+    this.pobj.bid=Number(localStorage.getItem('bid'));
+    this.pobj.sid=Number(localStorage.getItem('sid'));
+    this.pobj.noofitems=Number(this.purchaseform.value["numberOfItems"]);
+    this.pobj.Iid=Number(this.item.Iid);
+    this.pobj.transactiontype=this.purchaseform.value["transactionType"]
+       this.pobj.datetime=this.purchaseform.value["dateTime"];
+       this.pobj.remarks=this.purchaseform.value["remarks"];
+       this.pobj.transactionstatus=this.purchaseform.value["transactionstatus"];
+       console.log(this.pobj);
+       this.service.BuyItem(this.pobj).subscribe(res=>{
+         console.log("Purchase was Sucessfull");
+         alert('Purchase Done Successfully');
+       })
+  
   }
-  onReset()
-  {
-
+  onReset() {
+    this.submitted = false;
+    this.purchaseform.reset();
   }
-}
+    
+  }

@@ -13,7 +13,8 @@
 						<tr>
 							<td data-th="Product">
 								<div class="row" >
-									<div class="col-sm-2 hidden-xs">   <img class="img" src="/assets/images/{{item.photo}}" alt="Card image" style="width:100%"></div>
+									<div class="col-sm-2 hidden-xs">  
+										<img class="card-img-top" src="/assets/images/{{item.photo}}" alt="Card image cap"> </div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">{{item.itemname}}</h4>
 										<p>{{item.description}}</p>
@@ -44,27 +45,5 @@
 					</tfoot>
 				</table>
 </div>
-
-<!-- <div class="container">
-	<div class="row">
-	  <div class="card bg-dark" *ngFor="let item of cartlist" style="width:250px;">
-		<img class="card-img-top" src="/assets/Images/{{item.photo}}" alt="Card image cap">
-		<h5 class="card-title" style="color: whitesmoke;">{{item.itemname}}</h5>
-		<div class="card-body" style="color: whitesmoke;">
-		  ItemId:{{item.iid}}<br/>
-		  CategoryId:{{item.categoryid}}<br/>
-		  SubCategoryId:{{item.subcategoryid}}<br/>
-		  SellerId: {{item.sid}}<br/>
-		  Price: {{item.price}}<br/>
-		  Description:{{item.description}}<br/>
-		  Remarks:{{item.remarks}}   
-			<br/>
-			 <br/>
-			<button type="button" class="btn btn-primary" (click)="Buynow(item1)">Buy Now</button>&nbsp; 
-		  </div>
-		  </div>
-	</div>
-  </div> -->
-
 
 

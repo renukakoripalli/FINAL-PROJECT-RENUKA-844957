@@ -40,3 +40,17 @@
     margin-right: -340px;
   
 }
+.container{
+    height: 100%;
+    align-content:center;
+    }
+    
+    .card{
+      align-content: center;
+    height: 400px;
+    margin-top: static;
+    margin-bottom: auto;
+    width: 1000px;
+     /* background-color: rgba(97, 35, 6, 0.5) !important; */
+     background-color: rgb(31, 191, 231) !important; 
+    }

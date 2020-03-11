@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   clist:Category[];
   category:string;
   cart: any;
-  itemname:string;
+ itemname:string;
   constructor(private service:BuyerService,private route:Router) {
     this.service.Getcategory().subscribe(res=>{
       this.clist=res;
@@ -82,8 +82,9 @@ export class SearchComponent implements OnInit {
        alert('Item has been Added To Cart');
      })
     }
-    Buy()
-    {
-
-    }
+    Buy(item1:Items){
+      console.log(item1);
+      localStorage.setItem('item1',JSON.stringify(item1));
+      this.route.navigateByUrl('/buyer/buyproduct');
+  }
   }

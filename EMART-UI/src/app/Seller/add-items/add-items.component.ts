@@ -27,7 +27,7 @@ Photo:string;
     ngOnInit() {
 
     this.additemsForm = this.formBuilder.group({
-      Iid: ['', Validators.required],
+      Iid: [''],
       categoryid: ['', Validators.required],
       subcategoryid: ['', [Validators.required]],
       // Sid: ['', [Validators.required]],
