@@ -1,6 +1,6 @@
 .bg {
    
-    background-image: url('E:\FINAL-PROJECT-RENUKA-844957\EMART-UI\src\assets\images/bg6.jpg');
+    background-image: url('/assets/images/bg6.jpg');
     
     position:static
     
@@ -57,3 +57,17 @@
     background: #000000;
     color: #fff;
 }
+.container{
+    height: 100%;
+    align-content:center;
+    }
+    
+    .card{
+      align-content: center;
+    height: 435px;
+    margin-top: static;
+    margin-bottom: auto;
+    width: 1000px;
+     /* background-color: rgba(97, 35, 6, 0.5) !important; */
+     background-color: rgb(31, 191, 231) !important; 
+    }

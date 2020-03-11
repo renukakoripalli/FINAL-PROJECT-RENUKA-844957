@@ -19,6 +19,7 @@ export class ViewItemsComponent implements OnInit {
   num:number;
   list1:Items;
   Iid: string;
+  sid:string;
 id:string;
   token: Token;
   subcategorylist: Subcategory[];
@@ -78,7 +79,7 @@ id:string;
   // Deleteitem(Iid:string):void{
   //   this.service.Deleteitem(Iid).subscribe(res=>{
   //     console.log("record deleted");
-  //     this.Viewitems();
+  //     this.Viewitems(this.id);
   //   },
   //   err=>
   //   {
@@ -117,10 +118,10 @@ id:string;
   }
      
   
-  view(Iid:string)
+  view(sid:string)
   {
    this.list1=new Items()
-    this.service.Viewitems(this.Iid).subscribe(
+    this.service.Viewitems(this.sid).subscribe(
       res=>{
         this.list1=res;
         console.log(this.list1)

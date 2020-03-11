@@ -1,6 +1,6 @@
 
     <div class="container p-5 my-5 bg-dark text-black">
-    <div class="card bg-light mb-3 "> 
+    <div class="card "> 
         <div class="bg2">
         <!-- <form class = "form-horizontal" role = "form"> -->
         <h5 class="card-header text-center">Signup-Buyer</h5>
@@ -10,17 +10,9 @@
                 
                 
                   
-                       
+                       <div class="row">
                         <div class="col-md-6">
-                        <!-- <label>BuyerId</label>
-                        <input type="text" formControlName="bid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bid.errors }" />
-                        <div *ngIf="submitted && f.bid.errors" class="invalid-feedback">
-                        <div *ngIf="f.bid.errors.required">Buyer id is required</div> 
-                        </div>         -->
-                   
-                
-                
-                   
+                     
                         <label for="username">Username</label>
                         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -29,7 +21,7 @@
                         </div>
                     </div>
                         
-                    <div  class="row" class="col-md-6">
+                    <div class="col-md-6">
                         <label for="password">Password</label>
                         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -37,18 +29,19 @@
                             <div *ngIf="f.password.errors.pattern">password must contain[a-z] any 1 special character should contain</div>
                         </div>
                     </div>
-                   
-    
-                    <div  class="row" class="col-md-6">
-                    <label>Email</label>
+                       </div>
+    <div class="row">
+                    <div class="col-md-6">
+                    <label for="emailid">Email</label>
                     <input type="text" formControlName="emailid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailid.errors }" />
                     <div *ngIf="submitted && f.emailid.errors" class="invalid-feedback">
                         <div *ngIf="f.emailid.errors.required">Email is required</div>
                         <div *ngIf="f.emailid.errors.email">Email must be a valid email address</div>
                    
                 </div>
+                    </div>
                 
-               
+                <div class="col-md-6">
                     <label>Mobile</label>
                     <input type="text" formControlName="mobilenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobilenumber.errors }" />
                     <div *ngIf="submitted && f.mobilenumber.errors" class="invalid-feedback">
@@ -56,8 +49,9 @@
                         <div *ngIf="f.mobilenumber.errors.pattern">Mobile no Must be Valid</div>
                     </div>
                 </div>
-                
-                <div class="row" class="col-md-6">
+              
+    </div>
+                <div class="col-md-6">
                     <label>DateTime</label>
                     <input type="date" formControlName="createddatetime" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.createddatetime.errors }" />
                     <div *ngIf="submitted && f.createddatetime.errors" class="invalid-feedback">
@@ -82,6 +76,7 @@
     </div>
     </div>
     </div>
+   
 
     
     

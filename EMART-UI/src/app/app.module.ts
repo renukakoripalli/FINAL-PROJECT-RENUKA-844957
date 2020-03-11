@@ -35,6 +35,7 @@ import { RegisterService } from './Account/Services/register.service';
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { BuyerprofileComponent } from './Buyer/buyerprofile/buyerprofile.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,9 @@ import { BuyerprofileComponent } from './Buyer/buyerprofile/buyerprofile.compone
     
     ViewcategoryComponent,
     
-    BuyerprofileComponent
+    BuyerprofileComponent,
+    
+    ContactComponent
     
     
   ],

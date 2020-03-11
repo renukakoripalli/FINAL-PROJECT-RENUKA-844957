@@ -26,6 +26,7 @@ import { RegisterBuyerComponent } from './Account/register-buyer/register-buyer.
 import { ViewsubcategoryComponent } from './Admin/viewsubcategory/viewsubcategory.component';
 import { ViewcategoryComponent } from './Admin/viewcategory/viewcategory.component';
 import { BuyerprofileComponent } from './Buyer/buyerprofile/buyerprofile.component';
+import { ContactComponent } from './Account/contact/contact.component';
 
 
 const routes: Routes = [
@@ -58,7 +59,8 @@ const routes: Routes = [
   // {path:'contact',component:ContactComponent},
      {path:'login',component:LoginComponent},
     {path:'register-seller',component:RegisterSellerComponent},
-     {path:'register-buyer',component:RegisterBuyerComponent}
+     {path:'register-buyer',component:RegisterBuyerComponent},
+     {path:'contact',component:ContactComponent}
   
     ]},
     {path:'',component:HomeComponent}

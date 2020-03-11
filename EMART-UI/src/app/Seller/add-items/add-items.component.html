@@ -1,16 +1,17 @@
-<div class="container">
-    <div class="card m-3">
+<div class="container p-6 my-6 text-black">
+    <div class="card">
     <h5 class="card-header text-center">Add Items</h5>
     <div class="card-body">
       <form [formGroup]="additemsForm" (ngSubmit)="onSubmit()">
-        <div class="form-group col-md-5 offset-4">
+        <div class="row">
+          <!-- <div class="col-md-4">
           <label>ItemId:</label>
           <input type="text" formControlName="Iid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Iid.errors }">
           <div *ngIf="submitted && f.Iid.errors" class="invalid-feedback">
             <div *ngIf="f.Iid.errors.required">itemid is required</div>
           </div>
-        </div>
-        <div class="form-group col-md-5 offset-4">
+        </div> -->
+        <div class="col-md-4">
           <label>CategoryName:</label>
           <select id="s1" formControlName="categoryid" (change)="onGetsubcategory()" class="form-control  input-line full-width" >
             <option *ngFor="let cat of categorylist" value="{{cat.categoryid}}">{{cat.categoryname}}</option>
@@ -19,7 +20,9 @@
             <div *ngIf="f.categoryid.errors.required">categoryname is required</div>
           </div>
         </div>
-        <div class="form-group col-md-5 offset-4">
+        
+        
+          <div class="col-md-4">
           <label>SubcategoryName:</label>
           <select id="s2" formControlName="subcategoryid" class="form-control  input-line full-width" >
             <option *ngFor="let cat of subcategorylist" value="{{cat.subcategoryid}}">{{cat.subcategoryname}}</option>
@@ -28,7 +31,8 @@
             <div *ngIf="f.subcategoryid.errors.required">Subcategoryname is required</div>
           </div>
         </div>
-        <div class="form-group col-md-5 offset-4">
+        
+        <div class="col-md-4">
             <label>ItemName:</label>
             <input type="text" formControlName="itemname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.itemname.errors }">
             <div *ngIf="submitted && f.itemname.errors" class="invalid-feedback">
@@ -36,7 +40,7 @@
             </div>
           </div>
       
-          <div class="form-group col-md-5 offset-4">
+          <div class="col-md-4">
             <label>Price:</label>
             <input type="number" formControlName="price" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
             <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
@@ -44,7 +48,7 @@
             </div>
           </div>
       
-          <div class="form-group col-md-5 offset-4">
+          <div class="col-md-4">
             <label>Description:</label>
             <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
             <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
@@ -52,35 +56,40 @@
             </div>
           </div>
       
-            <div class="form-group col-md-5 offset-4">
+          <div class="col-md-4">
               <label>Stock:</label>
               <input type="number"formControlName="stocknumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.stocknumber.errors }">
               <div *ngIf="submitted && f.stocknumber.errors" class="invalid-feedback">
                 <div *ngIf="f.stocknumber.errors.required">category is required</div>
               </div>
             </div>
-            <div class="form-group col-md-5 offset-4">
+            <div class="col-md-4">
               <label>Remarks:</label>
               <input type="text"formControlName="remarks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.remarks.errors }">
               <div *ngIf="submitted && f.remarks.errors" class="invalid-feedback">
                 <div *ngIf="f.remarks.errors.required">remarks is required</div>
               </div>
             </div>
-      
-            
-              <div class="col-sm-10">
+      </div>
+            <br>
+           <div class="row">
+              <div class="col-md-4">
+                <div class="text-center">
                 <input type="file" formControlName="Photo" name="Photo" (change)="fileEvent($event)" />
               </div>
-              
-      
+              </div>
+              </div>
+              <div class="col-sm-10">
+           
               <div class="text-center">
                 <button class="btn btn-primary mr-1">Add</button>
                 <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
             </div>
-            
+         
+<!--             
        </form>
       </div>
-      </div>
+      </div> -->
       </div>
 
      

@@ -2,98 +2,86 @@
  
 
 
-    <div class="container">
-      <div class="row" >
-        <div class="col-md-3" *ngFor="let item of list">
-        <div class="card" style="width:250px">
-          <img class="img" src="/assets/images/{{item.photo}}" alt="Card image" style="width:100%">
-          <div class="card-body">
-            <h4 class="card-title">{{item.itemname}}</h4>
-            <h5 class="card-text">ID:{{item.iid}}</h5>
-              <h5 class="card-text">Price:{{item.price}} </h5>
-              <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td>
-            <!-- <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td> -->
-                  <td><button class="btn btn-danger  mr-1" (click)="Delete(item.iid)">Delete</button></td>
-            <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
+   
+<br><br><br><br>
+<!-- <div class="container" id="c1">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let item of list">
+      
+      <div class="card">
+        <img class="card-img-top" src="assets/images/{{item.photo}}" alt="{{item.itemname}}" height="100px" align-items="center" width="190px">
+        <div class="card-body">
+           
+          ItemName:{{item.itemname}}<br><br>
+          Price: {{item.price}}<br/><br>
+          Description:{{item.description}}<br/><br/>  
+          <button class="btn btn-danger" (click)="Delete(item.iid)">Delete</button>  &nbsp;
+          <button class="btn btn-primary" (click)="Edit(item.iid)" data-toggle="modal" data-target="#myModal">Edit</button> 
+          </div>
+          </div>
+<br>
+      </div>
+      </div>
+      </div> -->
+ 
+  
+      <div class="container">
+        <div class="row" >
+          <div class="col-md-4" *ngFor="let item of list">
+          <div class="card">
+            <img class="img" src="/assets/images/{{item.photo}}" alt="{{item.itemname}}" height="100px" align-items="center" width="300px">
+            <div class="card-body">
+           
+              ItemName:{{item.itemname}}<br><br>
+              Price: {{item.price}}<br/><br>
+              Description:{{item.description}}<br/><br/>  
+                <td><button class="btn btn-primary  mr-1"     data-toggle="modal" data-target="#myModal"(click)="Search(item.iid)">Edit</button></td>
+            
+                    <td><button class="btn btn-danger  mr-1" (click)="Delete(item.iid)">Delete</button></td>
+             
+            </div>
           </div>
         </div>
-      </div>
-        </div>
-       </div>
-
-
-       <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Items Update</h4>
-            </div>
-            <div class="modal-body">
-              <form [formGroup]="itemform">
-                <div class="form-group col-md-5 offset-4">
-                  <label>ItemId:</label>
-                  <input type="text" formControlName="Iid" class="form-control"  >
-                 
-                  <!-- <div *ngIf="submitted && f.Iid.errors" class="invalid-feedback"> -->
-                    <!-- <div *ngIf="f.Iid.errors.required">itemid is required</div> -->
-                  <!-- </div> -->
+          </div>
+         </div>
+      
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog ">
+          <div class='bold-line'></div>
+          <div class='window'>
+            <div class='overlay'></div>
+               <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                   <div class='welcome'>Edit Item</div>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-
-
-                <div class="form-group col-md-5 offset-4">
-                  <label>ItemName:</label>
-                  <input type="text" formControlName="itemname" class="form-control">
-                  <div *ngIf="submitted && f.itemname.errors" class="invalid-feedback">
-                    <!-- <div *ngIf="f.itemname.errors.required">category is required</div> -->
-                  </div>
-                </div>
-            
-                <div class="form-group col-md-5 offset-4">
-                  <label>Price:</label>
-                  <input type="number" formControlName="price" class="form-control" >
-                  <!-- <div *ngIf="submitted && f. price.errors" class="invalid-feedback"> -->
-                    <!-- <div *ngIf="f.price.errors.required">category is required</div> -->
-                  <!-- </div> -->
-                </div>
-            
-                <div class="form-group col-md-5 offset-4">
-                  <label>Description:</label>
-                  <input type="text" formControlName="description" class="form-control" >
-                  <!-- <div *ngIf="submitted && f.description.errors" class="invalid-feedback"> -->
-                    <!-- <div *ngIf="f.description.errors.required">description is required</div> -->
-                  <!-- </div> -->
-                </div>
-            
-                  <div class="form-group col-md-5 offset-4">
-                    <label>Stock:</label>
-                    <input type="number"formControlName="stocknumber" class="form-control" >
-                    <!-- <div *ngIf="submitted && f.stocknumber.errors" class="invalid-feedback"> -->
-                      <!-- <div *ngIf="f.stocknumber.errors.required">category is required</div> -->
-                    <!-- </div> -->
-                  </div>
-                  <div class="form-group col-md-5 offset-4">
-                    <label>Remarks:</label>
-                    <input type="text"formControlName="remarks" class="form-control">
-                    <!-- <div *ngIf="submitted && f.remarks.errors" class="invalid-feedback"> -->
-                      <!-- <div *ngIf="f.remarks.errors.required">remarks is required</div> -->
-                    <!-- </div> -->
-                  </div>
-            
-
-                    <div class="text-center">
-                      <button class="btn btn-primary mr-1" (click)="Edit()">Update</button>
-                      <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
-                  </div>
                   
-             </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-                </div>
-                </div>
-</div>                  
-<!-- </div>      
-</div>
-</div> -->
-       
+                 <div class="modal-body">
+                    <form [formGroup]="itemform" >
+                          <div class="input-fields">
+                            
+                            <label>Iid</label>
+                            <input type="text" formControlName="Iid"  readonly class="form-control input-line full-width"/>
+                            <label>ItemName</label>
+                            <input type="text" formControlName="itemname"   class="form-control input-line full-width"/>  
+                            <label>Price</label>
+                            <input type="text" formControlName="price" class="form-control input-line full-width"/>
+                            <label>Description</label>
+                            <input type="text" formControlName="description" class="form-control input-line full-width"/>
+                            <label>Remarks</label>
+                            <input type="text" formControlName="remarks" class="form-control input-line full-width"/>
+                            <label>Image</label>
+                            <input type="file" formControlName="Photo" class="form-control input-line full-width"/>
+                          </div>
+                    </form>
+                   </div>
+            
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="Edit()" data-dismiss="modal">Save</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    

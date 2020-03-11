@@ -62,7 +62,8 @@ onSubmit() {
    // display form values on success
    if(this.additemsForm.valid){
     this.items=new Items();
-    this.items.Iid=(this.additemsForm.value["Iid"]),  
+    this.items.Iid=Math.floor(Math.random()*10).toString();
+    // this.items.Iid=this.additemsForm.value["Iid"]
     this.items.categoryid=this.additemsForm.value["categoryid"],
     this.items.subcategoryid=this.additemsForm.value["subcategoryid"],
     this.items.sid=localStorage.getItem('sid'),
