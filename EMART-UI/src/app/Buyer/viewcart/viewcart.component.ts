@@ -19,7 +19,7 @@ export class ViewcartComponent implements OnInit {
     //let bid=localStorage.getItem('bid'); 
     // this.bid=JSON.parse(localStorage.getItem('bid')) ;
     this.bid=JSON.parse(localStorage.getItem('bid'))
-    this.service.GetCartItems(this.bid).subscribe(res=>{
+    this.service.GetCartItems().subscribe(res=>{
       this.cartlist=res;
       console.log(this.cartlist);
     })

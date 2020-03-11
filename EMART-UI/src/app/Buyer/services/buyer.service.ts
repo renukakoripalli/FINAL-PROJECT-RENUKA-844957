@@ -61,9 +61,9 @@ public Purchasehistory(bid:string):Observable<any>
 public AddtoCart(cart:Cart):Observable<any>{
   return this.http.post<any>(this.url+'Addtocart',cart,Requestheaders);
 }
-public GetCartItems(bid:string):Observable<any>
+public GetCartItems():Observable<any>
 {
-  return this.http.get<any>(this.url+'Getcartitems/'+bid,Requestheaders);
+  return this.http.get<any>(this.url+'Getcartitems',Requestheaders);
 }
 public RemoveCartItem(Cartid:string):Observable<Cart>
 {
