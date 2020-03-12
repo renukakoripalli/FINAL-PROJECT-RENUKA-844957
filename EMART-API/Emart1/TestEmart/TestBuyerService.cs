@@ -19,7 +19,7 @@ namespace TestEmart
         {
             _repo.BuyItem(new Purchase()
             {
-                Pid = "P001",
+                Pid = "P002",
                 Sid = "S0002",
                 Bid = "E0001",
                 Iid = "I0006",
@@ -36,7 +36,7 @@ namespace TestEmart
         public void TestBuyerUpdate()
         {
             Buyer buyer = _repo.GetProfile("E0001");
-            buyer.Username = "renuka";
+            buyer.Username = "renukak";
             _repo.Editprofile(buyer);
             Buyer buyer1 = _repo.GetProfile("E0001");
             Assert.AreSame(buyer, buyer1);
@@ -97,7 +97,7 @@ namespace TestEmart
         {
             _repo.AddToCart(new Cart()
             {
-                Cartid="c0001",
+                Cartid="c0002",
                 Iid="54",
                 Bid="E0001",
                 Categoryid="C0002",
@@ -124,8 +124,8 @@ namespace TestEmart
         public void TestDeletecartitems()
         {
             
-                _repo.DeleteCartItem("c0001");
-                var result = _repo.Getcartitembyid("c0001");
+                _repo.DeleteCartItem("c0002");
+                var result = _repo.Getcartitembyid("c0002");
                 Assert.Null(result);
             
         }

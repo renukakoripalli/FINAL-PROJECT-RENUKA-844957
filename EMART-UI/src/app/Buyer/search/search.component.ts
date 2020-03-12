@@ -61,11 +61,14 @@ export class SearchComponent implements OnInit {
       })
     }
     AddtoCart(item2:Items){
+      console.log("item ");
       console.log(item2);
       let bid=localStorage.getItem('bid');
      this.cart=new Cart();
+     console.log(item2.iid);
+     console.log(item2.photo);
      this.cart.cartid='cartid'+Math.round(Math.random()*1000);
-     this.cart.Iid=item2.Iid;
+     this.cart.Iid=item2.iid;
      this.cart.itemname=item2.itemname;
      this.cart.categoryid=item2.categoryid;
      this.cart.subcategoryid=item2.subcategoryid;
@@ -74,8 +77,9 @@ export class SearchComponent implements OnInit {
      this.cart.price=item2.price;
      this.cart.description=item2.description;
      this.cart.remarks=item2.remarks;
-     this.cart.Photo=item2.Photo;
+     this.cart.Photo=item2.photo;
      this.cart.bid=bid;
+     console.log("cart \n");
      console.log(this.cart);
      this.service.AddtoCart(this.cart).subscribe(res=>{
        console.log("Record added To Cart");
@@ -85,6 +89,7 @@ export class SearchComponent implements OnInit {
     Buy(item1:Items){
       console.log(item1);
       localStorage.setItem('item1',JSON.stringify(item1));
+      console.log(localStorage.getItem('item1'));
       this.route.navigateByUrl('/buyer/buyproduct');
   }
   }

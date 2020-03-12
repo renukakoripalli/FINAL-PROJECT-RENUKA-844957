@@ -10,28 +10,39 @@ import { BuyerService } from '../services/buyer.service';
   styleUrls: ['./viewcart.component.css']
 })
 export class ViewcartComponent implements OnInit {
-
   cartlist:Cart;
   item:Items[];
-  bid:string;
+  count: number;
+  item_qty: number;
+ 
 
   constructor(private route:Router,private service:BuyerService) {
-    //let bid=localStorage.getItem('bid'); 
-    // this.bid=JSON.parse(localStorage.getItem('bid')) ;
-    this.bid=JSON.parse(localStorage.getItem('bid'))
+   
+  let bid=localStorage.getItem('bid'); 
     this.service.GetCartItems().subscribe(res=>{
       this.cartlist=res;
       console.log(this.cartlist);
     })
-  }
 
+    if(localStorage.getItem('bid'))
+    {
+      let bid=localStorage.getItem('bid');
+      this.service.GetCount(bid).subscribe(res=>{
+        this.count=res;
+      })
+    }
+
+
+    this.item_qty = 1;
+  
+  }
   ngOnInit() {
   }
   Buynow(item1:Items)
   {
     console.log(item1);
     localStorage.setItem('item1',JSON.stringify(this.item));
-    this.route.navigateByUrl('buyproduct');
+    this.route.navigateByUrl('/buyer/buyproduct');
   }
   Remove(cartid:string)
   {
@@ -39,7 +50,11 @@ export class ViewcartComponent implements OnInit {
     this.service.RemoveCartItem(cartid).subscribe(res=>{
       console.log('item removed from cart');
       alert('Item removed from cart');
+      window.location.reload();
     })
   }
   
+  
+
+    
 }

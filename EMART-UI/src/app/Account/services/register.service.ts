@@ -5,9 +5,9 @@ import { Buyer } from 'src/app/Models/buyer';
 import { Seller } from 'src/app/Models/seller';
 import { stringify } from 'querystring';
 const Requestheaders={headers:new HttpHeaders({
-  'content-type':'application/json'})
-
-}
+  'Content-Type':'application/json',
+  'Authorization':'Bearer '+localStorage.getItem('token')
+})}
 @Injectable({
   providedIn: 'root'
 })

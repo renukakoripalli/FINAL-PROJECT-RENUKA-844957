@@ -1,5 +1,5 @@
 export class Items {
-    public Iid:string;
+    public iid:string;
     categoryid:string;
     subcategoryid:string;
     price:number;
@@ -8,5 +8,5 @@ export class Items {
     stocknumber:number;
     remarks:string;
     sid:string;
-    Photo:string;
+    photo:string;
 }

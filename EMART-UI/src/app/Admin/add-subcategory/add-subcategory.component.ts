@@ -23,11 +23,13 @@ export class AddSubcategoryComponent implements OnInit {
       this.AddSubCategoryForm = this.formBuilder.group({
         subcategoryid: ['',[Validators.required]],
           subcategoryname: ['',[Validators.required]],
-          categoryid: ['',[Validators.required]],
+          categoryname:['',[Validators.required]],
+          // categoryid: ['',[Validators.required]],
           briefdetails:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]], 
           GST:['',[Validators.required]],
           acceptTerms: [false, Validators.requiredTrue]
       });
+      this.Getcategory();
   }
 
   get f()
@@ -45,8 +47,11 @@ export class AddSubcategoryComponent implements OnInit {
     //this.buyer=new Buyer(); 
     if (this.AddSubCategoryForm.valid) {
         this.scatg=new Subcategory();
-        this.scatg.categoryid=Number(this.AddSubCategoryForm.value["categoryid"]),
-        this.category.subcategoryid=Math.floor(Math.random()*1000),
+        // this.scatg.categoryid=Number(this.AddSubCategoryForm.value["categoryid"]),
+        // this.category=JSON.parse(localStorage.getItem('categoryid')) ;
+        // this.category.subcategoryid=Math.floor(Math.random()*1000),
+        this.scatg.categoryid=this.AddSubCategoryForm.value["CategoryName"];
+        this.scatg.subcategoryid=this.AddSubCategoryForm.value["subcategoryid"]
         this.scatg.subcategoryname=this.AddSubCategoryForm.value["subcategoryname"];
         this.scatg.briefdetails=this.AddSubCategoryForm.value["briefdetails"];  
         this.scatg.GST=this.AddSubCategoryForm.value["GST"]; 
@@ -65,4 +70,16 @@ onReset() {
     this.submitted = false;
     this.AddSubCategoryForm.reset();
 }
+Getcategory()
+   {
+     this.sservice.Viewcategory().subscribe(res=>
+      {
+        this.categories=res;
+        console.log(this.categories);
+      },
+      err=>
+      {
+        console.log(err);
+      })
+    }
 }

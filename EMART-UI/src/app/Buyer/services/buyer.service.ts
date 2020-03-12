@@ -10,7 +10,7 @@ import { Cart } from 'src/app/Models/cart';
 //import { Buyer } from '../Models/buyer';
 const Requestheaders={headers:new HttpHeaders({
   'Content-Type': 'application/json',
-  'Authorization': 'Bearer'+localStorage.getItem('token')
+  'Authorization': 'Bearer '+localStorage.getItem('token')
 })}
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,7 @@ public Purchasehistory(bid:string):Observable<any>
   return this.http.get<any>(this.url+'Purchasehistory/'+bid,Requestheaders);
 }
 public AddtoCart(cart:Cart):Observable<any>{
+  console.log("service"+cart);
   return this.http.post<any>(this.url+'Addtocart',cart,Requestheaders);
 }
 public GetCartItems():Observable<any>
@@ -68,5 +69,9 @@ public GetCartItems():Observable<any>
 public RemoveCartItem(Cartid:string):Observable<Cart>
 {
   return this.http.delete<Cart>(this.url+'Removeitem/'+Cartid,Requestheaders);
+}
+public GetCount(bid:string):Observable<any>
+{
+  return this.http.get<any>(this.url+'Getcount/'+bid,Requestheaders);
 }
 }

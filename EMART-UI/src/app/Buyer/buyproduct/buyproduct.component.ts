@@ -19,6 +19,9 @@ export class BuyproductComponent implements OnInit {
 
  
   constructor(private formbuilder:FormBuilder,private service:BuyerService,private route:Router) {  
+    this.item=JSON.parse(localStorage.getItem('item1'));
+    console.log(this.item);
+    console.log(this.item.iid);
     
     }
     
@@ -35,18 +38,17 @@ export class BuyproductComponent implements OnInit {
       remarks:[''],
       transactionstatus:['']
     })
-    this.item=JSON.parse(localStorage.getItem('Iid'));
-    console.log(this.item);
-    console.log(this.item.Iid);
+
   }  
   onSubmit()
   {
     this.pobj=new Purchase();
-    this.pobj.pid=Number('T'+Math.round(Math.random()*999));
+    this.pobj.pid=Math.round(Math.random()*999);
+    console.log(this.pobj.pid);
     this.pobj.bid=Number(localStorage.getItem('bid'));
     this.pobj.sid=Number(localStorage.getItem('sid'));
     this.pobj.noofitems=Number(this.purchaseform.value["numberOfItems"]);
-    this.pobj.Iid=Number(this.item.Iid);
+    this.pobj.Iid=Number(this.item.iid);
     this.pobj.transactiontype=this.purchaseform.value["transactionType"]
        this.pobj.datetime=this.purchaseform.value["dateTime"];
        this.pobj.remarks=this.purchaseform.value["remarks"];

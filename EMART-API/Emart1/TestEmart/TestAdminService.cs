@@ -20,7 +20,7 @@ namespace TestEmart
         {
             _repo.AddCategories(new Category()
             {
-                Categoryid="C0008",
+                Categoryid="C0009",
                 Categoryname="Iron1",
                 Briefdetails="iron"
             });
@@ -32,7 +32,7 @@ namespace TestEmart
         {
             _repo.AddSubCategories(new Subcategory()
             {
-                Subcategoryid = "s0005",
+                Subcategoryid = "s0006",
                 Subcategoryname = "Box",
                 Categoryid = "C0006",
                 Briefdetails = "its box",
@@ -44,15 +44,15 @@ namespace TestEmart
         [Test]
         public void TestDeleteCategory()
         {
-            _repo.DeleteCategory("C0008");
-            var result = _repo.Getbycatid("C0008");
+            _repo.DeleteCategory("C0009");
+            var result = _repo.Getbycatid("C0009");
             Assert.Null(result);
         }
         [Test]
         public void TestDeleteSubcategory()
         {
-            _repo.DeleteSubCategory("s0005");
-            var result = _repo.Getbyscatid("s0005");
+            _repo.DeleteSubCategory("s0006");
+            var result = _repo.Getbyscatid("s0006");
             Assert.Null(result);
         }
         [Test]
@@ -83,7 +83,7 @@ namespace TestEmart
         {
 
             Subcategory subcategory = _repo.Getbyscatid("s0001");
-            subcategory.Briefdetails = "Chocolates";
+            subcategory.Briefdetails = "Chocolate";
             _repo.EditSubcategory(subcategory);
             Subcategory subcategory1 = _repo.Getbyscatid("s0001");
             Assert.AreSame(subcategory, subcategory1);

@@ -36,8 +36,9 @@ export class AddCategoryComponent implements OnInit {
     //this.buyer=new Buyer(); 
     if (this.AddCategoryForm.valid) {
         this.catg=new Category();
-        //this.catg.categoryid=Math.floor(Math.random()*1000),
-        this.catg.categoryid=Math.floor(Math.random()*1000),
+        
+        // this.catg.categoryid=Math.floor(Math.random()*1000),
+        this.catg.categoryid=this.AddCategoryForm.value["categoryid"]
         this.catg.categoryname=this.AddCategoryForm.value["categoryname"];
         this.catg.briefdetails=this.AddCategoryForm.value["briefdetails"];   
         console.log(this.catg);

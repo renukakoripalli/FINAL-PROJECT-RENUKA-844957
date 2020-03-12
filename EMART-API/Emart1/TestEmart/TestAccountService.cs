@@ -19,14 +19,14 @@ namespace TestEmart
         {
             _repo.addb(new Buyer()
             {
-                Bid = "E0002",
+                Bid = "E0007",
                 Username = "jyotsna",
-                Password = "jyo123",
+                Password = "jyo1234",
                 Emailid = "j@gmail.com",
                 Mobilenumber = "9800987898",
                 Createddatetime = DateTime.Now
             });
-            var result = _repo.BuyerLogin("jyotsna", "jyo123");
+            var result = _repo.BuyerLogin("jyotsna", "jyo1234");
             Assert.NotNull(result);
         }
         [Test]
@@ -34,9 +34,9 @@ namespace TestEmart
         {
             _repo.adds(new Seller()
             {
-                Sid = "S0004",
+                Sid = "S0005",
                 Username = "vigu",
-                Password = "vigu123",
+                Password = "vigu1234",
                 Companyname = "vigu",
                 Gstin = "grgt",
                 Briefaboutcompany = "nothing",
@@ -45,19 +45,19 @@ namespace TestEmart
                 Emailid = "v@g",
                 Contactnumber = "9877890987",
             });
-            var result = _repo.logins("vigu", "vigu123");
+            var result = _repo.logins("vigu", "vigu1234");
             Assert.NotNull(result);
         }
         [Test]
         public void TestLoginBuyer()
         {
-            var result = _repo.BuyerLogin("jyotsna", "jyo123");
+            var result = _repo.BuyerLogin("jyotsna", "jyo1234");
             Assert.NotNull(result);
         }
         [Test]
-        public void TestSellerBuyer()
+        public void TestLoginSeller()
         {
-            var result = _repo.logins("renu", "renuka@");
+            var result = _repo.logins("renuka", "renuka@");
             Assert.NotNull(result);
         }
 

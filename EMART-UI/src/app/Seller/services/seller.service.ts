@@ -5,7 +5,10 @@ import {Seller} from 'src/app/Models/seller';
 import { Items } from 'src/app/Models/items';
 import { Category } from 'src/app/Models/category';
 import { Subcategory } from 'src/app/Models/subcategory';
-const Requestheaders={headers:new HttpHeaders({'Content-Type':'application/json'})}
+const Requestheaders={headers:new HttpHeaders({
+  'Content-Type':'application/json',
+  'Authorization':'Bearer '+localStorage.getItem('token')
+})}
 @Injectable({
   providedIn: 'root'
 })
@@ -36,9 +39,9 @@ export class SellerService {
   {
     return this.http.get<any>(this.url+'Viewitems/'+sid,Requestheaders);
   }
-  public Deleteitem(Iid:string):Observable<Items>
+  public DeleteItem(Iid:string):Observable<Items>
   {
-    return this.http.delete<Items>(this.url+'Deleteitem/'+Iid,Requestheaders);
+    return this.http.delete<Items>(this.url+'DeleteItem/'+Iid,Requestheaders);
   }
   public Updateitem(items:Items):Observable<any>
   {

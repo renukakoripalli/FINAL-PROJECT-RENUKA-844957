@@ -26,7 +26,7 @@ namespace TestEmart
         public void TestSellerUpdate()
         {
             Seller seller = _repo.GetProfile("2");
-            seller.Gstin = "tttttt";
+            seller.Gstin = "ttttt";
             _repo.EditProfile(seller);
             Seller seller1 = _repo.GetProfile("2");
             Assert.AreSame(seller, seller1);

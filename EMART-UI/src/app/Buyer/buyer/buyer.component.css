@@ -35,7 +35,7 @@
   }
   .bg {
    
-    background-image: url('/assets/images/bg9.jpg');
+    background-image: url('/assets/images/t1.jpg');
     
     position: static;
     top: 0;
@@ -45,7 +45,7 @@
     background-size: cover;
     
     min-width:100% ;
-    min-height: 800px;
+    min-height: 700px;
    
     
   }

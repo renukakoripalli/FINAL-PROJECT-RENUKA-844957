@@ -62,7 +62,7 @@ onSubmit() {
    // display form values on success
    if(this.additemsForm.valid){
     this.items=new Items();
-    this.items.Iid=Math.floor(Math.random()*10).toString();
+    this.items.iid=Math.floor(Math.random()*10).toString();
     // this.items.Iid=this.additemsForm.value["Iid"]
     this.items.categoryid=this.additemsForm.value["categoryid"],
     this.items.subcategoryid=this.additemsForm.value["subcategoryid"],
@@ -72,7 +72,7 @@ onSubmit() {
     this.items.description=this.additemsForm.value["description"],  
     this.items.stocknumber=Number(this.additemsForm.value["stocknumber"]),
     this.items.remarks=this.additemsForm.value["remarks"],
-    this.items.Photo=this.Photo;
+    this.items.photo=this.Photo;
     console.log(this.items);
     this.service.AddItem(this.items).subscribe(res=>{
       console.log('Items Added');

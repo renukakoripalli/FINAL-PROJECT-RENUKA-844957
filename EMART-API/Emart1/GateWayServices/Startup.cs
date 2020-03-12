@@ -47,7 +47,7 @@ namespace GateWayServices
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors("AllowOrigin");
             app.UseEndpoints(endpoints =>

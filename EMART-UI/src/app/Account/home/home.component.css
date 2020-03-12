@@ -39,15 +39,15 @@
    
     background-image: url('/assets/images/bg9.jpg');
     
-    position: fixed;
+    position:fixed;
     top: 0;
     left:0;
     
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     background-size: cover;
     
     min-width:100% ;
-    min-height: 800px;
+    min-height: 1000px;
    
     
   }

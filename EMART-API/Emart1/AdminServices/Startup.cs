@@ -72,7 +72,7 @@ namespace AdminServices
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors("AllowOrigin");
 

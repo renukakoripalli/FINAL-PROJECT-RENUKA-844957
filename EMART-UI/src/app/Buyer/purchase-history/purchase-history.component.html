@@ -1,1 +1,20 @@
 <p>purchase-history works!</p>
+<div class="container">
+    <br/> 
+   <table class="table table-info">
+     <tr >
+       <th>ItemId</th>
+       <th>Number Of Items</th>
+       <th>Seller ID</th>
+       <th>Transaction Type</th>
+       <th>Ordered Date</th>
+     </tr>
+     <tr *ngFor="let item of phlist" >
+       <td>{{item.iid}}</td>
+       <td>{{item.noofitems}}</td>
+       <td>{{item.sid}}</td>
+       <td>{{item.transactiontype}}</td>
+       <td>{{item.datetime}}</td>   
+     </tr>
+   </table>
+  </div>    

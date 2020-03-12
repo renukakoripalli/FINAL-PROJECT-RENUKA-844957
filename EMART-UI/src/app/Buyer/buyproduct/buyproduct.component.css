@@ -1,0 +1,14 @@
+.container{
+    height: 100%;
+    align-content:center;
+    }
+    
+    .card{
+      align-content: center;
+    height: 1000px;
+    margin-top: static;
+    margin-bottom: auto;
+    width: 900px;
+     /* background-color: rgba(97, 35, 6, 0.5) !important; */
+     background-color: rgb(31, 191, 231) !important; 
+    }

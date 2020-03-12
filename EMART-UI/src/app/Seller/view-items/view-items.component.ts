@@ -22,6 +22,7 @@ export class ViewItemsComponent implements OnInit {
   sid:string;
 id:string;
   token: Token;
+  image:string;
   subcategorylist: Subcategory[];
   constructor(private formbuilder:FormBuilder,private service:SellerService) {
     this.id=JSON.parse(localStorage.getItem('sid')) ;
@@ -45,8 +46,7 @@ id:string;
       price:[''],
       stocknumber:[''],
       remarks:[''],
-      sid:[''],
-      Photo:['']
+      sid:['']
     })
     
   }
@@ -55,8 +55,9 @@ id:string;
     this.service.Getitems(id).subscribe(res=>{
       this.item=res;
       console.log(this.item);
+      this.image=this.item.photo;
       this.itemform.setValue({
-        Iid:this.item.Iid,
+        Iid:this.item.iid,
         categoryid:this.item.categoryid,
         subcategoryid:this.item.subcategoryid,
         itemname:this.item.itemname,
@@ -64,8 +65,7 @@ id:string;
         price:this.item.price,
         stocknumber:this.item.stocknumber,
         remarks:this.item.remarks,
-        sid:this.item.sid,
-        Photo:this.item.Photo
+        sid:this.item.sid
       })
   
   
@@ -76,46 +76,51 @@ id:string;
 
   
  
-  // Deleteitem(Iid:string):void{
-  //   this.service.Deleteitem(Iid).subscribe(res=>{
-  //     console.log("record deleted");
-  //     this.Viewitems(this.id);
-  //   },
-  //   err=>
-  //   {
-  //     console.log(err);
-  //   })
+  Delete(iid:string):void{
+    this.service.DeleteItem(iid).subscribe(res=>{
+      console.log("record deleted");
+      // this.Viewitems(this.id);
+    },
+    err=>
+    {
+      console.log(err);
+    })
    
-  //  }
-  Edit()
-  {
-  
+   }
+   Update(){
     this.item=new Items();
-     this.item.Iid=localStorage.getItem("Iid");
+    this.item.iid=(this.itemform.value["Iid"]);//I+Math.floor(Math.random()*10000)
+    this.item.categoryid=this.itemform.value["categoryid"];
+    this.item.subcategoryid=this.itemform.value["subcategoryid"];
     this.item.itemname=this.itemform.value["itemname"];
+    this.item.description=this.itemform.value["description"];
     this.item.price=Number(this.itemform.value["price"]);
     this.item.stocknumber=Number(this.itemform.value["stocknumber"]);
     this.item.remarks=this.itemform.value["remarks"];
-    this.item.description=this.itemform.value["description"];
+    this.item.sid=this.itemform.value["sid"];
+    this.item.photo=this.image;
     console.log(this.item);
-    this.service.Updateitem(this.item).subscribe(res=>{console.log(this.item),alert("updated succesfully")},err=>{
-      console.log(err)
+    this.service.Updateitem(this.item).subscribe(res=>{
+      console.log('added');
+      alert('Updated')
+    },err=>{
+      console.log(err);
     })
+   
   }
-    
-  Delete(Iid:number)
-  {
+  // Delete()
+  // {
   
-  this.service.Deleteitem(this.Iid).subscribe(res=>
+  // this.service.DeleteItem(this.Iid).subscribe(res=>
     
-   {
-     this.item=res;
-     alert("successfully deleted") 
+  //  {
+  //    this.item=res;
+  //    alert("successfully deleted") 
     
-   }
-    )
+  //  }
+  //   )
     
-  }
+  // }
      
   
   view(sid:string)
@@ -125,7 +130,7 @@ id:string;
       res=>{
         this.list1=res;
         console.log(this.list1)
-        localStorage.setItem("Iid",this.list1.Iid.toString())
+        localStorage.setItem("Iid",this.list1.iid.toString())
         this.itemform.patchValue({
             itemname:this.list1.itemname,
             price:Number(this.list1.price),
@@ -151,5 +156,3 @@ id:string;
      })
    }
   }
-  
-

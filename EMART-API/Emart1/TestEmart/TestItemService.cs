@@ -21,7 +21,7 @@ namespace TestEmart
         {
             _repo.AddItem(new Items()
             {
-                Iid = "I098",
+                Iid = "I099",
                 Itemname = "note7",
                 Price = 12999,
                 Stocknumber = 5,
@@ -32,7 +32,7 @@ namespace TestEmart
                 Remarks = "6months warranty",
                
             });
-            var result = _repo.GetItems("I098");
+            var result = _repo.GetItems("I099");
             Assert.NotNull(result);
         }
         [Test]
@@ -44,8 +44,8 @@ namespace TestEmart
         [Test]
         public void TestDeleteItem()
         {
-            _repo.DeleteItem("I098");
-            var result = _repo.GetItems("I098");
+            _repo.DeleteItem("I099");
+            var result = _repo.GetItems("I099");
             Assert.Null(result);
         }
         [Test]

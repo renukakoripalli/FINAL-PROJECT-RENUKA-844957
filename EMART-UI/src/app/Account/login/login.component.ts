@@ -90,6 +90,7 @@ if(username=="Admin" && password=="12345")
 {
   this.route.navigateByUrl("admin");
 }
+
 }
 Navigate()
 {
