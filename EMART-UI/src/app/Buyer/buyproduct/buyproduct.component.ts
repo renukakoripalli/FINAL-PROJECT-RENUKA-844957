@@ -16,7 +16,8 @@ export class BuyproductComponent implements OnInit {
   item:Items;
   pobj:Purchase;
   submitted=false;
-
+  total:number;
+id:number;
  
   constructor(private formbuilder:FormBuilder,private service:BuyerService,private route:Router) {  
     this.item=JSON.parse(localStorage.getItem('item1'));
@@ -28,13 +29,15 @@ export class BuyproductComponent implements OnInit {
 
   ngOnInit() {
     this. purchaseform=this.formbuilder.group({
+      
       transactionType:[''],
       cardNumber:[''],
       cvv:[''],
       edate:[''],
       name:[''],
+      price:[''],
       dateTime:[''],
-      numberOfItems:[''],
+      noofitems:[''],
       remarks:[''],
       transactionstatus:['']
     })
@@ -43,12 +46,12 @@ export class BuyproductComponent implements OnInit {
   onSubmit()
   {
     this.pobj=new Purchase();
-    this.pobj.pid=Math.round(Math.random()*999);
+    this.pobj.pid=Math.round(Math.random()*999).toString();
     console.log(this.pobj.pid);
-    this.pobj.bid=Number(localStorage.getItem('bid'));
-    this.pobj.sid=Number(localStorage.getItem('sid'));
-    this.pobj.noofitems=Number(this.purchaseform.value["numberOfItems"]);
-    this.pobj.Iid=Number(this.item.iid);
+    this.pobj.bid=localStorage.getItem('bid').toString();
+    this.pobj.sid=localStorage.getItem('sid').toString();
+    this.pobj.noofitems=Number(this.purchaseform.value["noofitems"]);
+    this.pobj.Iid=this.item.iid.toString();
     this.pobj.transactiontype=this.purchaseform.value["transactionType"]
        this.pobj.datetime=this.purchaseform.value["dateTime"];
        this.pobj.remarks=this.purchaseform.value["remarks"];
@@ -64,5 +67,13 @@ export class BuyproductComponent implements OnInit {
     this.submitted = false;
     this.purchaseform.reset();
   }
+  
+  Add(event){
+    this.id=Number(this.purchaseform.value['noofitems'])
+     
+       console.log(this.total=this.id*this.item.price);
+     
+       
+   }
     
   }

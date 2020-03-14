@@ -24,7 +24,7 @@ export class AddSubcategoryComponent implements OnInit {
         subcategoryid: ['',[Validators.required]],
           subcategoryname: ['',[Validators.required]],
           categoryname:['',[Validators.required]],
-          // categoryid: ['',[Validators.required]],
+          categoryid: ['',[Validators.required]],
           briefdetails:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]], 
           GST:['',[Validators.required]],
           acceptTerms: [false, Validators.requiredTrue]

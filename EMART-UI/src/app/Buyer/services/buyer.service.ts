@@ -56,7 +56,7 @@ export class BuyerService {
 }
 public Purchasehistory(bid:string):Observable<any>
 {
-  return this.http.get<any>(this.url+'Purchasehistory/'+bid,Requestheaders);
+  return this.http.get<any>(this.url+'History/'+bid,Requestheaders);
 }
 public AddtoCart(cart:Cart):Observable<any>{
   console.log("service"+cart);

@@ -13,7 +13,9 @@ export class ViewcartComponent implements OnInit {
   cartlist:Cart;
   item:Items[];
   count: number;
+  item1:Items;
   item_qty: number;
+  item2:number;
  
 
   constructor(private route:Router,private service:BuyerService) {
@@ -38,10 +40,12 @@ export class ViewcartComponent implements OnInit {
   }
   ngOnInit() {
   }
-  Buynow(item1:Items)
+  Buynow(item2:Items)
   {
-    console.log(item1);
-    localStorage.setItem('item1',JSON.stringify(this.item));
+    console.log(item2);
+    this.item1=item2;
+    console.log(item2);
+    localStorage.setItem('item',JSON.stringify(this.item1));
     this.route.navigateByUrl('/buyer/buyproduct');
   }
   Remove(cartid:string)

@@ -2,16 +2,37 @@
     <div class="card">
       <h5 class="card-header text-center" >Payment </h5>
                           <div class="card-body">
-                              <form [formGroup]="purchaseform" (ngSubmit)="onSubmit()">    
-                                    <div class="form-group col-md-5 offset-4">
+                              <form [formGroup]="purchaseform" (ngSubmit)="onSubmit()"> 
+                                <div class="row">
+                                <div class="col-md-4">
+                                 
                                       <label >Number Of Items</label>
-                                      <input type="text" formControlName="numberOfItems" class="form-control" autofocus/>
+                                      <input type="text" formControlName="noofitems" class="form-control"autofocus/>
+                                      
+                                    
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                   
+                                <div  class="col-6">
+                                  <label for="x_card_code"  class="control-label mb-1">Total</label>
+                                  <div class="input-group" >
+                                      <input type="number" (mouseover)="Add($event)" value={{total}} class="form-control" required autocomplete="off" readonly>
+                                      <div class="input-group-append">
+                                          <div class="input-group-text">
+                                          <span class="fa fa-rupee fa-lg" data-toggle="popover" data-container="body" data-html="true" data-title="CVV" data-trigger="hover"></span>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                          
+                                <div class="row">
+                                  <div class="col-md-4">
                                       <label >Date</label>
                                       <input type="date" formControlName="dateTime" class="form-control"/>
-                                    </div>
-                                  <div class="form-group col-md-5 offset-4">
+                                    </div>&nbsp;&nbsp;<br>
+                                    <div class="col-md-6">
+                                      <div class="text-center">
                                       <label> PayMent Mode</label>
                                       <select formControlName="transactionType">
                                           <option value="-1">Choose..</option>
@@ -20,36 +41,43 @@
                                           <option value="cod">Cash On Delivery</option>
                                       </select>
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-4">
                                       <label >Card Holders Name</label>
                                       <input type="text" formControlName="name" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                    <div class="col-md-4">
                                       <label >Card Number</label>
                                       <input type="text" formControlName="cardNumber" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-6">
                                       <label >CVV</label>
                                       <input type="number" formControlName="cvv" class="form-control" style="width: 30%;"/>
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                    <div class="col-md-4">
                                       <label >ExpiryDate</label>
                                       <input type="date" formControlName="edate" class="form-control"/>
                                     </div>
-                                    
-                                    <div class="form-group col-md-5 offset-4">
+                                </div>
+                                <div class="row">
+                                <div class="col-md-4">
                                       <label >Remarks</label>
                                       <input type="text" formControlName="remarks" class="form-control"/>
                                     </div>
-                                    <div class="form-group col-md-5 offset-4">
+                                    <div class="col-md-4">
                                       <label >Transaction Status</label>
                                       <input type="text" formControlName="transactionstatus" class="form-control"/>
                                     </div>
+                                </div>
                                     <div class="text-center">
                                       <button class="btn btn-primary mr-1">Purchase</button>
                                       <button class="btn btn-danger" type="reset" (click)="onReset()">Reset</button>
                                   </div>
-                                  
+                                
                               </form>
                           </div>
                       </div>

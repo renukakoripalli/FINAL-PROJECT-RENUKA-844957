@@ -28,7 +28,7 @@
                     <span class="input-group-text"><i class="fas fa-key"></i></span>
                 
                 <label for="Pwd"></label>
-                <input type="text" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                 <div *ngIf="submitted && f.passworderrors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">id is required</div>
                   

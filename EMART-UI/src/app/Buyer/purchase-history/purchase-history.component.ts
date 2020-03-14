@@ -14,6 +14,7 @@ export class PurchaseHistoryComponent implements OnInit {
   count:number;
   constructor(private service:BuyerService,private route:Router) { 
     let bid=localStorage.getItem('bid');
+     let Iid=localStorage.getItem('Iid')
     this.service.Purchasehistory(bid).subscribe(res=>{
       this.phlist=res;
       console.log(this.phlist);

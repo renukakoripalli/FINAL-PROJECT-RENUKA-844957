@@ -17,25 +17,21 @@
                         <div *ngIf="f.categoryid.errors.required">Category id is required</div> 
                         </div>        
                     </div>
+                    
                     <div class="form-group col-md-5 offset-4">
-                        <label>CategoryName:</label>
-                        <select formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }">
-                            <option value=""></option>
-                            <option value="Clothes">Clothes</option>
-                            <option value="Electronics">Electronics</option>
-                            <option value="Accessories">Accessories</option>
-                            <option value="Grocery">Grocery</option>
-                        </select>
+                        <label>CategoryName</label>
+                        <input type="text" formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }" />
                         <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
-                            <div *ngIf="f.categoryname.errors.required"> categoryname is required</div>
-                            
-                        </div>
+                        <div *ngIf="f.categoryname.errors.required">categoryname is required</div> 
+                        
+                        </div>        
                     </div>
+
                         <div class="form-group col-md-5 offset-4">
                             <label>BreifDetails</label>
                             <input type="text" formControlName="briefdetails" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.briefdetails.errors }" />
                             <div *ngIf="submitted && f.briefdetails.errors" class="invalid-feedback">
-                            <div *ngIf="f.briefdetails.errors.required">BreifDetails id is required</div> 
+                            <div *ngIf="f.briefdetails.errors.required">BreifDetails  is required</div> 
                              <div *ngIf="f.briefdetails.errors.pattern">Breif Details must be valid</div> 
                             </div>        
                         </div>

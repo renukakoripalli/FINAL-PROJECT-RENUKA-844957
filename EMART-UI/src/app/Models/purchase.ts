@@ -1,17 +1,17 @@
 export class Purchase {
-    pid:number;
+    pid:string;
     
-    bid:number;
-    sid:number;
+    bid:string;
+    sid:string;
     transactiontype:string;
     
-    Iid:number;
+    Iid:string;
     itemname:string;
     itemdet:string;
     noofitems:number;
     datetime:Date;
     transactionstatus:string;
   remarks: any;
-  Pid: number;
+  Pid: string;
     
 }

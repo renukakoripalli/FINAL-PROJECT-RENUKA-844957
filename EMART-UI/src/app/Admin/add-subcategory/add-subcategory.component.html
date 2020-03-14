@@ -9,12 +9,13 @@
                 <div class="form-group col-md-5 offset-4">
                     <label>CategoryName:</label>
                     <select formControlName="categoryname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryname.errors }">
-                        <option *ngFor="let cat of list" [value]="cat.categoryid">{{cat.categoryname}}</option>
+                        <option *ngFor="let cat of categories" value={{cat.categoryid}}>{{cat.categoryname}}</option>
                     </select>
                     <div *ngIf="submitted && f.categoryname.errors" class="invalid-feedback">
                         <div *ngIf="f.categoryname.errors.required">categoryname is required</div>
                     </div>
                 </div>
+               
                     <div class="form-group col-md-3 offset-4">
                         <label>SubCategoryID</label>
                         <input type="text" formControlName="subcategoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subcategoryid.errors }" />
