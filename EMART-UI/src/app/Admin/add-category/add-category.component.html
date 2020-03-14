@@ -7,9 +7,6 @@
             <form [formGroup]="AddCategoryForm" (ngSubmit)="onSubmit()">
                        <div class="form-group col-md-3 offset-4">
                         
-                            <!-- <select style="width: 100px;">
-                                <option *ngFor="let item of categories" value="item.categoryid">{{item.categoryname}}</option>
-                            </select> -->
                        
                         <label>CategoryID</label>
                         <input type="text" formControlName="categoryid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.categoryid.errors }" />

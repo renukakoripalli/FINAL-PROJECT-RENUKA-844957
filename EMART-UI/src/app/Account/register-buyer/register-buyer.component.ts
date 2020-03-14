@@ -14,14 +14,14 @@ export class RegisterBuyerComponent implements OnInit {
     submitted = false;
     item:Buyer;
 items:Buyer;
-//itemForm:FormGroup;
+
 b:Buyer[];
 
     constructor(private formBuilder: FormBuilder,private services:RegisterService) { }
 
     ngOnInit() {
         this.SignupForm = this.formBuilder.group({
-            //bid: ['',[Validators.required]],
+            
             username:['',[Validators.required,Validators.pattern('^[a-z]{3,20}$')]],
             password:['',[Validators.required,Validators.pattern('^[a-z]{7}[~!@#$%^&*()]$')]],
             emailid: ['', [Validators.required,Validators.email]],
@@ -31,12 +31,12 @@ b:Buyer[];
         });
     }
 
-    // convenience getter for easy access to form fields
+   
     get f() { return this.SignupForm.controls; }
 
     onSubmit() {
         this.submitted = true;  
-        //this.buyer=new Buyer(); 
+       
         if (this.SignupForm.valid) {
             this.items=new Buyer();
             this.items.bid=Math.floor(Math.random()*10).toString();

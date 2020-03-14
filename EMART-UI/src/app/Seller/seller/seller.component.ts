@@ -9,17 +9,10 @@ export class SellerComponent implements OnInit {
 
   username:string;
 constructor(private route:Router) {
-//   if(sessionStorage.getItem("un"))
-//   {
+
   console.log(localStorage.getItem('sid'));
   
-//   //read session storage
-//   this.username=sessionStorage.getItem("un");
-//   console.log(this.username)
-//  }
-//  else{
-//    this.route.navigateByUrl('login')
-//  }
+
 }
 
 ngOnInit() {

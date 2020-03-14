@@ -38,18 +38,16 @@ export class AddSubcategoryComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;  
-    //this.buyer=new Buyer(); 
+   
     if (this.AddSubCategoryForm.valid) {
       this.Add();
   }
 }
   Add(){
-    //this.buyer=new Buyer(); 
+    
     if (this.AddSubCategoryForm.valid) {
         this.scatg=new Subcategory();
-        // this.scatg.categoryid=Number(this.AddSubCategoryForm.value["categoryid"]),
-        // this.category=JSON.parse(localStorage.getItem('categoryid')) ;
-        // this.category.subcategoryid=Math.floor(Math.random()*1000),
+      
         this.scatg.categoryid=this.AddSubCategoryForm.value["CategoryName"];
         this.scatg.subcategoryid=this.AddSubCategoryForm.value["subcategoryid"]
         this.scatg.subcategoryname=this.AddSubCategoryForm.value["subcategoryname"];

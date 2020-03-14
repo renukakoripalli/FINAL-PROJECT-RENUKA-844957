@@ -37,7 +37,7 @@ export class AddCategoryComponent implements OnInit {
     if (this.AddCategoryForm.valid) {
         this.catg=new Category();
         
-        // this.catg.categoryid=Math.floor(Math.random()*1000),
+        
         this.catg.categoryid=this.AddCategoryForm.value["categoryid"]
         this.catg.categoryname=this.AddCategoryForm.value["categoryname"];
         this.catg.briefdetails=this.AddCategoryForm.value["briefdetails"];   

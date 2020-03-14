@@ -1,45 +1,4 @@
-<!--<p>admin works!</p>
 
-<div class="image">
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light  bg-dark">
-    
-            <div class="col" id="navbarText">
-                <ul class="nav row nav-pills ">
-    
-                    <li class="col-sm-1 nav-item text-center">
-                        <a class="nav-link btn-outline-primary" href="#">Home </a>
-                    </li>
-                    
-       
-        <li class="col-sm-2 nav-item text-center">
-            <a class="nav-link btn-outline-primary" href="/admin/Admin-landingpage" >AdminLandingPage</a>
-                
-    </li>
-    <li class="col-sm-1 nav-item text-center ">
-       
-            <a class="btn-outline-primary" [routerLink]="['/admin/add-category']" >AddCategory</a>
-    </li>
-    <li class="col-sm-2 nav-item text-center btn-outline-primary">
-        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/add-subcategory']" >AddSubCategory</a>
-           
-    </li>
-    <li class="col-sm-2 nav-item text-center">
-        <a class="nav-link btn-outline-primary" [routerLink]="['/admin/view-items']" >viewItems</a>
-           
-    </li>
-    <li class="col-sm-2 nav-item text-center">
-        <a class="nav-link btn-outline-primary" href="/seller/viewreports" >ViewReports</a>
-            
-    </li>
-    <li class="col-sm-1 nav-item text-center">
-        <input type="text" placeholder="Search.."></li>
-   
-    </ul>
-</div> </nav>
-        </div> 
-        <router-outlet></router-outlet>
-        </div>-->
 
         <div class=bg>
             <h1 class="text-info">welcome {{username}}</h1>
@@ -48,11 +7,10 @@
                
                 <a [routerLink]="['/admin/add-category']" >Add Category</a> 
                 <a [routerLink]="['/admin/add-subcategory']" >Add SubCategory</a>
-                <!-- <a [routerLink]="['/admin/block-unblock-buyer']" >BLock-Unblock-Buyer</a>
-                <a [routerLink]="['/admin/block-unblock-seller']" >BLock-Unblock-Seller</a> -->
+               
                 <a [routerLink]="['/admin/viewcategory']" >View Category</a> 
                 <a [routerLink]="['/admin/viewsubcategory']" >View SubCategory</a>
-                <!-- <a [routerLink]="['/admin/daily-reports']" >Daily-Reports</a>  -->
+              
                 <a href="home" class="btn btn-info btn-lg">
                     <span class="glyphicon glyphicon-log-out"></span> Log out
                   </a>

@@ -89,7 +89,7 @@ id:string;
    }
    Update(){
     this.item=new Items();
-    this.item.iid=(this.itemform.value["Iid"]);//I+Math.floor(Math.random()*10000)
+    this.item.iid=(this.itemform.value["Iid"]);
     this.item.categoryid=this.itemform.value["categoryid"];
     this.item.subcategoryid=this.itemform.value["subcategoryid"];
     this.item.itemname=this.itemform.value["itemname"];

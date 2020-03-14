@@ -2,7 +2,7 @@
     <div class="container p-5 my-5 bg-dark text-black">
     <div class="card "> 
         <div class="bg2">
-        <!-- <form class = "form-horizontal" role = "form"> -->
+       
         <h5 class="card-header text-center">Signup-Buyer</h5>
          <div class="card-body"> 
             
@@ -17,7 +17,7 @@
                         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                         <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                             <div *ngIf="f.username.errors.required">Username is required</div>
-                            <div *ngIf="f.username.errors.pattern">Username must be valid</div>
+                            <div *ngIf="f.username.errors.pattern">Username must contain atleast 3 letters</div>
                         </div>
                     </div>
                         
@@ -26,7 +26,7 @@
                         <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
                         <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                             <div *ngIf="f.password.errors.required">Password is required</div>
-                            <div *ngIf="f.password.errors.pattern">password must contain[a-z] any 1 special character should contain</div>
+                            <div *ngIf="f.password.errors.pattern">password must contain 7 alphabets and any 1 special character should contain</div>
                         </div>
                     </div>
                        </div>
@@ -45,8 +45,8 @@
                     <label>Mobile</label>
                     <input type="text" formControlName="mobilenumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mobilenumber.errors }" />
                     <div *ngIf="submitted && f.mobilenumber.errors" class="invalid-feedback">
-                        <div *ngIf="f.mobilenumber.errors.required">Mobile no is required</div>
-                        <div *ngIf="f.mobilenumber.errors.pattern">Mobile no Must be Valid</div>
+                        <div *ngIf="f.mobilenumber.errors.required">Mobile number is required</div>
+                        <div *ngIf="f.mobilenumber.errors.pattern">Mobile contain 10 numbers and starts with 6,7,8,9 numbers</div>
                     </div>
                 </div>
               
